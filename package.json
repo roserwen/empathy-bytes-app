@@ -15,11 +15,13 @@
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-native": "0.72.5",
-    "react-native-dotenv": "^3.4.9",
-    "semver": "7.5.2"
-  },
+    "react-native-dotenv": "^3.4.9"
+    },
   "devDependencies": {
     "@babel/core": "^7.20.0"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
   },
   "private": true
 }
