@@ -1,12 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 
-function HomeScreen(props) {
+function HomeScreen({navigation}) {
     return (
         <View style={styles.container}> 
             <Text style={styles.text}>
                 Welcome to the home screen!!
             </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
+                <Image
+                    style={styles.button}
+                    source={{
+                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
+                />
+            </TouchableOpacity>
         </View>
     );
 }
@@ -19,9 +26,12 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#700000",
-        position: "absolute",
         textAlign: "center"
-    }
+    },
+    button: {
+        width: 100,
+        height: 80,
+    },
 })
 
 export default HomeScreen;
