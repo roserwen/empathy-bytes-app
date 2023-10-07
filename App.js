@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen.js';
 import HomeScreen from './app/screens/HomeScreen.js';
-import ProjectsScreen from "./app/screens/ProjectsScreen.js";
+import ProjectsScreen from './app/screens/ProjectsScreen.js';
+import TeamsScreen from './app/screens/TeamsScreen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
