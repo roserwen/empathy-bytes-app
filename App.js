@@ -29,6 +29,12 @@ export default function App() {
           options={{animation: "fade",
                     headerShadowVisible: false,
                     headerBackTitle:"Back"}}/>
+        <Stack.Screen
+          name="Teams"
+          component={TeamsScreen}
+          options={{animation: "fade",
+                    headerShadowVisible: false,
+                    headerBackTitle:"Back"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
