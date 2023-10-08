@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 
-//json thing for adding new project buttons
+//thing for adding new project buttons
 const data = [
     {id: 1, name: "project 1" //, imgSrc: "imgepath"
     },
@@ -33,7 +33,10 @@ function Projects({}) {
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.id}>
+                keyExtractor={(item) => item.id}
+                ItemSeparatorComponent={
+                    <View style={styles.separator}/>
+                }>
             </FlatList>
         </View>
     );
@@ -46,13 +49,17 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     button: {
-        backgroundColor: "#0AAAAA",
-        width: 80,
-        height: 80
+        backgroundColor: "#004B87",
+        width: 150,
+        height: 80,
+        alignItems: "center",
+        justifyContent: "center"
     },
     text: {
-        textAlign: "center",
-        padding: 15
+        color: "#FFFFFF"
+    },
+    separator: {
+        height: 10
     }
 })
 
