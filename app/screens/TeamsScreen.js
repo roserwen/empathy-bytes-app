@@ -3,16 +3,16 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 
 const data = [
-    {id: 1, name: "team 1" //, imgSrc: "imgepath"
+    {id: 1, name: "App Team" //, imgSrc: "imgepath"
     },
-    {id: 2, name: "team 2"}
+    {id: 2, name: "Web Team"}
 ];
 
 //appearance of each button
 const TeamItem = ({ name }) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Individual Team')}>
             <Text style={styles.text}> {name} </Text>
         </TouchableOpacity>
     );

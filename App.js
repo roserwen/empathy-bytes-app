@@ -38,7 +38,7 @@ export default function App() {
                     headerShadowVisible: false,
                     headerBackTitle:"Back"}}/>
         <Stack.Screen
-          name="IndividualTeam"
+          name="Individual Team"
           component={IndividualTeam} 
           options={{animation: "fade",
                     headerShadowVisible: false,
