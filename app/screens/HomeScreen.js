@@ -15,6 +15,13 @@ function HomeScreen({navigation}) {
                 />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Teams')} >
+              <Image
+                    style={styles.button}
+                    source={{
+                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
+                />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('IndividualTeam')} >
                 <Image
                     style={styles.button}
                     source={{

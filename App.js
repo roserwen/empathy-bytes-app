@@ -4,6 +4,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen.js';
 import HomeScreen from './app/screens/HomeScreen.js';
 import ProjectsScreen from './app/screens/ProjectsScreen.js';
 import TeamsScreen from './app/screens/TeamsScreen.js';
+import IndividualTeam from "./app/screens/IndividualTeam.js";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -36,6 +37,12 @@ export default function App() {
           options={{animation: "fade",
                     headerShadowVisible: false,
                     headerBackTitle:"Back"}}/>
+        <Stack.Screen
+          name="IndividualTeam"
+          component={IndividualTeam} 
+          options={{animation: "fade",
+                    headerShadowVisible: false,
+                    headerBackTitle:"Back"}}/>                    
       </Stack.Navigator>
     </NavigationContainer>
   );
