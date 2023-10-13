@@ -2,15 +2,14 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 
-//thing for adding new project buttons
 const data = [
-    {id: 1, name: "project 1" //, imgSrc: "imgepath"
+    {id: 1, name: "team 1" //, imgSrc: "imgepath"
     },
-    {id: 2, name: "project 2"}
+    {id: 2, name: "team 2"}
 ];
 
 //appearance of each button
-const ProjectItem = ({ name }) => {
+const TeamItem = ({ name }) => {
     const navigation = useNavigation();
     return (
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
@@ -22,12 +21,12 @@ const ProjectItem = ({ name }) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} />
+        <TeamItem name={item.name} />
     )
 };
 
 //flatlist is like scrollview but better apparently
-function Projects({}) {
+function Teams({}) {
     return (
         <View style={styles.container}>
             <FlatList
@@ -59,8 +58,8 @@ const styles = StyleSheet.create({
         color: "#FFFFFF"
     },
     separator: {
-        height: 10
+        height: 10,   
     }
 })
 
-export default Projects;
+export default Teams;

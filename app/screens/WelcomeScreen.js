@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         padding: 50,
     },
     text: {
-        color: "#700000",
+        color: "#000000",
         // position: "absolute",
         textAlign: "center"
     },

@@ -14,13 +14,20 @@ function HomeScreen({navigation}) {
                     uri: 'https://i.stack.imgur.com/4G1qY.png'}}
                 />
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Teams')} >
+              <Image
+                    style={styles.button}
+                    source={{
+                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
+                />
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('IndividualTeam')} >
                 <Image
                     style={styles.button}
                     source={{
                     uri: 'https://i.stack.imgur.com/4G1qY.png'}}
                 />
-            </TouchableOpacity>            
+            </TouchableOpacity>
         </View>
     );
 }
@@ -32,7 +39,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     text: {
-        color: "#700000",
+        color: "#000000",
         textAlign: "center"
     },
     button: {
