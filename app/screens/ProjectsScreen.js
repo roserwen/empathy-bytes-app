@@ -3,43 +3,15 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList, AppRegistry } from "react-native"
 import { projectData } from "./projectsData.js"
 
-//new project screen to push onto nav stack
-const ProjectScreen = (props) => {
-    return (
-            <View style={styles.container}> 
-                <View style={styles.imagecontainer}>
-                    <Image
-                        style={styles.teamImage}
-                        source={{
-                        uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                    />
-                </View>
-                <Text style={styles.titleText}>
-                    { props.name }
-                </Text>
-                <Text style={styles.text}>
-                    { props.description }
-                </Text>
-                <Text style={styles.text}>
-                    Press this button to return back to the Projects page.
-                </Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
-                    <Image
-                        style={styles.button}
-                        source={{
-                        uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                    />
-                </TouchableOpacity>
-            </View>
-    );
-};
-
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
     const navigation = useNavigation();
-    AppRegistry.registerComponent(props.name, () => ProjectScreen(props.name, props.description ));
     return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.push(props.name)}>
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+                navigation.navigate("Individual Project", {name: props.name, description: props.description})
+            }}>
             <Text style={styles.text}> { props.name } </Text>
         </TouchableOpacity>
     );

@@ -1,22 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
-import { Link } from "expo-router";
+import { useRouter, useLocalSearchParams, useNavigation } from "expo-router";
 
-function WelcomeScreen({navigation}) {
-
+function IndividualProject({ navigation, route }) {
+    const { name, description } = route.params;
     return (
         <View style={styles.container}> 
-            <Text style={styles.text}>
-              Welcome to the Welcome screen!!
-            </Text>
             <View style={styles.imagecontainer}>
                 <Image
-                    style={styles.logo}
+                    style={styles.teamImage}
                     source={{
                     uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
                 />
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Home')} >
+            <Text style={styles.titleText}>
+                { name }
+            </Text>
+            <Text style={styles.text}>
+                { description }
+            </Text>
+            <Text style={styles.text}>
+                Press this button to return back to Welcome Screen.
+            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Welcome')} >
                 <Image
                     style={styles.button}
                     source={{
@@ -29,29 +35,31 @@ function WelcomeScreen({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: "center",
         justifyContent: "center",
     },
     imagecontainer: {
         alignItems: "center",
         justifyContent: "center",
-        padding: 50,
+        padding: 20,
     },
     text: {
-        color: "#000000",
-        // position: "absolute",
-        textAlign: "center"
-    },
-    logo: {
-        width: 80,
-        height: 80,
-        padding: 80,
+        color: "#700000",
     },
     button: {
         width: 100,
         height: 80,
     },
+    titleText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: "#700000",
+    },
+    teamImage: {
+        width: 80,
+        height: 80,
+        padding: 80,
+    },
 })
 
-export default WelcomeScreen;
+export default IndividualProject;
