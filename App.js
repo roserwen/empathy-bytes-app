@@ -6,6 +6,7 @@ import ProjectsScreen from './app/screens/ProjectsScreen.js';
 import TeamsScreen from './app/screens/TeamsScreen.js';
 import IndividualTeam from "./app/screens/IndividualTeam.js";
 import IndividualProject from "./app/screens/IndividualProject.js";
+import AboutUs from "./app/screens/AboutUs.js";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -49,7 +50,13 @@ export default function App() {
           component={IndividualProject} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>                     
+                    headerBackTitle:"Back"}}/>
+        <Stack.Screen
+          name="About Us"
+          component={AboutUs} 
+          options={{animation: "fade",
+                    headerShadowVisible: false,
+                    headerBackTitle:"Back"}}/>                       
       </Stack.Navigator>
     </NavigationContainer>
   );
