@@ -1,5 +1,5 @@
 export const projectData = [
-    {id: 1, name: "project1", description: "amazing project1"//, imgSrc: "imgepath"
+    {id: 1, name: "PROJECT 1", description: "this is a description i wrote in the json object"//, imgSrc: "imgepath"
     },
-    {id: 2, name: "project 2", description: "amzing project2"}
+    {id: 2, name: "PROJECT 2", description: "i also wrote this in the json object isnt that amazing"}
 ];

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
-import { useRouter, useLocalSearchParams, useNavigation } from "expo-router";
 
 function IndividualProject({ navigation, route }) {
     const { name, description } = route.params;
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     text: {
-        color: "#700000",
+        color: "#000000",
     },
     button: {
         width: 100,
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: "#700000",
+        color: "#000000",
     },
     teamImage: {
         width: 80,
