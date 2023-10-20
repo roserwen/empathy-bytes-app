@@ -3,9 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 function AboutUs() {
     return (
         <View style={styles.container}> 
+            <Image
+                    style={styles.image}
+                    source={{
+                    uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
+            />
             <Text style={styles.text}>
-                this is the about us screen
-            </Text>  
+                this is where we will put text about us
+            </Text>
         </View>
     );
 }
@@ -26,6 +31,11 @@ const styles = StyleSheet.create({
         // position: "absolute",
         textAlign: "center"
     },
+    image: {
+        width: 300,
+        height: 300,
+    },
+
 })
 
 export default AboutUs;
