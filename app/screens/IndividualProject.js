@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 
-function IndividualTeam({navigation}) {
+function IndividualProject({ navigation, route }) {
+    const { name, description } = route.params;
     return (
         <View style={styles.container}> 
             <View style={styles.imagecontainer}>
@@ -12,10 +13,10 @@ function IndividualTeam({navigation}) {
                 />
             </View>
             <Text style={styles.titleText}>
-                App Team!!
+                { name }
             </Text>
             <Text style={styles.text}>
-                This team is lead by the all powerful supreme leader, Genesis Fu!
+                { description }
             </Text>
             <Text style={styles.text}>
                 Press this button to return back to Welcome Screen.
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default IndividualTeam;
+export default IndividualProject;
