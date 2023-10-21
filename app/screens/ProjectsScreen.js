@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         height: 80,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 10
+        borderRadius: 23
     },
     text: {
         color: "#FFFFFF"
