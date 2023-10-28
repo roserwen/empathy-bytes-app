@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList, AppRegistry } from "react-native"
-import { projectData } from "./projectsData.js"
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { projectData } from "./projectsData.js";
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
         width: 150,
         height: 80,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        borderRadius: 23
     },
     text: {
         color: "#FFFFFF"

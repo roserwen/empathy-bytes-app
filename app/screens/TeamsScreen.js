@@ -1,19 +1,18 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { teamData } from "./teamsData";
 
-const data = [
-    {id: 1, name: "App Team" //, imgSrc: "imgepath"
-    },
-    {id: 2, name: "Web Team"}
-];
-
-//appearance of each button
-const TeamItem = ({ name }) => {
+//appearance of each button + trying to push the new screen onto nav stack
+const TeamItem = (props) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Individual Team')}>
-            <Text style={styles.text}> {name} </Text>
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+            }}>
+            <Text style={styles.text}> { props.name } </Text>
         </TouchableOpacity>
     );
 };
@@ -21,7 +20,7 @@ const TeamItem = ({ name }) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} />
+        <TeamItem name={item.name} description={item.description}/>
     )
 };
 
@@ -30,7 +29,7 @@ function Teams({}) {
     return (
         <View style={styles.container}>
             <FlatList
-                data={data}
+                data={teamData}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={
@@ -52,7 +51,8 @@ const styles = StyleSheet.create({
         width: 150,
         height: 80,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        borderRadius: 23
     },
     text: {
         color: "#FFFFFF"
