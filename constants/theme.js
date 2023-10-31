@@ -1,7 +1,7 @@
 // Change later, just template code
 
 const COLORS = {
-  primary: "#312651",
+  primary: "#003057",
   secondary: "#444262",
   tertiary: "#FF7754",
 
