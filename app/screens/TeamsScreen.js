@@ -1,18 +1,36 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import { teamData } from "./teamsData";
+import { teamData } from "../../constants/teamsData";
+import { useFonts } from 'expo-font';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
+
+    //font :(
+    const [fontsLoaded] = useFonts({
+        "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
+        "DM-Sans-I": require('../../assets/fonts/DMSans-Italic.ttf'),
+        "DM-Sans-B": require('../../assets/fonts/DMSans-Bold.ttf'),
+        "DM-Sans-BI": require('../../assets/fonts/DMSans-BoldItalic.ttf'),
+        "DM-Sans-L": require('../../assets/fonts/DMSans-Light.ttf'),
+        "DM-Sans-LI": require('../../assets/fonts/DMSans-LightItalic.ttf'),
+        "DM-Sans-EL": require('../../assets/fonts/DMSans-ExtraLight.ttf'),
+        "DM-Sans-ELI": require('../../assets/fonts/DMSans-ExtraLightItalic.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <TouchableOpacity
             style={styles.button}
             onPress={() => {
                 navigation.navigate("Individual Team", {name: props.name, description: props.description})
             }}>
-            <Text style={styles.text}> { props.name } </Text>
+            <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
         </TouchableOpacity>
     );
 };
