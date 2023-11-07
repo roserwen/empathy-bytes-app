@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { teamData } from "./teamsData";
-import BigButton from './BigButton';
+import BigButton from '../../constants/BigButton';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 
