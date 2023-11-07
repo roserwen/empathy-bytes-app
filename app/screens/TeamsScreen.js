@@ -3,6 +3,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { teamData } from "../../constants/teamsData";
 import { useFonts } from 'expo-font';
+import BigButton from './BigButton';
+import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
@@ -25,6 +27,15 @@ const TeamItem = (props) => {
     }
 
     return (
+        <BigButton
+            onPress={() => {
+                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+            }}
+            name = {props.name}
+            dir = {props.id % 2 == 1 ? true : false}
+            >
+        </BigButton>
+        /*
         <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -32,13 +43,14 @@ const TeamItem = (props) => {
             }}>
             <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
         </TouchableOpacity>
+        */
     );
 };
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} description={item.description}/>
+        <TeamItem name={item.name} description={item.description} id={item.id}/>
     )
 };
 
@@ -63,6 +75,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: COLORS.primary,
     },
     button: {
         backgroundColor: "#004B87",
