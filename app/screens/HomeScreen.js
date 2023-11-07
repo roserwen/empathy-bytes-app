@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { useFonts } from 'expo-font';
+import HomescreenButton from '../../constants/HomescreenButton';
 
 function HomeScreen({navigation}) {
     //font :(
@@ -20,8 +21,11 @@ function HomeScreen({navigation}) {
     }
 
     return (
-        <View style={styles.container}> 
-            <Text style={[styles.text, {fontFamily: "DM-Sans-BI"}]}>
+        <View style={styles.container}>
+            <HomescreenButton text="About Us" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('About Us')}></HomescreenButton>
+            <HomescreenButton text="Projects" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('Projects')}></HomescreenButton>
+            <HomescreenButton text="Teams" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('Teams')}></HomescreenButton>
+            {/*<Text style={[styles.text, {fontFamily: "DM-Sans-BI"}]}>
                 Welcome to the home screen!!
             </Text>
             <TouchableOpacity onPress={() => navigation.navigate('Projects')} >

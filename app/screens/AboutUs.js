@@ -20,7 +20,8 @@ function AboutUs() {
     }
 
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>
+            <Text style={styles.title}>About Us</Text>
             <Image
                     style={styles.image}
                     source={{
@@ -37,17 +38,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        //justifyContent: "center",
+        paddingTop: 50
     },
     imagecontainer: {
         alignItems: "center",
         justifyContent: "center",
-        padding: 50,
+        //padding: 50,
     },
     text: {
         color: "#000000",
         // position: "absolute",
         textAlign: "center"
+    },
+    title: {
+        fontSize: 20,
+        paddingTop: 10,
+        paddingBottom: 20
     },
     image: {
         width: 300,
