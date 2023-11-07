@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
-import { COLORS, FONT, SIZES } from '../../constants/theme';
+import { COLORS, FONT, SIZES } from './theme';
 const BigButton = (props) => {
     return (
         <View style = {props.dir ? styles.container : styles.container2}> 

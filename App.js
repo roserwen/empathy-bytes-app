@@ -25,43 +25,50 @@ export default function App() {
           name="Welcome"
           component={WelcomeScreen} 
           options={{animation: "fade", 
-                    headerShadowVisible: false}}/>
+                    headerShadowVisible: false,
+                    headerShown: false}}/>
         <Stack.Screen
           name="Home"
           component={HomeScreen} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>
         <Stack.Screen
           name="Projects"
           component={ProjectsScreen} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>
         <Stack.Screen
           name="Teams"
           component={TeamsScreen}
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>
         <Stack.Screen
           name="Individual Team"
           component={IndividualTeam} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>
         <Stack.Screen
           name="Individual Project"
           component={IndividualProject} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>
         <Stack.Screen
           name="About Us"
           component={AboutUs} 
           options={{animation: "fade",
                     headerShadowVisible: false,
-                    headerBackTitle:"Back"}}/>                       
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>                       
       </Stack.Navigator>
     </NavigationContainer>
   );

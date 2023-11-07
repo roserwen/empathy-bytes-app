@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import BigButton from '../../constants/BigButton';
 import { teamData } from "../../constants/teamsData";
 import { useFonts } from 'expo-font';
-import BigButton from './BigButton';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
@@ -58,6 +58,7 @@ const renderItem = ({ item }) => {
 function Teams({}) {
     return (
         <View style={styles.container}>
+            <Text style={styles.title}> Teams </Text>
             <FlatList
                 data={teamData}
                 renderItem={renderItem}
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: COLORS.primary,
+        paddingTop: 50
     },
     button: {
         backgroundColor: "#004B87",
@@ -86,6 +88,12 @@ const styles = StyleSheet.create({
         borderRadius: 23
     },
     text: {
+        color: "#FFFFFF"
+    },
+    title: {
+        fontSize: 20,
+        paddingBottom: 20,
+        paddingTop: 10,
         color: "#FFFFFF"
     },
     separator: {
