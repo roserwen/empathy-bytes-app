@@ -28,6 +28,7 @@ const renderItem = ({ item }) => {
 function Projects() {
     return (
         <View style={styles.container}>
+            <Text style={styles.title}> Projects </Text>
             <FlatList
                 data={projectData}
                 renderItem={renderItem}
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        paddingTop: 50
     },
     button: {
         backgroundColor: "#004B87",
@@ -56,6 +58,11 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#FFFFFF"
+    },
+    title: {
+        fontSize: 20,
+        paddingBottom: 20,
+        paddingTop: 10
     },
     separator: {
         height: 10
