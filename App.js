@@ -9,10 +9,15 @@ import IndividualProject from "./app/screens/IndividualProject.js";
 import AboutUs from "./app/screens/AboutUs.js";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "DMSans": require('./assets/fonts/DMSans-Regular.ttf'),
+  });
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>
