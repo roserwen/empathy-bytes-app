@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
 import { useFonts } from 'expo-font';
+import BigButton from '../../constants/BigButton';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
@@ -25,6 +26,7 @@ const ProjectItem = (props) => {
     }
 
     return (
+        /*
         <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -32,13 +34,22 @@ const ProjectItem = (props) => {
             }}>
             <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
         </TouchableOpacity>
+        */
+        <BigButton
+            onPress={() => {
+                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+            }}
+            name = {props.name}
+            dir = {props.id % 2 == 1 ? true : false}
+        >
+        </BigButton>
     );
 };
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} />
+        <ProjectItem name={item.name} description={item.description} id={item.id} />
     )
 };
 
