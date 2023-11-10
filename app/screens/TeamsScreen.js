@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import BigButton from '../../constants/BigButton';
 import { teamData } from "../../constants/teamsData";
 import { useFonts } from 'expo-font';
+import BigButton from '../../constants/BigButton';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
