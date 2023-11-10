@@ -13,7 +13,6 @@ const BigButton = (props) => {
                         style={styles.logo}
                         source={{
                         uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                        //uri: props.uri}}
                         resizeMode='stretch'
                     />
                 </View>
@@ -21,9 +20,7 @@ const BigButton = (props) => {
                     <Text style={styles.text}> { props.name } </Text>
                     <Image
                         style={styles.arrow}
-                        source={{
-                        uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                        resizeMode='stretch'
+                        source={require('../assets/arrow.png')}
                     />
                 </View>
             </TouchableOpacity>
@@ -64,18 +61,18 @@ const styles = StyleSheet.create({
     },
     iconcontainer: {
         width: 175,
-        height: 140,
+        height: '100%',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     arrow: {
-        width: 100,
-        height: 10,
+        width: 70,
+        height: 20,
     },
     textcontainer: {
         width: 175,
-        height: 140,
+        height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
@@ -85,7 +82,7 @@ const styles = StyleSheet.create({
         color: COLORS.white,
         fontSize: SIZES.large,
         fontWeight: "bold",
-        margin: 20,
+        margin: 15,
     },
     logo: {
         width: 130,
