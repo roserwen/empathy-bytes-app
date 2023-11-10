@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { useFonts } from 'expo-font';
+import { COLORS, FONT } from '../../constants/theme';
 
 function AboutUs() {
     //font :(
@@ -20,15 +21,16 @@ function AboutUs() {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>About Us</Text>
+        <View style={styles.container}> 
+            <Text style={styles.titleText}>
+                About Us
+            </Text>
             <Image
                     style={styles.image}
-                    source={{
-                    uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
+                    source={require('../../assets/teampic.jpeg')}
             />
             <Text style={styles.text}>
-                this is where we will put text about us
+            Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources. 
             </Text>
         </View>
     );
@@ -38,8 +40,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        //justifyContent: "center",
-        paddingTop: 50
+        justifyContent: "center",
+        backgroundColor: COLORS.primary
     },
     imagecontainer: {
         alignItems: "center",
@@ -47,9 +49,10 @@ const styles = StyleSheet.create({
         //padding: 50,
     },
     text: {
-        color: "#000000",
+        color: "white",
         // position: "absolute",
-        textAlign: "center"
+        textAlign: "center",
+        margin: 20
     },
     title: {
         fontSize: 20,
@@ -57,8 +60,16 @@ const styles = StyleSheet.create({
         paddingBottom: 20
     },
     image: {
-        width: 300,
-        height: 300,
+        width: 410,
+        height: 200,
+        marginBottom: 10,
+        borderRadius: 50,
+    },
+    titleText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: "white",
+        margin: 20,
     },
 
 })
