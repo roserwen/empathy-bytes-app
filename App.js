@@ -10,6 +10,7 @@ import AboutUs from "./app/screens/AboutUs.js";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
+import ContactUs from './app/screens/ContactUs.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,7 +69,14 @@ export default function App() {
           options={{animation: "fade",
                     headerShadowVisible: false,
                     headerBackTitle:"Back",
-                    headerShown: false}}/>                       
+                    headerShown: false}}/>   
+        <Stack.Screen
+          name="Contact Us"
+          component={ContactUs} 
+          options={{animation: "fade",
+                    headerShadowVisible: false,
+                    headerBackTitle:"Back",
+                    headerShown: false}}/>                     
       </Stack.Navigator>
     </NavigationContainer>
   );

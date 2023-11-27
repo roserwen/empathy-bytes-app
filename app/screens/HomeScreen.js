@@ -25,6 +25,7 @@ function HomeScreen({navigation}) {
             <HomescreenButton text="About Us" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('About Us')}></HomescreenButton>
             <HomescreenButton text="Projects" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('Projects')}></HomescreenButton>
             <HomescreenButton text="Teams" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('Teams')}></HomescreenButton>
+            <HomescreenButton text="Contact Us" style={styles.button} font="DM-Sans-B" onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
             {/*<Text style={[styles.text, {fontFamily: "DM-Sans-BI"}]}>
                 Welcome to the home screen!!
             </Text>
