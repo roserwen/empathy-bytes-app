@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native"
 import { COLORS, FONT } from '../../constants/theme';
 import FadeInView from '../../constants/FadeInView';
 import { useFonts } from 'expo-font';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../../firebaseConfig';
 
 function WelcomeScreen({navigation}) {
+    [cat, setCat] = useState("");
+    useEffect(() => {
+        getDownloadURL(ref(fb_storage, 'tests/cat-10-e1573844975155-scaled.jpg'))
+        .then((url) => {
+            setCat(url);
+            // Or inserted into an <img> element
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    },[]);
+    
+
     //font :(
     const [fontsLoaded] = useFonts({
         "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
@@ -30,11 +45,12 @@ function WelcomeScreen({navigation}) {
             </FadeInView>
             <FadeInView delay={250} >
                 <View style={styles.imagecontainer}>
-                    <Image
-                        style={styles.logo}
-                        source={{
-                        uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                    />
+                    {cat.length == 0 ? 
+                     <></> : <Image
+                     style={styles.logo}
+                     source={{uri: `${cat}` }}
+                 />
+                    }
                 </View>
             </FadeInView>
             <FadeInView delay={500}>
