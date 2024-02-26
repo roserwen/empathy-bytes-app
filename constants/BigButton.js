@@ -6,25 +6,20 @@ const BigButton = (props) => {
         <View style = {props.dir ? styles.left : styles.right}> 
             <TouchableOpacity 
                 style = {props.dir ? styles.leftButton : styles.rightButton}
-                onPress = {props.onPress}
-            >
-            <View style={props.dir ? styles.leftOutline : styles.rightOutline}>
-                <View style={styles.iconcontainer}>
-                    <Image
-                        style={styles.logo}
-                        source={{
-                        uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                        resizeMode='stretch'
-                    />
+                onPress = {props.onPress}>
+                <View style={props.dir ? styles.leftBlue : styles.rightBlue}>
+                    <View style={styles.iconcontainer}>
+                        <Image
+                            style={styles.logo}
+                            source={{
+                            uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
+                            resizeMode='stretch'
+                        />
+                    </View>
+                    <View style={styles.textcontainer}>
+                        <Text style={styles.text}> { props.name } </Text>
+                    </View>
                 </View>
-                <View style={styles.textcontainer}>
-                    <Text style={styles.text}> { props.name } </Text>
-                    <Image
-                        style={styles.arrow}
-                        source={require('../assets/arrow.png')}
-                    />
-                </View>
-            </View>
             </TouchableOpacity>
         </View>
     );
@@ -45,15 +40,17 @@ const styles = StyleSheet.create({
         height: 140,
         justifyContent: 'flex-end',
     },
+
     leftButton: {
         width: 350,
         height: '100%',
         backgroundColor: '#FFFBE7',
         borderColor: '#ABA174',
         borderWidth: 1.25,
+        marginLeft: -1.25,
         flexDirection: 'row',
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
+        borderTopRightRadius: 24,
+        borderBottomRightRadius: 24,
         alignItems: 'center',
     },
     rightButton: {
@@ -62,26 +59,31 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFBE7',
         borderColor: '#ABA174',
         borderWidth: 1.25,
+        marginLeft: -1.25,
         flexDirection: 'row-reverse',
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
+        borderTopLeftRadius: 24,
+        borderBottomLeftRadius: 24,
         alignItems: 'center',
     },
-    leftOutline: {
+
+    leftBlue: {
         backgroundColor: '#102F54',
         width: '97%',
         height: '88%',
-
+        marginLeft: -1,
         borderTopRightRadius: 20,
         borderBottomRightRadius: 20,
+        alignItems: 'flex-end',
     },
-    rightOutline: {
+    rightBlue: {
         backgroundColor: '#102F54',
         width: '97%',
         height: '88%',
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20,
+        alignItems: 'flex-end',
     },
+
     iconcontainer: {
         width: 175,
         height: '100%',

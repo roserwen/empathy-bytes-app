@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
         fontWeight: 400,
         color: "#B0A470",
         // fontFamily: 'Lexend', figure out import later
+        marginTop: -20,
         paddingBottom: 20,
     },
     separator: {
