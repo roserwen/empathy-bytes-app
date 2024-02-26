@@ -3,11 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react
 import { COLORS, FONT, SIZES } from './theme';
 const BigButton = (props) => {
     return (
-        <View style = {props.dir ? styles.container : styles.container2}> 
+        <View style = {props.dir ? styles.left : styles.right}> 
             <TouchableOpacity 
-                style = {props.dir ? styles.button : styles.button2}
+                style = {props.dir ? styles.leftButton : styles.rightButton}
                 onPress = {props.onPress}
             >
+            <View style={props.dir ? styles.leftOutline : styles.rightOutline}>
                 <View style={styles.iconcontainer}>
                     <Image
                         style={styles.logo}
@@ -23,6 +24,7 @@ const BigButton = (props) => {
                         source={require('../assets/arrow.png')}
                     />
                 </View>
+            </View>
             </TouchableOpacity>
         </View>
     );
@@ -31,33 +33,54 @@ const BigButton = (props) => {
 export default BigButton;
 
 const styles = StyleSheet.create({
-    container: {
+    left: {
         flexDirection: 'row',
         width: '100%',
         height: 140,
         justifyContent: 'flex-start',
     },
-    container2: {
+    right: {
         flexDirection: 'row',
         width: '100%',
         height: 140,
         justifyContent: 'flex-end',
     },
-    button: {
+    leftButton: {
         width: 350,
         height: '100%',
-        backgroundColor: COLORS.tertiary,
+        backgroundColor: '#FFFBE7',
+        borderColor: '#ABA174',
+        borderWidth: 1.25,
         flexDirection: 'row',
-        borderTopRightRadius: 23,
-        borderBottomRightRadius: 23,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+        alignItems: 'center',
     },
-    button2: {
+    rightButton: {
         width: 350,
         height: '100%',
-        backgroundColor: COLORS.tertiary,
+        backgroundColor: '#FFFBE7',
+        borderColor: '#ABA174',
+        borderWidth: 1.25,
         flexDirection: 'row-reverse',
-        borderTopLeftRadius: 23,
-        borderBottomLeftRadius: 23,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+        alignItems: 'center',
+    },
+    leftOutline: {
+        backgroundColor: '#102F54',
+        width: '97%',
+        height: '88%',
+
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+    },
+    rightOutline: {
+        backgroundColor: '#102F54',
+        width: '97%',
+        height: '88%',
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
     },
     iconcontainer: {
         width: 175,

@@ -28,15 +28,6 @@ const ProjectItem = (props) => {
     }
 
     return (
-        /*
-        <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-                navigation.navigate("Individual Project", {name: props.name, description: props.description})
-            }}>
-            <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
-        </TouchableOpacity>
-        */
         <BigButton
             onPress={() => {
                 navigation.navigate("Individual Team", {name: props.name, description: props.description})
@@ -79,24 +70,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 50,
-        backgroundColor: "#FFFBE7",
-    },
-    button: {
-        backgroundColor: "#FAFAFA",
-    },
-    rightButton: {
-        backgroundColor: "#FAFAFA",
-    },
-    leftButton: {
-        backgroundColor: "#FAFAFA",
-    },
-    text: {
-        color: "#FFFFFF"
+        backgroundColor: '#FFFBE7',
     },
     title: {
-        fontSize: 20,
+        fontSize: 30,
+        fontWeight: 400,
+        color: "#B0A470",
+        // fontFamily: 'Lexend', figure out import later
         paddingBottom: 20,
-        paddingTop: 10
     },
     separator: {
         height: 10
