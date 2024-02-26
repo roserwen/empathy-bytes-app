@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native
 import { projectData } from "../../constants/projectsData";
 import { useFonts } from 'expo-font';
 import BigButton from '../../constants/BigButton';
+import BackArrow from '../../constants/BackArrow';
+
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
@@ -49,14 +51,15 @@ const ProjectItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} id={item.id} />
+        <ProjectItem name={item.name} description={item.description} id={item.id} styles={styles.button} />
     )
 };
 
 //flatlist is like scrollview but better apparently
-function Projects() {
+function Projects({ navigation }) {
     return (
         <View style={styles.container}>
+            <BackArrow navigation={navigation} page='Home'/>
             <Text style={styles.title}> Projects </Text>
             <FlatList
                 data={projectData}
@@ -69,21 +72,23 @@ function Projects() {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 50
+        paddingTop: 50,
+        backgroundColor: "#FFFBE7",
     },
     button: {
-        backgroundColor: "#004B87",
-        width: 150,
-        height: 80,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 23
+        backgroundColor: "#FAFAFA",
+    },
+    rightButton: {
+        backgroundColor: "#FAFAFA",
+    },
+    leftButton: {
+        backgroundColor: "#FAFAFA",
     },
     text: {
         color: "#FFFFFF"
