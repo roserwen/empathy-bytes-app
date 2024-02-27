@@ -17,7 +17,7 @@ const BigButton = (props) => {
                     />
                 </View>
                 <View style={styles.textcontainer}>
-                    <Text style={styles.text}> { props.name } </Text>
+                    <Text style={styles.text} > { props.name } </Text>
                     <Image
                         style={styles.arrow}
                         source={require('../assets/arrow.png')}
@@ -76,11 +76,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 15
         
     },
     text: {
         color: COLORS.white,
-        fontSize: SIZES.large,
+        height: "50%",
+        width: "100%",
         fontWeight: "bold",
         margin: 15,
     },
