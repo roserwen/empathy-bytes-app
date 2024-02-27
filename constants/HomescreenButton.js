@@ -1,8 +1,11 @@
 //this is only the button for the home screen - this is Rose's assignment
 //sorry, accidentally did most of it
 
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { useFonts } from "expo-font";
+
+var textBorderColor = "#193054";
+
 
 function HomescreenButton(props) {
     //font :(
@@ -21,10 +24,18 @@ function HomescreenButton(props) {
         return null;
     }
 
+    textBorderColor = props.color;
+
     return (
         <View style={props.style}>
-            <TouchableOpacity style={styles.button} onPress={props.onPress}>
-                <Text style={[styles.text, {fontFamily: props.font}]}>
+            <TouchableOpacity style={[styles.button, {borderColor: props.color}]} onPress={props.onPress}>
+                <Image
+                    style={styles.buttonImageIconStyle}
+                    source={props.image}
+                />
+                {/*<View style={styles.CircleShapeView}></View>*/}
+
+                <Text style={[styles.text, {fontFamily: props.font}, {color: props.color}]}>
                     {props.text}
                 </Text>
             </TouchableOpacity>
@@ -32,18 +43,39 @@ function HomescreenButton(props) {
     );
 }
 
+  
+
 const styles = StyleSheet.create({
     button: {
+        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        //borderColor: "#193054", Now given from props in HomeScreen
+        borderWidth: 2,
         borderRadius: 40,
-        backgroundColor: "#004B87",
-        height: 50,
-        width: 100,
+        //backgroundColor: "#B3A369",
+        height: 130,
+        width: 300,
+        paddingLeft: 30,
     },
     text: {
-        textAlign: "center",
-        color: "#FFFFFF"
-    }
+        paddingLeft: 20,
+        fontSize: 25,
+        textAlign: "left",
+    },
+    buttonImageIconStyle: {
+        paddingRight: 0,
+        margin: 0,
+        height: 70,
+        width: 70,
+        resizeMode: 'cover',
+    },
+    CircleShapeView: {
+        //To make Circle Shape
+        width: 80,
+        height: 80,
+        borderRadius: 80 / 2,
+        backgroundColor: '#D9D9D9',
+      },
 })
 export default HomescreenButton;
