@@ -2,28 +2,12 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
-import { useFonts } from 'expo-font';
 import BigButton from '../../constants/BigButton';
+import { COLORS } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
     const navigation = useNavigation();
-    
-    //font :(
-    const [fontsLoaded] = useFonts({
-        "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
-        "DM-Sans-I": require('../../assets/fonts/DMSans-Italic.ttf'),
-        "DM-Sans-B": require('../../assets/fonts/DMSans-Bold.ttf'),
-        "DM-Sans-BI": require('../../assets/fonts/DMSans-BoldItalic.ttf'),
-        "DM-Sans-L": require('../../assets/fonts/DMSans-Light.ttf'),
-        "DM-Sans-LI": require('../../assets/fonts/DMSans-LightItalic.ttf'),
-        "DM-Sans-EL": require('../../assets/fonts/DMSans-ExtraLight.ttf'),
-        "DM-Sans-ELI": require('../../assets/fonts/DMSans-ExtraLightItalic.ttf'),
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
 
     return (
         /*
@@ -75,23 +59,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 50
-    },
-    button: {
-        backgroundColor: "#004B87",
-        width: 150,
-        height: 80,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 23
-    },
-    text: {
-        color: "#FFFFFF"
+        paddingTop: 50,
+        backgroundColor: COLORS.primary,
     },
     title: {
-        fontSize: 20,
+        fontSize: 30,
         paddingBottom: 20,
-        paddingTop: 10
+        paddingTop: 10,
+        color: "#FFFFFF",
+        fontFamily: "Lexend_400Regular"
     },
     separator: {
         height: 10

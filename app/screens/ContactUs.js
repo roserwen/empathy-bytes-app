@@ -1,24 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
-import { useFonts } from 'expo-font';
-import { COLORS, FONT } from '../../constants/theme';
+import { COLORS } from '../../constants/theme';
 
 function ContactUs({ navigation, route }) {
-    const [fontsLoaded] = useFonts({
-        "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
-        "DM-Sans-I": require('../../assets/fonts/DMSans-Italic.ttf'),
-        "DM-Sans-B": require('../../assets/fonts/DMSans-Bold.ttf'),
-        "DM-Sans-BI": require('../../assets/fonts/DMSans-BoldItalic.ttf'),
-        "DM-Sans-L": require('../../assets/fonts/DMSans-Light.ttf'),
-        "DM-Sans-LI": require('../../assets/fonts/DMSans-LightItalic.ttf'),
-        "DM-Sans-EL": require('../../assets/fonts/DMSans-ExtraLight.ttf'),
-        "DM-Sans-ELI": require('../../assets/fonts/DMSans-ExtraLightItalic.ttf'),
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
-
     return (
         <View style={styles.container}> 
             <Text style={styles.titleText}>
@@ -62,11 +46,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         margin: 20,
         fontWeight: "bold",
-    },
-    title: {
-        fontSize: 20,
-        paddingTop: 10,
-        paddingBottom: 20
+        fontFamily: "Lexend_400Regular"
     },
     image: {
         width: 410,
@@ -79,6 +59,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "white",
         margin: 20,
+        fontFamily: "Lexend_400Regular"
     },
     goButton: {
         borderRadius: 40,
@@ -86,13 +67,14 @@ const styles = StyleSheet.create({
         width: 100,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#B3A369",
+        backgroundColor: COLORS.secondary,
     },
     goButtonText: {
-        color: COLORS.secondary,
+        color: COLORS.tertiary,
         fontWeight: "bold",
         textAlign: "center",
         fontSize: 15,
+        fontFamily: "Lexend_400Regular"
     },
 })
 
