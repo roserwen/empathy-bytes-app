@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
+import { COLORS } from "../../constants/theme"
 
 function IndividualTeam({ navigation, route }) {
     const { name, description } = route.params;
@@ -35,9 +36,11 @@ function IndividualTeam({ navigation, route }) {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 50
+        paddingTop: 50,
+        backgroundColor: COLORS.tertiary,
     },
     imageContainer: {
         alignItems: "center",

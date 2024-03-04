@@ -21,7 +21,7 @@ const ProjectItem = (props) => {
         */
         <BigButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+                navigation.navigate("Individual Project", {name: props.name, description: props.description})
             }}
             name = {props.name}
             dir = {props.id % 2 == 1 ? true : false}
