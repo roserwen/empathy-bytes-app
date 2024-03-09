@@ -1,10 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList, SafeAreaView } from "react-native"
 import { COLORS } from "../../constants/theme"
+import { teamData } from '../../constants/teamsData';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 function IndividualTeam({ navigation, route }) {
-    const { name, description } = route.params;
-
+    const { name, id } = route.params;
+    //if screen is app or web team page: render FlatList of description section, tech stack section, and dev section
+    if (id == 1 || id === 2) {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.titleText}> {name} </Text>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    keyExtractor={item => item.id}
+                    >
+                </FlatList>
+            </View>
+        )
+    }
+    //if screen is media or VR page// TODO change to FlatList
     return (
         <View style={styles.container}> 
             <View style={styles.imageContainer}>
@@ -34,21 +50,44 @@ function IndividualTeam({ navigation, route }) {
     );
 }
 
+//TODO styling
+const Section = (props) => {
+    return (
+        <View style={styles.sectionContainer}>
+            <Text style={styles.text}>
+                {props.text}
+            </Text>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 50,
-        backgroundColor: COLORS.tertiary,
+        backgroundColor: COLORS.primary,
+    },
+    sectionContainer: {
+        borderWidth: 2,
+        borderRadius: 15,
+        paddingHorizontal: 80,
+        paddingVertical: 15,
+        marginTop: 30,
+        borderColor: COLORS.tertiary,
+        backgroundColor: COLORS.primary,
     },
     imageContainer: {
         alignItems: "center",
         justifyContent: "center",
         padding: 20,
     },
+    flatList: {
+        backgroundColor: COLORS.primary,
+    },
     text: {
-        color: "#000000",
+        color: COLORS.tertiary,
         fontFamily: "Lexend_400Regular"
     },
     button: {
@@ -58,7 +97,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: "#000000",
+        color: COLORS.tertiary,
         fontFamily: "Lexend_400Regular"
     },
     teamImage: {
