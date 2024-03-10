@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
 import { useFonts } from 'expo-font';
 import { COLORS, FONT } from '../../constants/theme';
+import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
 
 function AboutUs() {
@@ -32,80 +33,84 @@ function AboutUs() {
                 <Text style={[styles.titleText, styles.colorGold]}>
 						Our Team
 				</Text>
-                <Text style={styles.captionText}>
-						What we do
-				</Text>
-                <View style={styles.outlineBubble}>
-                    <Text style={[styles.text, styles.colorBlue]}>
-                        Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources.
-				    </Text>
-                </View>
-                <Text style={[styles.captionText, styles.colorGold]}>
-						Developers
-				</Text>
-                {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
-                <View style={[styles.outlineBubble, styles.colorGold, styles.developerBubble]}>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-                    {/* */}
-                    <View style={styles.headshotContainer}>
-                        <View style={styles.CircleShapeView}></View>
-                        <Text style={{fontSize: 15, color: "#193054"}}>
-						    Name
-				        </Text>
-                        <Text style={{fontSize: 12, color: "#193054"}}>
-						    Role
-				        </Text>
-                    </View>
-
+                <View style={styles.boxGap}>
+                    <BorderBox title={"What we do"} 
+                        borderColor={COLORS.primary} 
+                        titleColor={COLORS.primary} 
+                        backroundColor={'#FFFBE7'} 
+                        isCentered={false}>
+                        <Text style={[styles.text, styles.colorBlue]}>
+                            Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources.
+                        </Text> 
+                    </BorderBox>
+                    {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
+                    <BorderBox title={"Developers"} 
+                        borderColor={COLORS.tertiary} 
+                        titleColor={COLORS.tertiary} 
+                        backroundColor={'#FFFBE7'} 
+                        isCentered={false}>
+                        <View style={[styles.outlineBubble, styles.colorGold, styles.developerBubble]}>
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                            {/* */}
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                            {/* */}
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                            {/* */}
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                            {/* */}
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                            {/* */}
+                            <View style={styles.headshotContainer}>
+                                <View style={styles.CircleShapeView}></View>
+                                <Text style={{fontSize: 15, color: "#193054"}}>
+                                    Name
+                                </Text>
+                                <Text style={{fontSize: 12, color: "#193054"}}>
+                                    Role
+                                </Text>
+                            </View>
+                        </View>
+                    </BorderBox>
                 </View>
             </View>
             </ScrollView>
@@ -143,11 +148,6 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
-        borderColor: "#193054",
-        borderWidth: 1,
-        borderRadius: 20,
-        //height: 130,
-        width: windowWidth - 50,
     },
     developerBubble: {
         //height: 500,
@@ -165,12 +165,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#193054",
         zIndex: 1,
+        position: 'absolute',
+        top: -27,
+        left: 20,
     },
     text: {
         color: "#193054",
-        //position: "absolute",
         textAlign: "left",
-        margin: 15,
+        margin: 20,
         fontFamily: "DM-Sans-B",
     },
     CircleShapeView: {
@@ -193,8 +195,10 @@ const styles = StyleSheet.create({
     colorBlue: {
         color: "#193054",
         borderColor: "#193054",
+    },
+    boxGap: {
+        gap: 20,
     }
-
 })
 
 export default AboutUs;
