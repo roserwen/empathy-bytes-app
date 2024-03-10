@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions } from "react-native"
 import { useFonts } from 'expo-font';
+import { COLORS, FONT } from '../../constants/theme';
 import HomescreenButton from '../../constants/HomescreenButton';
 import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
