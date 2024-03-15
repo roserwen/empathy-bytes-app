@@ -35,7 +35,7 @@ const renderItem = ({ item }) => {
 function Teams({navigation}) {
     return (
         <View style={styles.container}>
-            <BackArrow navigation={navigation} page='Home'/>
+            <BackArrow navigation={navigation} page='Home' color='black'/>
             <Text style={styles.title}> Teams </Text>
             <FlatList
                 data={teamData}

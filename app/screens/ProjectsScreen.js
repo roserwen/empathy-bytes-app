@@ -36,7 +36,7 @@ const renderItem = ({ item }) => {
 function Projects({ navigation }) {
     return (
         <View style={styles.container}>
-            <BackArrow navigation={navigation} page='Home'/>
+            <BackArrow navigation={navigation} page='Home' color='black'/>
             <Text style={styles.title}> Projects </Text>
             <FlatList
                 data={projectData}

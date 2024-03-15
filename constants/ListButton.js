@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react
 import { COLORS, FONT, SIZES } from './theme';
 
 export default function ListButton({name, dir, type, onPress, image}) {
-    const imgsrc = image === '' ? '../assets/teampic.jpeg' : image;
+    const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
     return (
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
