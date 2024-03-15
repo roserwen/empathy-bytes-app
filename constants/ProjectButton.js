@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS, FONT, SIZES } from './theme';
-const BigButton = ({name, dir, type, onPress, image}) => {
+export default function ProjectButton({name, dir, type, onPress, image}) {
     const imgsrc = image === '' ? '../assets/teampic.jpeg' : image;
     return (
         <View style = {dir ? styles.left : styles.right}> 
@@ -12,7 +12,7 @@ const BigButton = ({name, dir, type, onPress, image}) => {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/teampic.jpeg')}
+                            source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />
                     </View>
                     <View style={styles.textcontainer}>
@@ -26,8 +26,6 @@ const BigButton = ({name, dir, type, onPress, image}) => {
         </View>
     );
 }
-
-export default BigButton;
 
 const styles = StyleSheet.create({
     left: {
