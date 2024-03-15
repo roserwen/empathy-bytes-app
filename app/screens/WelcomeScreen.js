@@ -30,6 +30,7 @@ function WelcomeScreen({navigation}) {
         "DM-Sans-LI": require('../../assets/fonts/DMSans-LightItalic.ttf'),
         "DM-Sans-EL": require('../../assets/fonts/DMSans-ExtraLight.ttf'),
         "DM-Sans-ELI": require('../../assets/fonts/DMSans-ExtraLightItalic.ttf'),
+        "Lexend": require('../../assets/fonts/Lexend-Regular.ttf'),
     });
 
     if (!fontsLoaded) {

@@ -1,5 +1,6 @@
 export const projectData = [
-    {id: 1, name: "PROJECT 1", type: "collection", description: "this is a description i wrote in the json object"//, imgSrc: "imgepath"
-    },
-    {id: 2, name: "PROJECT 2", type: "collection", description: "i also wrote this in the json object isnt that amazing"}
+    {id: 1, name: "Project Name", type: "collection", description: "this is a description i wrote in the json object", image: ""},
+    {id: 2, name: "Project Name", type: "collection", description: "i also wrote this in the json object isnt that amazing", image: ""},
+    {id: 3, name: "Project Name", type: "collection", description: "i also wrote this in the json object isnt that amazing", image: ""},
+    {id: 4, name: "Project Name", type: "collection", description: "i also wrote this in the json object isnt that amazing", image: ""},
 ];

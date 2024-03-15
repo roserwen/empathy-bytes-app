@@ -3,40 +3,32 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
 import { useFonts } from 'expo-font';
-import BigButton from '../../constants/BigButton';
+import ProjectButton from '../../constants/ProjectButton';
 import BackArrow from '../../constants/BackArrow';
 
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
     const navigation = useNavigation();
-    
-    //font :(
-    const [fontsLoaded] = useFonts({
-        "Lexend": require('../../assets/fonts/Lexend-Regular.ttf'),
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
 
     return (
-        <BigButton
+        <ProjectButton
             onPress={() => {
                 navigation.navigate("Individual Project", {name: props.name, description: props.description})
             }}
             name = {props.name}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
+            image = {props.image}
         >
-        </BigButton>
+        </ProjectButton>
     );
 };
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} styles={styles.button} />
+        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} styles={styles.button} />
     )
 };
 

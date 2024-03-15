@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS, FONT, SIZES } from './theme';
-const BigButton = ({name, dir, type, onPress}) => {
+const BigButton = ({name, dir, type, onPress, image}) => {
+    const imgsrc = image === '' ? '../assets/teampic.jpeg' : image;
     return (
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
@@ -15,8 +16,10 @@ const BigButton = ({name, dir, type, onPress}) => {
                         />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text style={styles.text}> { name } </Text>
+                        <Text numberOfLines={2} style={styles.text}> { name } </Text>
+                        <View style={styles.typecontainer}>
                         <Text style={styles.type}> { type } </Text>
+                        </View>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -30,18 +33,20 @@ const styles = StyleSheet.create({
     left: {
         flexDirection: 'row',
         width: '100%',
-        height: 140,
+        height: 130,
         justifyContent: 'flex-start',
+        marginBottom: 8,
     },
     right: {
         flexDirection: 'row',
         width: '100%',
-        height: 140,
+        height: 130,
         justifyContent: 'flex-end',
+        marginBottom: 8,
     },
 
     leftButton: {
-        width: 350,
+        width: 270,
         height: '100%',
         backgroundColor: '#FFFBE7',
         borderColor: '#ABA174',
@@ -53,7 +58,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     rightButton: {
-        width: 350,
+        width: 270,
         height: '100%',
         backgroundColor: '#FFFBE7',
         borderColor: '#ABA174',
@@ -75,6 +80,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
+        gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -82,29 +88,42 @@ const styles = StyleSheet.create({
         backgroundColor: '#102F54',
         width: '97%',
         height: '88%',
+        marginRight: -1,
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20,
 
         display: 'flex',
         flexDirection: 'row-reverse',
+        gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
+
     },
     textcontainer: {
-        width: 175,
+        width: 90,
         height: '100%',
         flexDirection: 'column',
+        gap: 11,
         alignItems: 'center',
         justifyContent: 'center',
         
     },
     text: {
         color: COLORS.white,
-        fontSize: SIZES.large,
+        fontFamily: 'Lexend',
+        fontWeight: 900,
+        fontSize: 20,
         fontWeight: "bold",
-        margin: 15,
+        textAlign: 'center',
+    },
+    typecontainer: {
+        backgroundColor: '#ABA174',
+        paddingVertical: 2,
+        paddingHorizontal: 4,
+        borderRadius: 10,
     },
     type: {
+        fontSize: 10,
         color: 'white',
     },
     imageContainer: {
