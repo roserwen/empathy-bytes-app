@@ -13,7 +13,7 @@ const ProjectItem = (props) => {
     
     //font :(
     const [fontsLoaded] = useFonts({
-        "Lexend": require('../../assets/fonts/Lexend-400.ttf'),
+        "Lexend": require('../../assets/fonts/Lexend-Regular.ttf'),
     });
 
     if (!fontsLoaded) {
@@ -23,9 +23,10 @@ const ProjectItem = (props) => {
     return (
         <BigButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+                navigation.navigate("Individual Project", {name: props.name, description: props.description})
             }}
             name = {props.name}
+            type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
         >
         </BigButton>
@@ -35,7 +36,7 @@ const ProjectItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} id={item.id} styles={styles.button} />
+        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} styles={styles.button} />
     )
 };
 

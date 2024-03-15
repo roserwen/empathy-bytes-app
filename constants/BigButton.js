@@ -1,23 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS, FONT, SIZES } from './theme';
-const BigButton = (props) => {
+const BigButton = ({name, dir, type, onPress}) => {
     return (
-        <View style = {props.dir ? styles.left : styles.right}> 
+        <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
-                style = {props.dir ? styles.leftButton : styles.rightButton}
-                onPress = {props.onPress}>
-                <View style={props.dir ? styles.leftBlue : styles.rightBlue}>
-                    <View style={styles.iconcontainer}>
+                style = {dir ? styles.leftButton : styles.rightButton}
+                onPress = {onPress}>
+                <View style={dir ? styles.leftBlue : styles.rightBlue}>
+                    <View style={styles.imageContainer}>
                         <Image
-                            style={styles.logo}
-                            source={{
-                            uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                            resizeMode='stretch'
+                            style={styles.image}
+                            source={require('../assets/teampic.jpeg')}
                         />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text style={styles.text}> { props.name } </Text>
+                        <Text style={styles.text}> { name } </Text>
+                        <Text style={styles.type}> { type } </Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -73,7 +72,11 @@ const styles = StyleSheet.create({
         marginLeft: -1,
         borderTopRightRadius: 20,
         borderBottomRightRadius: 20,
-        alignItems: 'flex-end',
+
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     rightBlue: {
         backgroundColor: '#102F54',
@@ -81,19 +84,11 @@ const styles = StyleSheet.create({
         height: '88%',
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20,
-        alignItems: 'flex-end',
-    },
 
-    iconcontainer: {
-        width: 175,
-        height: '100%',
-        flex: 1,
-        justifyContent: 'center',
+        display: 'flex',
+        flexDirection: 'row-reverse',
         alignItems: 'center',
-    },
-    arrow: {
-        width: 70,
-        height: 20,
+        justifyContent: 'center',
     },
     textcontainer: {
         width: 175,
@@ -109,8 +104,16 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         margin: 15,
     },
-    logo: {
-        width: 130,
-        height: 130,
+    type: {
+        color: 'white',
+    },
+    imageContainer: {
+        // justifySelf: 'center',
+        // alignSelf: 'center',
+    },
+    image: {
+        width: 80,
+        height: 80,
+        borderRadius: 100,
     },
 })
