@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
 import { useFonts } from 'expo-font';
-import ProjectButton from '../../constants/ProjectButton';
+import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
 
 
@@ -12,7 +12,7 @@ const ProjectItem = (props) => {
     const navigation = useNavigation();
 
     return (
-        <ProjectButton
+        <ListButton
             onPress={() => {
                 navigation.navigate("Individual Project", {name: props.name, description: props.description})
             }}
@@ -21,14 +21,14 @@ const ProjectItem = (props) => {
             dir = {props.id % 2 == 1 ? true : false}
             image = {props.image}
         >
-        </ProjectButton>
+        </ListButton>
     );
 };
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} styles={styles.button} />
+        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} />
     )
 };
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight:400,
         color: "#B0A470",
-        marginTop: -20,
+        marginTop: -30,
         paddingBottom: 20,
     },
     separator: {

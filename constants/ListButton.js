@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS, FONT, SIZES } from './theme';
-export default function ProjectButton({name, dir, type, onPress, image}) {
+
+export default function ListButton({name, dir, type, onPress, image}) {
     const imgsrc = image === '' ? '../assets/teampic.jpeg' : image;
     return (
         <View style = {dir ? styles.left : styles.right}> 
@@ -17,9 +18,10 @@ export default function ProjectButton({name, dir, type, onPress, image}) {
                     </View>
                     <View style={styles.textcontainer}>
                         <Text numberOfLines={2} style={styles.text}> { name } </Text>
+                        {typeof type !== 'undefined' &&
                         <View style={styles.typecontainer}>
-                        <Text style={styles.type}> { type } </Text>
-                        </View>
+                            <Text style={styles.type}> { type } </Text>
+                        </View>}
                     </View>
                 </View>
             </TouchableOpacity>
