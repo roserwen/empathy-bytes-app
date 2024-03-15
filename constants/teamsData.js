@@ -1,6 +1,6 @@
 export const teamData = [
     {
-        id: 1, //origID
+        id: 1,
         name: "App Team",
         description: [
             {

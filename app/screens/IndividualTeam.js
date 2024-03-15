@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList, SafeAreaView } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 function IndividualTeam({ navigation, route }) {
     const { name, id } = route.params;
@@ -19,9 +18,40 @@ function IndividualTeam({ navigation, route }) {
                 </FlatList>
             </View>
         )
+    //Section will have to be different
+    //if screen is vr/ar screen
+    //TODO add way to integrate the 3d objects
+    } else if (id == 3) {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.titleText}> {name} </Text>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    keyExtractor={item => item.id}
+                    >
+                </FlatList>
+            </View>
+        )
+    //Section will have to be different
+    //if screen is media screen
+    //TODO add way to embed youtube video
+    } else if (id == 4) {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.titleText}> {name} </Text>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    keyExtractor={item => item.id}
+                    >
+                </FlatList>
+            </View>
+        )
     }
+    
     //if screen is media or VR page// TODO change to FlatList
-    return (
+    /*return (
         <View style={styles.container}> 
             <View style={styles.imageContainer}>
                 <Image
@@ -47,10 +77,10 @@ function IndividualTeam({ navigation, route }) {
                 />
             </TouchableOpacity>
         </View>
-    );
+    );*/
 }
 
-//TODO styling
+//TODO styling + changing it depending on the screen
 const Section = (props) => {
     return (
         <View style={styles.sectionContainer}>
