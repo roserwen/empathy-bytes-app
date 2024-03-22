@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../../firebaseConfig';
 
 function IndividualTeam({ navigation, route }) {
-    const { name, id } = route.params;
+    const { name, id, teamPic } = route.params;
+    [picURL, setPicTeam] = useState("");
+    useEffect(() => {
+        getDownloadURL(ref(fb_storage, teamPic))
+        .then((url) => {
+            setPicTeam(url);
+            // Or inserted into an <img> element
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    },[]);
     //if screen is app or web team page: render FlatList of description section, tech stack section, and dev section
     if (id == 1 || id === 2) {
         return (
             <View style={styles.container}>
                 <Text style={styles.titleText}> {name} </Text>
+                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text}/>}
@@ -25,6 +39,7 @@ function IndividualTeam({ navigation, route }) {
         return (
             <View style={styles.container}>
                 <Text style={styles.titleText}> {name} </Text>
+                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text}/>}
@@ -40,6 +55,7 @@ function IndividualTeam({ navigation, route }) {
         return (
             <View style={styles.container}>
                 <Text style={styles.titleText}> {name} </Text>
+                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text}/>}
@@ -109,8 +125,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
     },
     imageContainer: {
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
         padding: 20,
     },
     flatList: {
@@ -131,9 +147,14 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_400Regular"
     },
     teamImage: {
-        width: 80,
-        height: 80,
+        // width: 130,
+        // height: 80,
         padding: 80,
+        aspectRatio: 1.5, // Maintain aspect ratio
+        resizeMode: 'contain',
+        // borderWidth: 2, // Border width
+        // borderColor: COLORS.secondary, // Border color
+        // borderRadius: 10, // Border radius for rounded corners
     },
 })
 
