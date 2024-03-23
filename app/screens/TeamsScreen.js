@@ -12,7 +12,7 @@ const TeamItem = (props) => {
     return (
         <BigButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
             }}
             name = {props.name}
             dir = {props.id % 2 == 1 ? true : false}
@@ -33,7 +33,7 @@ const TeamItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} description={item.description} id={item.id}/>
+        <TeamItem name={item.name} id={item.id} teamPic={item.teamPic}/>
     )
 };
 
