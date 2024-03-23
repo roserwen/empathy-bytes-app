@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-n
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight } from 'react-native';
 
-function ContactUs({ navigation, route }) {
-
+function ContactUs() {
     return (
         <View style={styles.container}> 
             <Image

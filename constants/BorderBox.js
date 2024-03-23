@@ -1,4 +1,3 @@
-import { Lexend_700Bold } from '@expo-google-fonts/lexend';
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 const windowWidth = Dimensions.get('window').width;
@@ -34,5 +33,5 @@ const styles = StyleSheet.create({
     top: -27,
     left: 20,
     paddingHorizontal: 5,
-},
+  },
 })

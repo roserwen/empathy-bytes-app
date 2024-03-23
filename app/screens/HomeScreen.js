@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions } from "react-native"
+import { COLORS } from '../../constants/theme';
 import HomescreenButton from '../../constants/HomescreenButton';
 import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
@@ -15,10 +16,10 @@ function HomeScreen({navigation}) {
             <Text style={styles.text}>
                 HOME
             </Text>
-            <HomescreenButton text="About Us" style={styles.button} image={people} color="#193054" onPress={() => navigation.navigate('About Us')}></HomescreenButton>
-            <HomescreenButton text="Projects" style={styles.button} image={projects} color="#B3A369" onPress={() => navigation.navigate('Projects')}></HomescreenButton>
-            <HomescreenButton text="Teams" style={styles.button} image={teams} color="#193054" onPress={() => navigation.navigate('Teams')}></HomescreenButton>
-            <HomescreenButton text="Contact Us" style={styles.button} image={contact} color="#B3A369" onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
+            <HomescreenButton text="About Us" style={styles.button} image={people} color={COLORS.primary} onPress={() => navigation.navigate('About Us')}></HomescreenButton>
+            <HomescreenButton text="Projects" style={styles.button} image={projects} color={COLORS.secondary} onPress={() => navigation.navigate('Projects')}></HomescreenButton>
+            <HomescreenButton text="Teams" style={styles.button} image={teams} color={COLORS.primary} onPress={() => navigation.navigate('Teams')}></HomescreenButton>
+            <HomescreenButton text="Contact Us" style={styles.button} image={contact} color={COLORS.secondary} onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
             {/*
             <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
                 <Image
@@ -60,10 +61,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexWrap: "wrap",
         flexBasis: '50%',
-        backgroundColor: "#FFFBE7"
+        backgroundColor: COLORS.tertiary
     },
     text: {
-        color: "#B3A369",
+        color: COLORS.secondary,
         textAlign: "center",
         paddingBottom: 25,
         fontSize: 30,
