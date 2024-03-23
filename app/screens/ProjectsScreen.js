@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
-import { useFonts } from 'expo-font';
 import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
 
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingTop: 50,
         backgroundColor: '#FFFBE7',
-        fontFamily: "Lexend",
+        fontFamily: "Lexend_400Regular",
     },
     title: {
         fontSize: 30,

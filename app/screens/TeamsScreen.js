@@ -13,7 +13,7 @@ const TeamItem = (props) => {
     return (
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
             }}
             name = {props.name}
             type = {props.type}
@@ -27,7 +27,7 @@ const TeamItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image}/>
+        <TeamItem name={item.name} id={item.id} teamPic={item.teamPic}/>
     )
 };
 
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingTop: 50,
         backgroundColor: '#FFFBE7',
-        fontFamily: "Lexend",
+        fontFamily: "Lexend400_Regular",
     },
     title: {
         fontSize: 30,
