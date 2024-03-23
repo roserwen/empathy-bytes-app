@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
-import { COLORS, FONT, SIZES } from './theme';
+import { COLORS } from './theme';
 
 export default function ListButton({name, dir, type, onPress, image}) {
     const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
@@ -44,12 +44,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         marginBottom: 8,
     },
-
     leftButton: {
         width: 270,
         height: '100%',
-        backgroundColor: '#FFFBE7',
-        borderColor: '#ABA174',
+        backgroundColor: COLORS.tertiary,
+        borderColor: COLORS.secondary,
         borderWidth: 1.25,
         marginLeft: -1.25,
         flexDirection: 'row',
@@ -60,8 +59,8 @@ const styles = StyleSheet.create({
     rightButton: {
         width: 270,
         height: '100%',
-        backgroundColor: '#FFFBE7',
-        borderColor: '#ABA174',
+        backgroundColor: COLORS.tertiary,
+        borderColor: COLORS.secondary,
         borderWidth: 1.25,
         marginLeft: -1.25,
         flexDirection: 'row-reverse',
@@ -69,9 +68,8 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 24,
         alignItems: 'center',
     },
-
     leftBlue: {
-        backgroundColor: '#102F54',
+        backgroundColor: COLORS.primary,
         width: '97%',
         height: '88%',
         marginLeft: -1,
@@ -85,7 +83,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     rightBlue: {
-        backgroundColor: '#102F54',
+        backgroundColor: COLORS.primary,
         width: '97%',
         height: '88%',
         marginRight: -1,
@@ -117,7 +115,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     typecontainer: {
-        backgroundColor: '#ABA174',
+        backgroundColor: COLORS.secondary,
         paddingVertical: 2,
         paddingHorizontal: 4,
         borderRadius: 10,

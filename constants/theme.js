@@ -12,6 +12,7 @@ const COLORS = {
   lightWhite: "#FAFAFC",
 };
 
+//don't use
 const FONT = {
   regular: "DMRegular",
   medium: "DMMedium",

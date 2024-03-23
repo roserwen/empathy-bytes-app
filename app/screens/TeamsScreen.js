@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native
 import { teamData } from "../../constants/teamsData";
 import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
-import { COLORS, FONT, SIZES } from '../../constants/theme';
+import { COLORS } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
@@ -56,14 +56,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingTop: 50,
         backgroundColor: '#FFFBE7',
-        fontFamily: "Lexend_400Regular",
     },
     title: {
         fontSize: 30,
         fontWeight:400,
-        color: "#B0A470",
+        color: COLORS.secondary,
         marginTop: -30,
         paddingBottom: 20,
+        fontFamily: "Lexend_400Regular",
     },
     separator: {
         height: 10

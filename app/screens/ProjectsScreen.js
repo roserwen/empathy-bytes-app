@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native
 import { projectData } from "../../constants/projectsData";
 import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
+import { COLORS } from '../../constants/theme';
 
 
 //appearance of each button + trying to push the new screen onto nav stack
@@ -55,15 +56,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 50,
-        backgroundColor: '#FFFBE7',
-        fontFamily: "Lexend_400Regular",
+        backgroundColor: COLORS.tertiary,
     },
     title: {
         fontSize: 30,
         fontWeight:400,
-        color: "#B0A470",
+        color: COLORS.secondary,
         marginTop: -30,
         paddingBottom: 20,
+        fontFamily: "Lexend_400Regular",
     },
     separator: {
         height: 10
