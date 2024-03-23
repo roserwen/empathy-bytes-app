@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: COLORS.white,
-        fontFamily: 'Lexend',
+        fontFamily: 'Lexend_400Regular',
         fontWeight: 900,
         fontSize: 20,
         fontWeight: "bold",

@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
 import { COLORS } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
-import { Lexend_400Regular } from '@expo-google-fonts/lexend';
 const windowWidth = Dimensions.get('window').width;
 
 function AboutUs() {

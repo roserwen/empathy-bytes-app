@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         paddingTop: 50,
         backgroundColor: '#FFFBE7',
-        fontFamily: "Lexend400_Regular",
+        fontFamily: "Lexend_400Regular",
     },
     title: {
         fontSize: 30,
