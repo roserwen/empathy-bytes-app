@@ -2,34 +2,17 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { teamData } from "../../constants/teamsData";
-import { useFonts } from 'expo-font';
 import BigButton from '../../constants/BigButton';
-import { COLORS, FONT, SIZES } from '../../constants/theme';
+import { COLORS } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
 
-    //font :(
-    const [fontsLoaded] = useFonts({
-        "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
-        "DM-Sans-I": require('../../assets/fonts/DMSans-Italic.ttf'),
-        "DM-Sans-B": require('../../assets/fonts/DMSans-Bold.ttf'),
-        "DM-Sans-BI": require('../../assets/fonts/DMSans-BoldItalic.ttf'),
-        "DM-Sans-L": require('../../assets/fonts/DMSans-Light.ttf'),
-        "DM-Sans-LI": require('../../assets/fonts/DMSans-LightItalic.ttf'),
-        "DM-Sans-EL": require('../../assets/fonts/DMSans-ExtraLight.ttf'),
-        "DM-Sans-ELI": require('../../assets/fonts/DMSans-ExtraLightItalic.ttf'),
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
-
     return (
         <BigButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
+                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
             }}
             name = {props.name}
             dir = {props.id % 2 == 1 ? true : false}
@@ -50,7 +33,7 @@ const TeamItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} description={item.description} id={item.id}/>
+        <TeamItem name={item.name} id={item.id} teamPic={item.teamPic}/>
     )
 };
 
@@ -79,22 +62,12 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         paddingTop: 50
     },
-    button: {
-        backgroundColor: "#004B87",
-        width: 150,
-        height: 80,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 23
-    },
-    text: {
-        color: "#FFFFFF"
-    },
     title: {
         fontSize: 30,
         paddingBottom: 20,
         paddingTop: 10,
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        fontFamily: "Lexend_400Regular"
     },
     separator: {
         height: 10,   

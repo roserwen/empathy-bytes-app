@@ -8,7 +8,7 @@ const BigButton = (props) => {
                 style = {props.dir ? styles.button : styles.button2}
                 onPress = {props.onPress}
             >
-                <View style={styles.iconcontainer}>
+                <View style={styles.iconContainer}>
                     <Image
                         style={styles.logo}
                         source={{
@@ -16,8 +16,8 @@ const BigButton = (props) => {
                         resizeMode='stretch'
                     />
                 </View>
-                <View style={styles.textcontainer}>
-                    <Text style={styles.text}> { props.name } </Text>
+                <View style={styles.textContainer}>
+                    <Text style={styles.text} > { props.name } </Text>
                     <Image
                         style={styles.arrow}
                         source={require('../assets/arrow.png')}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 23,
         borderBottomLeftRadius: 23,
     },
-    iconcontainer: {
+    iconContainer: {
         width: 175,
         height: '100%',
         flex: 1,
@@ -70,19 +70,22 @@ const styles = StyleSheet.create({
         width: 70,
         height: 20,
     },
-    textcontainer: {
+    textContainer: {
         width: 175,
         height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 15
         
     },
     text: {
-        color: COLORS.white,
-        fontSize: SIZES.large,
+        color: COLORS.black,
+        height: "50%",
+        width: "100%",
         fontWeight: "bold",
         margin: 15,
+        fontFamily: "Lexend_400Regular"
     },
     logo: {
         width: 130,
