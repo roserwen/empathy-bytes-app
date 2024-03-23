@@ -2,31 +2,25 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { teamData } from "../../constants/teamsData";
-import BigButton from '../../constants/BigButton';
-import { COLORS } from '../../constants/theme';
+import ListButton from '../../constants/ListButton';
+import BackArrow from '../../constants/BackArrow';
+import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
 
     return (
-        <BigButton
+        <ListButton
             onPress={() => {
                 navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
             }}
             name = {props.name}
+            type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            >
-        </BigButton>
-        /*
-        <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, description: props.description})
-            }}>
-            <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
-        </TouchableOpacity>
-        */
+            image = {props.image}
+        >
+        </ListButton>
     );
 };
 
@@ -38,9 +32,10 @@ const renderItem = ({ item }) => {
 };
 
 //flatlist is like scrollview but better apparently
-function Teams({}) {
+function Teams({navigation}) {
     return (
         <View style={styles.container}>
+            <BackArrow navigation={navigation} page='Home' color='black'/>
             <Text style={styles.title}> Teams </Text>
             <FlatList
                 data={teamData}
@@ -59,18 +54,19 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: COLORS.primary,
-        paddingTop: 50
+        paddingTop: 50,
+        backgroundColor: '#FFFBE7',
+        fontFamily: "Lexend400_Regular",
     },
     title: {
         fontSize: 30,
+        fontWeight:400,
+        color: "#B0A470",
+        marginTop: -30,
         paddingBottom: 20,
-        paddingTop: 10,
-        color: "#FFFFFF",
-        fontFamily: "Lexend_400Regular"
     },
     separator: {
-        height: 10,   
+        height: 10
     }
 })
 

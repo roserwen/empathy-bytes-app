@@ -2,45 +2,40 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { projectData } from "../../constants/projectsData";
-import BigButton from '../../constants/BigButton';
-import { COLORS } from '../../constants/theme';
+import ListButton from '../../constants/ListButton';
+import BackArrow from '../../constants/BackArrow';
+
 
 //appearance of each button + trying to push the new screen onto nav stack
 const ProjectItem = (props) => {
     const navigation = useNavigation();
 
     return (
-        /*
-        <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-                navigation.navigate("Individual Project", {name: props.name, description: props.description})
-            }}>
-            <Text style={[styles.text, {fontFamily: "DM-Sans-B"}]}> { props.name } </Text>
-        </TouchableOpacity>
-        */
-        <BigButton
+        <ListButton
             onPress={() => {
                 navigation.navigate("Individual Project", {name: props.name, description: props.description})
             }}
             name = {props.name}
+            type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
+            image = {props.image}
         >
-        </BigButton>
+        </ListButton>
     );
 };
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} id={item.id} />
+        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} />
     )
 };
 
 //flatlist is like scrollview but better apparently
-function Projects() {
+function Projects({ navigation }) {
     return (
         <View style={styles.container}>
+            <BackArrow navigation={navigation} page='Home' color='black'/>
             <Text style={styles.title}> Projects </Text>
             <FlatList
                 data={projectData}
@@ -53,21 +48,22 @@ function Projects() {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 50,
-        backgroundColor: COLORS.primary,
+        backgroundColor: '#FFFBE7',
+        fontFamily: "Lexend_400Regular",
     },
     title: {
         fontSize: 30,
+        fontWeight:400,
+        color: "#B0A470",
+        marginTop: -30,
         paddingBottom: 20,
-        paddingTop: 10,
-        color: "#FFFFFF",
-        fontFamily: "Lexend_400Regular"
     },
     separator: {
         height: 10
