@@ -1,29 +1,8 @@
-//this is only the button for the home screen - this is Rose's assignment
-//sorry, accidentally did most of it
-
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import { useFonts } from "expo-font";
 
 var textBorderColor = "#193054";
 
-
 function HomescreenButton(props) {
-    //font :(
-    const [fontsLoaded] = useFonts({
-        "DM-Sans": require('../assets/fonts/DMSans-Regular.ttf'),
-        "DM-Sans-I": require('../assets/fonts/DMSans-Italic.ttf'),
-        "DM-Sans-B": require('../assets/fonts/DMSans-Bold.ttf'),
-        "DM-Sans-BI": require('../assets/fonts/DMSans-BoldItalic.ttf'),
-        "DM-Sans-L": require('../assets/fonts/DMSans-Light.ttf'),
-        "DM-Sans-LI": require('../assets/fonts/DMSans-LightItalic.ttf'),
-        "DM-Sans-EL": require('../assets/fonts/DMSans-ExtraLight.ttf'),
-        "DM-Sans-ELI": require('../assets/fonts/DMSans-ExtraLightItalic.ttf'),
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
-
     textBorderColor = props.color;
 
     return (
@@ -35,15 +14,13 @@ function HomescreenButton(props) {
                 />
                 {/*<View style={styles.CircleShapeView}></View>*/}
 
-                <Text style={[styles.text, {fontFamily: props.font}, {color: props.color}]}>
+                <Text style={[styles.text, {color: props.color}]}>
                     {props.text}
                 </Text>
             </TouchableOpacity>
         </View>
     );
 }
-
-  
 
 const styles = StyleSheet.create({
     button: {
@@ -62,6 +39,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         fontSize: 25,
         textAlign: "left",
+        fontFamily: "Lexend_400Regular"
     },
     buttonImageIconStyle: {
         paddingRight: 0,
