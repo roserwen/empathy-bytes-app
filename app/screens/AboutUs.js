@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import { COLORS, FONT } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
+const imageHeight = 200;
 
 function AboutUs() {
     //font :(
@@ -23,11 +24,11 @@ function AboutUs() {
     }
     return (
         <View style={styles.container}> 
-            <ScrollView>
             <Image
                     style={styles.image}
                     source={require('../../assets/teampic.jpeg')}
             />
+            <ScrollView>
             <View style={styles.scrollContainer}> 
                 
                 <Text style={[styles.titleText, styles.colorGold]}>
@@ -134,7 +135,8 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         width: windowWidth, 
         backgroundColor: "#FFFBE7", 
-        borderRadius: 15
+        borderRadius: 15,
+        marginTop: imageHeight - 10,
     },
     headshotContainer: {
         paddingHorizontal: 10,
@@ -184,7 +186,10 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 410,
-        height: 200,
+        height: imageHeight,
+        position: 'absolute',
+        top: 0,
+        left: 0,
         //marginBottom: 10,
         //borderRadius: 50,
     },
