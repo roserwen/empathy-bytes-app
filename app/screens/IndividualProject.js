@@ -8,7 +8,7 @@ function IndividualProject({ navigation, route }) {
     const { name, description } = route.params;
     return (
         <View style={styles.container}> 
-        <BackArrow navigation={navigation} page='Home' color='black'/>
+        <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
          <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
                 
             </TouchableOpacity>
