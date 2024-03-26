@@ -1,22 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
 import { COLORS } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
+const imageHeight = 200;
+const backHome = "<< back to home";
 
-function AboutUs() {
+function AboutUs({navigation}) {
     return (
         <View style={styles.container}> 
-            <ScrollView>
             <Image
                     style={styles.image}
                     source={require('../../assets/teampic.jpeg')}
             />
+            <ScrollView>
             <View style={styles.scrollContainer}> 
+                <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
+                    <Text style={styles.backText}>
+                        {backHome}
+                    </Text>
+                </TouchableOpacity>
                 
                 <Text style={styles.titleText}>
-						Our Team
-				</Text>
+						        Our Team
+				        </Text>
                 <View style={styles.boxGap}>
                     <BorderBox title={"What we do"} 
                         borderColor={COLORS.primary} 
@@ -114,11 +121,11 @@ const styles = StyleSheet.create({
     scrollContainer: {
         flex: 1,
         alignItems: "center",
-        //height: 2000, 
         paddingBottom: 30,
         width: windowWidth, 
         backgroundColor: "#FFFBE7", 
-        borderRadius: 15
+        borderRadius: 15,
+        marginTop: imageHeight - 10,
     },
     headshotContainer: {
         paddingHorizontal: 10,
@@ -142,7 +149,7 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_400Regular",
         color: COLORS.secondary,
         textAlign: "center",
-        fontWeight: 'bold',
+        //fontWeight: 'bold',
         margin: 20,
     },
     captionText: {
@@ -161,6 +168,13 @@ const styles = StyleSheet.create({
         margin: 20,
         fontFamily: "Lexend_400Regular",
     },
+    backText: {
+        color: COLORS.secondary,
+        textAlign: "left",
+        fontFamily: "Lexend_400Regular",
+        marginTop: 10,
+
+    },
     CircleShapeView: {
         //To make Circle Shape
         width: 100,
@@ -169,10 +183,11 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
     },
     image: {
-        width: 410,
-        height: 200,
-        //marginBottom: 10,
-        //borderRadius: 50,
+        height: imageHeight,
+        width: windowWidth,
+        position: 'absolute',
+        top: 0,
+        left: 0,
     },
     /*colorGold: {
         color: "#B3A369",
@@ -184,6 +199,10 @@ const styles = StyleSheet.create({
     },*/
     boxGap: {
         gap: 20,
+    },
+    backButton: {
+        position: "absolute",
+        left: 0,
     }
 })
 
