@@ -5,8 +5,9 @@ import { COLORS, FONT } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
 const imageHeight = 200;
+const backHome = "<< back to home";
 
-function AboutUs() {
+function AboutUs({navigation}) {
     //font :(
     const [fontsLoaded] = useFonts({
         "DM-Sans": require('../../assets/fonts/DMSans-Regular.ttf'),
@@ -30,7 +31,12 @@ function AboutUs() {
             />
             <ScrollView>
             <View style={styles.scrollContainer}> 
-                
+                <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
+                    <Text style={[styles.backText, styles.colorGold]}>
+                        {backHome}
+                    </Text>
+                </TouchableOpacity>
+
                 <Text style={[styles.titleText, styles.colorGold]}>
 						Our Team
 				</Text>
@@ -46,8 +52,8 @@ function AboutUs() {
                     </BorderBox>
                     {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
                     <BorderBox title={"Developers"} 
-                        borderColor={COLORS.tertiary} 
-                        titleColor={COLORS.tertiary} 
+                        borderColor={COLORS.secondary} 
+                        titleColor={COLORS.secondary} 
                         backroundColor={'#FFFBE7'} 
                         isCentered={false}>
                         <View style={[styles.outlineBubble, styles.colorGold, styles.developerBubble]}>
@@ -131,7 +137,6 @@ const styles = StyleSheet.create({
     scrollContainer: {
         flex: 1,
         alignItems: "center",
-        //height: 2000, 
         paddingBottom: 30,
         width: windowWidth, 
         backgroundColor: "#FFFBE7", 
@@ -156,10 +161,10 @@ const styles = StyleSheet.create({
         padding: 30,
     },
     titleText: {
-        fontSize: 50,
+        fontSize: 60,
         color: "#B3A369",
         textAlign: "center",
-        fontWeight: 'bold',
+        //fontWeight: 'bold',
         margin: 20,
     },
     captionText: {
@@ -177,6 +182,12 @@ const styles = StyleSheet.create({
         margin: 20,
         fontFamily: "DM-Sans-B",
     },
+    backText: {
+        color: "#193054",
+        textAlign: "left",
+        fontFamily: "DM-Sans-B",
+        marginTop: 10,
+    },
     CircleShapeView: {
         //To make Circle Shape
         width: 100,
@@ -185,13 +196,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#193054',
     },
     image: {
-        width: 410,
         height: imageHeight,
         position: 'absolute',
         top: 0,
         left: 0,
-        //marginBottom: 10,
-        //borderRadius: 50,
     },
     colorGold: {
         color: "#B3A369",
@@ -203,6 +211,10 @@ const styles = StyleSheet.create({
     },
     boxGap: {
         gap: 20,
+    },
+    backButton: {
+        position: "absolute",
+        left: 0,
     }
 })
 
