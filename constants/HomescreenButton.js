@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { COLORS } from "../constants/theme";
 
-var textBorderColor = "#193054";
+var textBorderColor = COLORS.primary;
 
 function HomescreenButton(props) {
     textBorderColor = props.color;

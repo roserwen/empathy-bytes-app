@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { COLORS, FONT, SIZES } from './theme';
 const windowWidth = Dimensions.get('window').width;
 
 // isCentered isn't implemented yet :(
@@ -28,10 +27,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     fontSize: 30,
     fontWeight: 'bold',
+    fontFamily: "Lexend_700Bold",
     zIndex: 1,
     position: 'absolute',
     top: -27,
     left: 20,
     paddingHorizontal: 5,
-},
+  },
 })
