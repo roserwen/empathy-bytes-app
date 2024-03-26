@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
 import { COLORS } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
@@ -16,7 +16,7 @@ function AboutUs({navigation}) {
             <ScrollView>
             <View style={styles.scrollContainer}> 
                 <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
-                    <Text style={[styles.backText, styles.colorGold]}>
+                    <Text style={styles.backText}>
                         {backHome}
                     </Text>
                 </TouchableOpacity>
@@ -169,10 +169,11 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_400Regular",
     },
     backText: {
-        color: "#193054",
+        color: COLORS.secondary,
         textAlign: "left",
-        fontFamily: "DM-Sans-B",
+        fontFamily: "Lexend_400Regular",
         marginTop: 10,
+
     },
     CircleShapeView: {
         //To make Circle Shape
@@ -183,6 +184,7 @@ const styles = StyleSheet.create({
     },
     image: {
         height: imageHeight,
+        width: windowWidth,
         position: 'absolute',
         top: 0,
         left: 0,
