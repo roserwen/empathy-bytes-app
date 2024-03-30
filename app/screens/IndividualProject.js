@@ -1,11 +1,82 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native"
-import { COLORS } from "../../constants/theme"
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from "react-native";
+import { COLORS } from "../../constants/theme";
 import BackArrow from '../../constants/BackArrow';
 import BorderBox from '../../constants/BorderBox';
+import { getDownloadURL, ref } from "firebase/storage";
+import { Audio } from 'expo-av';
+import { fb_storage } from '../../firebaseConfig'; 
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+function CustomButton({ onPress, title }) {
+    return (
+        <TouchableOpacity onPress={onPress} style={styles.button}>
+            <Text style={styles.buttonText}>{title}</Text>
+        </TouchableOpacity>
+    );
+}
 
 function IndividualProject({ navigation, route }) {
     const { name, description } = route.params;
+    const [sound, setSound] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    async function setAudioMode() {
+        await Audio.setAudioModeAsync({
+            playsInSilentModeIOS: true,
+            allowsRecordingIOS: false,
+            staysActiveInBackground: false,
+            shouldDuckAndroid: true,
+            playThroughEarpieceAndroid: false,
+        });
+    }
+    setAudioMode();
+    
+    async function fetchAudioUrl() {
+      const audioPath = 'daneWryeInterview_mixdown.mp3';
+      const storageRef = ref(fb_storage, audioPath);
+      try {
+        return await getDownloadURL(storageRef);
+      } catch (error) {
+        console.error("Error fetching audio URL:", error);
+        return null;
+      }
+    }
+
+    async function togglePlayback() {
+        if (isPlaying && sound) {
+            console.log('Stopping Sound');
+            await sound.stopAsync();
+            setIsPlaying(false);
+        } else {
+            if (!sound) {
+                console.log('Loading Sound');
+                const audioUrl = await fetchAudioUrl();
+                if (audioUrl) {
+                    const { sound: newSound } = await Audio.Sound.createAsync(
+                        { uri: audioUrl },
+                        { shouldPlay: true }
+                    );
+                    setSound(newSound);
+                    setIsPlaying(true);
+                } else {
+                    console.log('Failed to load sound');
+                }
+            } else {
+                console.log('Playing Sound');
+                await sound.playAsync();
+                setIsPlaying(true);
+            }
+        }
+    }
+
+    useEffect(() => {
+        setAudioMode();
+        return () => {
+            sound?.unloadAsync();
+        };
+    }, [sound]);
+
     return (
         <View style={styles.container}> 
         <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
@@ -21,9 +92,7 @@ function IndividualProject({ navigation, route }) {
                         isCentered={false}> 
                         <Image 
                             style={styles.image}
-                            source={require('../../assets/teampic.jpeg')}/>
-                        
-                        
+                            source={require('../../assets/teampic.jpeg')}/>          
             </BorderBox>
             </View>
 
@@ -37,8 +106,10 @@ function IndividualProject({ navigation, route }) {
                             {description}
                         </Text> 
                     </BorderBox>
+                    <View style={styles.audioContainer}>
+                        <CustomButton title={isPlaying ? "Stop Interview" : "Play Interview"} onPress={togglePlayback} />
                     </View>
-            
+                </View>
             </ScrollView>
         </View>
     );
@@ -94,6 +165,26 @@ const styles = StyleSheet.create({
         height: 250,
         left: 20,
         bottom: 20,
+    },
+    audioContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        alignItems: 'center',
+    },
+    button: {
+        backgroundColor: Colors.primary, 
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        borderRadius: 20,
+        width: 150, 
+        height: 40, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    buttonText: {
+        color: "#FFFFFF", 
+        fontSize: 16, 
     },
 })
 
