@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontWeight:400,
+        fontWeight:"bold",
         color: COLORS.secondary,
         marginTop: -30,
         paddingBottom: 20,

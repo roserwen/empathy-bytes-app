@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: COLORS.tertiary,
         fontFamily: "Lexend_400Regular"
     },
