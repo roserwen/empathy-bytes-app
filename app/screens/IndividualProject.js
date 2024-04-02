@@ -8,7 +8,7 @@ function IndividualProject({ navigation, route }) {
     const { name, description } = route.params;
     return (
         <View style={styles.container}> 
-        {/* <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
+        <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
          <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
                 
             </TouchableOpacity>
@@ -39,7 +39,7 @@ function IndividualProject({ navigation, route }) {
                     </BorderBox>
                     </View>
             
-            </ScrollView> */}
+            </ScrollView>
         </View>
     );
 }
@@ -51,50 +51,50 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         backgroundColor: COLORS.primary,
     },
-    // titleContainer: {
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     padding: 20,
-    // },
-    // descriptionContainer: {
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     padding: 20,
-    // },
-    // text: {
-    //     color: "#FFFFFF",
-    //     fontFamily: "Lexend_400Regular",
-    //     marginLeft: 20,
-    //     marginRight: 20,
-    //     top: 20,
-    //     justifyContent: "center",
-    //     paddingBottom: 30,
-    // },
-    // button: {
-    //     width: 70,
-    //     height: 40,
-    //     marginTop: 50,
-    // },
-    // titleText: {
-    //     fontSize: 30,
-    //     // fontWeight: 'bold',
-    //     color: "#FFFFFF",
-    //     textAlign: "center",
-    //     fontFamily: "Lexend_400Regular",
-    //     marginLeft: 20,
-    //     marginRight: 20,
-    // },
-    // teamImage: {
-    //     width: 80,
-    //     height: 80,
-    //     padding: 80,
-    // },
-    // image: {
-    //     width: 300,
-    //     height: 250,
-    //     left: 20,
-    //     bottom: 20,
-    // },
+    titleContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+    },
+    descriptionContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+    },
+    text: {
+        color: "#FFFFFF",
+        fontFamily: "Lexend_400Regular",
+        marginLeft: 20,
+        marginRight: 20,
+        top: 20,
+        justifyContent: "center",
+        paddingBottom: 30,
+    },
+    button: {
+        width: 70,
+        height: 40,
+        marginTop: 50,
+    },
+    titleText: {
+        fontSize: 30,
+        // fontWeight: 'bold',
+        color: "#FFFFFF",
+        textAlign: "center",
+        fontFamily: "Lexend_400Regular",
+        marginLeft: 20,
+        marginRight: 20,
+    },
+    teamImage: {
+        width: 80,
+        height: 80,
+        padding: 80,
+    },
+    image: {
+        width: 300,
+        height: 250,
+        left: 20,
+        bottom: 20,
+    },
 })
 
 export default IndividualProject;
