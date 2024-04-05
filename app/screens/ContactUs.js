@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-native"
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function ContactUs({ navigation, route }) {
 
