@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions } from "react-native"
+import { COLORS } from '../../constants/theme';
 import HomescreenButton from '../../constants/HomescreenButton';
 import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
@@ -62,10 +63,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexWrap: "wrap",
         flexBasis: '50%',
-        backgroundColor: "#FFFBE7"
+        backgroundColor: COLORS.tertiary
     },
     text: {
-        color: "#B3A369",
+        color: COLORS.secondary,
         textAlign: "center",
         paddingBottom: 25,
         fontSize: 35,

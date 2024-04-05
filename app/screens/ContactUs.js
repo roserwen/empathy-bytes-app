@@ -3,14 +3,12 @@ import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-n
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight } from 'react-native';
 
-function ContactUs({ navigation, route }) {
-
+function ContactUs() {
     return (
         <View style={styles.container}> 
             <Image
                 style={styles.logo}
-                source={{
-                uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
+                source={require('../../assets/empathybytes.png')}
             />
             <View style={styles.textBox}>
                 <Text style={styles.title} >Let us know how</Text>
@@ -39,7 +37,7 @@ function ContactUs({ navigation, route }) {
                         source={require('../../assets/linkedinin.png')}>
                     </Image>
                 </TouchableHighlight>
-                <TouchableHighlight onPress={() => Linking.openURL('https://www.youtube.com')}>
+                <TouchableHighlight onPress={() => Linking.openURL('https://youtube.com/@georgiatechempathybytesvip?si=rSV5f1Cc4B2Bun_b')}>
                     <Image
                         style={styles.mediaIcons}
                         source={require('../../assets/youtube.png')}>
@@ -61,7 +59,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: COLORS.tertiary
-        
     },
     textBox: {
         margin: 15,
