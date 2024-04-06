@@ -14,7 +14,7 @@ const ProjectItem = (props) => {
     return (
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Project", {name: props.name, description: props.description})
+                navigation.navigate("Individual Project", {name: props.name, description: props.description, id: props.id})
             }}
             name = {props.name}
             type = {props.type}
