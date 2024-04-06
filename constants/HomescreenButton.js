@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import Svg, { Path } from "react-native-svg"
+import Svg, { Path } from "react-native-svg";
+import { COLORS } from './theme';
 
 var textBorderColor = COLORS.primary;
 
