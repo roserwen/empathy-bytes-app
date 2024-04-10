@@ -6,14 +6,17 @@ export const teamData = [
         description: [
             {
                 id: 1,
+                name: "Description",
                 text: "this is the description of app team"
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "this is the tech stack"
             },
             {
                 id: 3,
+                name: "Developers",
                 text: "these are the developers"
             }]
     },
@@ -24,14 +27,17 @@ export const teamData = [
         description: [
             {
                 id: 1,
+                name: "Description",
                 text: "this is the description of web team"
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "this is the tech stack"
             },
             {
                 id: 3,
+                name: "Developers",
                 text: "these are the developers"
             }]
     },
@@ -43,14 +49,17 @@ export const teamData = [
         description: [
             {
                 id: 1,
+                name: "Description",
                 text: "this is the description of VR/AR team"
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "this is the tech stack"
             },
             {
                 id: 3,
+                name: "Developers",
                 text: "these are the developers"
             }]
     },
@@ -62,14 +71,17 @@ export const teamData = [
         description: [
             {
                 id: 1,
+                name: "Descriptions",
                 text: "this is the description of media team"
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "this is the tech stack"
             },
             {
                 id: 3,
+                name: "Developers",
                 text: "these are the developers"
             }]
     }

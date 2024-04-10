@@ -28,7 +28,7 @@ function AboutUs({navigation}) {
                     <BorderBox title={"What we do"} 
                         borderColor={COLORS.primary} 
                         titleColor={COLORS.primary} 
-                        backroundColor={COLORS.tertiary} 
+                        backgroundColor={COLORS.tertiary} 
                         isCentered={false}>
                         <Text style={styles.text}>
                             Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources.
@@ -38,7 +38,7 @@ function AboutUs({navigation}) {
                     <BorderBox title={"Developers"} 
                         borderColor={COLORS.secondary} 
                         titleColor={COLORS.secondary} 
-                        backroundColor={COLORS.tertiary} 
+                        backgroundColor={COLORS.tertiary} 
                         isCentered={false}>
                         <View style={[styles.outlineBubble, styles.developerBubble]}>
                             <View style={styles.headshotContainer}>

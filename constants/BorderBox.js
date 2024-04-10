@@ -6,7 +6,7 @@ const windowWidth = Dimensions.get('window').width;
 const BorderBox = (props) => {
     return (
         <View style={[styles.borderBox, {borderColor: props.borderColor}]}> 
-            <Text style={[styles.captionText, {color: props.titleColor, backgroundColor: props.backroundColor}]}>
+            <Text style={[styles.captionText, {color: props.titleColor, backgroundColor: props.backgroundColor}]}>
               {props.title}
             </Text>
             {props.children}

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
+import BorderBox from '../../constants/BorderBox';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
 
@@ -27,8 +28,11 @@ function IndividualTeam({ navigation, route }) {
                 <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }
                     >
                 </FlatList>
             </View>
@@ -43,9 +47,11 @@ function IndividualTeam({ navigation, route }) {
                 <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
-                    >
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }>
                 </FlatList>
             </View>
         )
@@ -59,8 +65,11 @@ function IndividualTeam({ navigation, route }) {
                 <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }
                     >
                 </FlatList>
             </View>
@@ -100,11 +109,11 @@ function IndividualTeam({ navigation, route }) {
 //TODO styling + changing it depending on the screen
 const Section = (props) => {
     return (
-        <View style={styles.sectionContainer}>
+        <BorderBox title={props.title} titleColor={props.titleColor} borderColor={props.borderColor} backgroundColor={props.backgroundColor}>
             <Text style={styles.text}>
                 {props.text}
             </Text>
-        </View>
+        </BorderBox>
     )
 }
 
@@ -116,14 +125,8 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         backgroundColor: COLORS.primary,
     },
-    sectionContainer: {
-        borderWidth: 2,
-        borderRadius: 15,
-        paddingHorizontal: 80,
-        paddingVertical: 15,
-        marginTop: 30,
-        borderColor: COLORS.tertiary,
-        backgroundColor: "COLORS.primary",
+    separator: {
+        padding: 10,
     },
     imageContainer: {
         // alignItems: "center",
@@ -132,10 +135,12 @@ const styles = StyleSheet.create({
     },
     flatList: {
         backgroundColor: COLORS.primary,
+        paddingTop: 40,
     },
     text: {
         color: COLORS.tertiary,
-        fontFamily: "Lexend_400Regular"
+        fontFamily: "Lexend_400Regular",
+        margin: 20
     },
     button: {
         width: 100,
