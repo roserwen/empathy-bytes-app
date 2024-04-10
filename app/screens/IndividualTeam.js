@@ -8,6 +8,7 @@ import { fb_app, fb_storage } from '../../firebaseConfig';
 function IndividualTeam({ navigation, route }) {
     const { name, id, teamPic } = route.params;
     [picURL, setPicTeam] = useState("");
+    
     useEffect(() => {
         getDownloadURL(ref(fb_storage, teamPic))
         .then((url) => {
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         marginTop: 30,
         borderColor: COLORS.tertiary,
-        backgroundColor: COLORS.primary,
+        backgroundColor: "COLORS.primary",
     },
     imageContainer: {
         // alignItems: "center",
@@ -142,9 +143,9 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30,
-        fontWeight: 'bold',
+        //fontWeight: "bold",
         color: COLORS.tertiary,
-        fontFamily: "Lexend_400Regular"
+        fontFamily: "Lexend_700Bold"
     },
     teamImage: {
         // width: 130,

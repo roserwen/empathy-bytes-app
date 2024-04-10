@@ -14,7 +14,7 @@ const ProjectItem = (props) => {
     return (
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Project", {name: props.name, description: props.description})
+                navigation.navigate("Individual Project", {name: props.name, description: props.description, id: props.id})
             }}
             name = {props.name}
             type = {props.type}
@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontWeight:400,
+        //fontWeight:"bold",
         color: COLORS.secondary,
         marginTop: -30,
         paddingBottom: 20,
-        fontFamily: "Lexend_400Regular",
+        fontFamily: "Lexend_700Bold",
     },
     separator: {
         height: 10
