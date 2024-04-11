@@ -7,7 +7,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
 
 function IndividualTeam({ navigation, route }) {
-    const { name, id, teamPic } = route.params;
+    const { team, id, teamPic } = route.params;
     [picURL, setPicTeam] = useState("");
     
     useEffect(() => {
@@ -20,12 +20,11 @@ function IndividualTeam({ navigation, route }) {
             // Handle any errors
         });
     },[]);
+
     //if screen is app or web team page: render FlatList of description section, tech stack section, and dev section
     if (id == 1 || id === 2) {
         return (
             <View style={styles.container}>
-                <Text style={styles.titleText}> {name} </Text>
-                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
@@ -43,8 +42,6 @@ function IndividualTeam({ navigation, route }) {
     } else if (id == 3) {
         return (
             <View style={styles.container}>
-                <Text style={styles.titleText}> {name} </Text>
-                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
@@ -61,8 +58,6 @@ function IndividualTeam({ navigation, route }) {
     } else if (id == 4) {
         return (
             <View style={styles.container}>
-                <Text style={styles.titleText}> {name} </Text>
-                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
                     renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
@@ -75,50 +70,33 @@ function IndividualTeam({ navigation, route }) {
             </View>
         )
     }
-    
-    //if screen is media or VR page// TODO change to FlatList
-    /*return (
-        <View style={styles.container}> 
-            <View style={styles.imageContainer}>
-                <Image
-                    style={styles.teamImage}
-                    source={{
-                    uri: 'https://educast.library.gatech.edu/wp-content/uploads/2020/10/cropped-logoGearsOnlyRound-1-2.png'}}
-                />
-            </View>
-            <Text style={styles.titleText}>
-                { name }
-            </Text>
-            <Text style={styles.text}>
-                { description }
-            </Text>
-            <Text style={styles.text}>
-                Press this button to return back to Welcome Screen.
-            </Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Welcome')} >
-                <Image
-                    style={styles.button}
-                    source={{
-                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                />
-            </TouchableOpacity>
-        </View>
-    );*/
 }
 
 //TODO styling + changing it depending on the screen
 const Section = (props) => {
-    return (
-        <BorderBox title={props.title}
-        titleColor={props.titleColor}
-        borderColor={props.borderColor}
-        backgroundColor={props.backgroundColor}
-        isCentered={props.id == 0 ? true : false}>
-            <Text style={styles.text}>
-                {props.text}
-            </Text>
-        </BorderBox>
-    )
+    if (props.id == 0) {
+        return (
+            <BorderBox title={props.title}
+            titleColor={props.titleColor}
+            borderColor={props.borderColor}
+            backgroundColor={props.backgroundColor}
+            isCentered={true}>
+                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
+            </BorderBox>
+        )
+    } else {
+        return (
+            <BorderBox title={props.title}
+            titleColor={props.titleColor}
+            borderColor={props.borderColor}
+            backgroundColor={props.backgroundColor}
+            isCentered={false}>
+                <Text style={styles.text}>
+                    {props.text}
+                </Text>
+            </BorderBox>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -160,7 +138,6 @@ const styles = StyleSheet.create({
     teamImage: {
         // width: 130,
         // height: 80,
-        padding: 80,
         aspectRatio: 1.5, // Maintain aspect ratio
         resizeMode: 'contain',
         // borderWidth: 2, // Border width

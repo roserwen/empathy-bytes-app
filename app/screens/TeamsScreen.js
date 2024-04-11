@@ -13,9 +13,9 @@ const TeamItem = (props) => {
     return (
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
+                navigation.navigate("Individual Team", {team: props.team, id: props.id, teamPic: props.teamPic})
             }}
-            name = {props.name}
+            team = {props.team}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
             image = {props.image}
@@ -27,7 +27,7 @@ const TeamItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.name} id={item.id} teamPic={item.teamPic}/>
+        <TeamItem team={item.team} id={item.id} teamPic={item.teamPic}/>
     )
 };
 

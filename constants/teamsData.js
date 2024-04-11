@@ -1,9 +1,13 @@
 export const teamData = [
     {
         id: 1,
-        name: "App Team",
+        team: "App Team",
         teamPic: "gs://empathy-bytes-app.appspot.com/team_photo/App Team.jpg",
         description: [
+            {
+                id: 0,
+                name: "App Team",
+            },
             {
                 id: 1,
                 name: "Description",
@@ -22,9 +26,13 @@ export const teamData = [
     },
     {
         id: 2,
-        name: "Web Team",
+        team: "Web Team",
         teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/webTeam.jpg',
         description: [
+            {
+                id: 0,
+                name: "Web Team",
+            },
             {
                 id: 1,
                 name: "Description",
@@ -43,10 +51,14 @@ export const teamData = [
     },
     {
         id: 3,
-        name: "VR/AR Team",
+        team: "VR/AR Team",
         teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/Emerging/Jack_0.jpg',
         //will include 3d artifacts here
         description: [
+            {
+                id: 0,
+                name: "VR/AR Team",
+            },
             {
                 id: 1,
                 name: "Description",
@@ -65,10 +77,14 @@ export const teamData = [
     },
     {
         id: 4,
-        name: "Media Team",
+        team: "Media Team",
         //will have different description
         teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/Media Team.jpg', 
         description: [
+            {
+                id: 0,
+                name: "Media Team",
+            },
             {
                 id: 1,
                 name: "Descriptions",

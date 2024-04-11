@@ -13,14 +13,13 @@ function AboutUs({navigation}) {
                     style={styles.image}
                     source={require('../../assets/teampic.jpeg')}
             />
-            <ScrollView contentContainerStyle={styles.scrollContainer}>
+            <ScrollView>
                 <View style={styles.scrollContent}> 
                     <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
                         <Text style={styles.backText}>
                             {backHome}
                         </Text>
                     </TouchableOpacity>
-                    
                     <Text style={styles.titleText}>
                                     Our Team
                             </Text>

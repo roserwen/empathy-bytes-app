@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS } from './theme';
 
-export default function ListButton({name, dir, type, onPress, image}) {
+export default function ListButton({team, dir, type, onPress, image}) {
     const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
     return (
         <View style = {dir ? styles.left : styles.right}> 
@@ -17,7 +17,7 @@ export default function ListButton({name, dir, type, onPress, image}) {
                         />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text numberOfLines={2} style={styles.text}> { name } </Text>
+                        <Text numberOfLines={2} style={styles.text}> { team } </Text>
                         {typeof type !== 'undefined' &&
                         <View style={styles.typecontainer}>
                             <Text style={styles.type}> { type } </Text>

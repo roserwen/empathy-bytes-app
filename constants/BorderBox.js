@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 //const windowWidth = Dimensions.get('window').width;
 
 const BorderBox = (props) => {
@@ -11,7 +11,9 @@ const BorderBox = (props) => {
               {props.title}
               </Text>
             </View>
-            {props.children}
+            <View style={props.children.type == Image ? styles.image : styles.subtext}>
+              {props.children}
+            </View>
         </View>
     );
 }
@@ -22,7 +24,6 @@ const styles = StyleSheet.create({
   borderBox: {
     borderWidth: 1.5,
     borderRadius: 35,
-    width: 'inherit',
     margin: 5,
   },
   text: {
@@ -34,4 +35,13 @@ const styles = StyleSheet.create({
     top: -27,
     paddingHorizontal: 5,
   },
+  subtext: {
+    
+  },
+  image: {
+    width: 200,
+    //padding: 100,
+    aspectRatio: 1.5, // Maintain aspect ratio
+    resizeMode: 'contain',
+  }
 })
