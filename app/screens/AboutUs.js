@@ -13,97 +13,99 @@ function AboutUs({navigation}) {
                     style={styles.image}
                     source={require('../../assets/teampic.jpeg')}
             />
-            <ScrollView>
-            <View style={styles.scrollContainer}> 
-                <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
-                    <Text style={styles.backText}>
-                        {backHome}
-                    </Text>
-                </TouchableOpacity>
-                
-                <Text style={styles.titleText}>
-						        Our Team
-				        </Text>
-                <View style={styles.boxGap}>
-                    <BorderBox title={"What we do"} 
-                        borderColor={COLORS.primary} 
-                        titleColor={COLORS.primary} 
-                        backgroundColor={COLORS.tertiary} 
-                        isCentered={false}>
-                        <Text style={styles.text}>
-                            Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources.
-                        </Text> 
-                    </BorderBox>
-                    {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
-                    <BorderBox title={"Developers"} 
-                        borderColor={COLORS.secondary} 
-                        titleColor={COLORS.secondary} 
-                        backgroundColor={COLORS.tertiary} 
-                        isCentered={false}>
-                        <View style={[styles.outlineBubble, styles.developerBubble]}>
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
+                <View style={styles.scrollContent}> 
+                    <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
+                        <Text style={styles.backText}>
+                            {backHome}
+                        </Text>
+                    </TouchableOpacity>
+                    
+                    <Text style={styles.titleText}>
+                                    Our Team
+                            </Text>
+                    <View style={styles.boxGap}>
+                        <BorderBox title={"What we do"} 
+                            borderColor={COLORS.primary} 
+                            titleColor={COLORS.primary} 
+                            backgroundColor={COLORS.tertiary} 
+                            isCentered={false}
+                            style={styles.borderBox}>
+                            <Text style={styles.text}>
+                                Empathy Bytes VIP explores how multimedia and emerging technologies can enhance empathy and understanding as we create digital scholarship and improve access to resources.
+                            </Text> 
+                        </BorderBox>
+                        {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
+                        <BorderBox title={"Developers"} 
+                            borderColor={COLORS.secondary} 
+                            titleColor={COLORS.secondary} 
+                            backgroundColor={COLORS.tertiary} 
+                            isCentered={false}
+                            style={styles.borderBox}>
+                            <View style={[styles.outlineBubble, styles.developerBubble]}>
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
+                                {/* */}
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
+                                {/* */}
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
+                                {/* */}
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
+                                {/* */}
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
+                                {/* */}
+                                <View style={styles.headshotContainer}>
+                                    <View style={styles.CircleShapeView}></View>
+                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Name
+                                    </Text>
+                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                        Role
+                                    </Text>
+                                </View>
                             </View>
-                            {/* */}
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
-                            </View>
-                            {/* */}
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
-                            </View>
-                            {/* */}
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
-                            </View>
-                            {/* */}
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
-                            </View>
-                            {/* */}
-                            <View style={styles.headshotContainer}>
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Name
-                                </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                    Role
-                                </Text>
-                            </View>
-                        </View>
-                    </BorderBox>
+                        </BorderBox>
+                    </View>
                 </View>
-            </View>
             </ScrollView>
         </View>
     );
@@ -118,7 +120,10 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         borderRadius: 10,        
     },
-    scrollContainer: {
+    borderBox: {
+        width: '90%',
+    },
+    scrollContent: {
         flex: 1,
         alignItems: "center",
         paddingBottom: 30,
@@ -198,6 +203,7 @@ const styles = StyleSheet.create({
     },*/
     boxGap: {
         gap: 20,
+        alignItems: 'center',
     },
     backButton: {
         position: "absolute",

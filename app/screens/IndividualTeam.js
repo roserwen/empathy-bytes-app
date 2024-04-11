@@ -109,7 +109,11 @@ function IndividualTeam({ navigation, route }) {
 //TODO styling + changing it depending on the screen
 const Section = (props) => {
     return (
-        <BorderBox title={props.title} titleColor={props.titleColor} borderColor={props.borderColor} backgroundColor={props.backgroundColor}>
+        <BorderBox title={props.title}
+        titleColor={props.titleColor}
+        borderColor={props.borderColor}
+        backgroundColor={props.backgroundColor}
+        isCentered={props.id == 0 ? true : false}>
             <Text style={styles.text}>
                 {props.text}
             </Text>
@@ -136,6 +140,7 @@ const styles = StyleSheet.create({
     flatList: {
         backgroundColor: COLORS.primary,
         paddingTop: 40,
+        width: "90%"
     },
     text: {
         color: COLORS.tertiary,
