@@ -14,7 +14,7 @@ const ProjectItem = (props) => {
     return (
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Project", {name: props.name, description: props.description})
+                navigation.navigate("Individual Project", {name: props.name, description: props.description, audio: props.audio})
             }}
             name = {props.name}
             type = {props.type}
@@ -28,7 +28,7 @@ const ProjectItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} />
+        <ProjectItem name={item.name} description={item.description} type={item.type} id={item.id} image={item.image} audio={item.audio} />
     )
 };
 

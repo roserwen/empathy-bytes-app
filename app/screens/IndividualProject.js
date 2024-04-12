@@ -17,7 +17,7 @@ function CustomButton({ onPress, title }) {
 }
 
 function IndividualProject({ navigation, route }) {
-    const { name, description } = route.params;
+    const { name, description, audio} = route.params;
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -33,7 +33,7 @@ function IndividualProject({ navigation, route }) {
     setAudioMode();
     
     async function fetchAudioUrl() {
-      const audioPath = 'daneWryeInterview_mixdown.mp3';
+      const audioPath = audio;
       const storageRef = ref(fb_storage, audioPath);
       try {
         return await getDownloadURL(storageRef);
@@ -106,9 +106,11 @@ function IndividualProject({ navigation, route }) {
                             {description}
                         </Text> 
                     </BorderBox>
+                    {audio && (
                     <View style={styles.audioContainer}>
                         <CustomButton title={isPlaying ? "Stop Interview" : "Play Interview"} onPress={togglePlayback} />
                     </View>
+                    )}
                 </View>
             </ScrollView>
         </View>
