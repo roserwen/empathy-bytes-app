@@ -15,6 +15,7 @@ export const teamData = [
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "React Native, Expo, JavaScript, Google Firestore"
             },
             {
@@ -39,6 +40,7 @@ export const teamData = [
             },
             {
                 id: 2,
+                name: "Tech Stack",
                 text: "GatsbyJS, Decoupled Drupal, Three.js"
             },
             {
