@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
-        gap: '20%',
+        // gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row-reverse',
-        gap: '20%',
+        // gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -108,10 +108,10 @@ const styles = StyleSheet.create({
     },
     text: {
         color: COLORS.white,
-        fontFamily: 'Lexend_400Regular',
-        fontWeight: 900,
+        fontFamily: 'Lexend_700Bold',
+        //fontWeight: 900,
         fontSize: 20,
-        fontWeight: "bold",
+        //fontWeight: "bold",
         textAlign: 'center',
     },
     typecontainer: {
