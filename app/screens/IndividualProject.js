@@ -105,7 +105,11 @@ function IndividualProject({ navigation, route }) {
 
             {audio && (
                 <View style={styles.audioContainer}>
+                    <View style={styles.audioContainerLeft}>
                     <CustomButton isPlaying={isPlaying} onPress={togglePlayback}/>
+                        <Text>00:00
+                        </Text>
+                    </View>
                     <Image 
                         style={styles.voice}
                         source={require('../../assets/voice.png')}/>     
@@ -191,6 +195,11 @@ const styles = StyleSheet.create({
         height: 45,
         backgroundColor: "#FFFBE7",
         borderRadius: 200,
+    },
+    audioContainerLeft: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     button: {
         backgroundColor: Colors.primary, 
