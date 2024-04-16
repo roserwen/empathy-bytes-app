@@ -26,9 +26,9 @@ const TeamItem = (props) => {
 
     return (
         // <Text style={styles.title}> {picURL} </Text>,
-        console.log("hi"),
-        console.log(props.name),
-        console.log(picURL),
+        //console.log("hi"),
+        //console.log(props.team),
+        //console.log({picURL}),
         <ListButton
             onPress={() => {
                 navigation.navigate("Individual Team", {team: props.team, id: props.id, teamPic: props.teamPic})
@@ -44,6 +44,9 @@ const TeamItem = (props) => {
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
+    console.log("hi")
+    console.log(item.team)
+    console.log(item.teamPic)
     return (
         <TeamItem team={item.team} id={item.id} teamPic={item.teamPic}/>
     )
