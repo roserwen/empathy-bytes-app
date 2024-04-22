@@ -1,6 +1,9 @@
-import React from 'react';
+import {React, Suspense} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions } from "react-native"
 import { COLORS } from '../../constants/theme';
+import {Canvas, UseFrame} from '@react-three/fiber';
+import {useGLTF} from '@react-three/drei';
+import useControls from "r3f-native-orbitcontrols";
 import HomescreenButton from '../../constants/HomescreenButton';
 import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
@@ -10,9 +13,31 @@ import teams from '../../assets/Teams.png';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-function HomeScreen({navigation}) {
+function Model(props) {
+    const { nodes, materials } = useGLTF(require('../../assets/RightConverse.glb'))
     return (
-        <View style={styles.container}>
+      <group {...props} dispose={null}>
+        <mesh geometry={nodes.baked_mesh001.geometry} material={materials['g0.002']} position={[0, 0.161, 0]} rotation={[1.632, 0.011, -0.018]} />
+      </group>
+    )
+}
+
+function HomeScreen({navigation}) {
+    const [OrbitControls, events] = useControls()
+    return (
+
+        <View {...events} style={{flex:1}}>
+            <Canvas camera={{ fov:70, position: [0,0,5]}}>
+                <ambientLight />
+                <OrbitControls />
+                <directionalLight intensity={2} position={[0,0,50]} />
+                <Suspense fallback={null}>
+                    <Model />
+                </Suspense>
+            </Canvas>
+        </View>
+
+        /*<View style={styles.container}>
             <Text style={styles.text}>
                 HOME
             </Text>
@@ -20,7 +45,7 @@ function HomeScreen({navigation}) {
             <HomescreenButton text="Projects" style={styles.button} image={projects} color={COLORS.secondary} onPress={() => navigation.navigate('Projects')}></HomescreenButton>
             <HomescreenButton text="Teams" style={styles.button} image={teams} color={COLORS.primary} onPress={() => navigation.navigate('Teams')}></HomescreenButton>
             <HomescreenButton text="Contact Us" style={styles.button} image={contact} color={COLORS.secondary} onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
-            {/*
+            
             <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
                 <Image
                     style={styles.button}
@@ -48,10 +73,12 @@ function HomeScreen({navigation}) {
                     source={{
                     uri: 'https://i.stack.imgur.com/4G1qY.png'}}
                 />
-                </TouchableOpacity>*/}
-        </View>
+                </TouchableOpacity>
+        </View>*/
     );
 }
+
+useGLTF.preload(require('../../assets/RightConverse.glb'));
 
 const styles = StyleSheet.create({
     container: {
