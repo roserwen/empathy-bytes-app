@@ -1,24 +1,42 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { teamData } from "../../constants/teamsData";
 import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
 import { COLORS } from '../../constants/theme';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../../firebaseConfig';
 
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
+    [picURL, setPicTeam] = useState("");
+    
+    useEffect(() => {
+        getDownloadURL(ref(fb_storage, props.teamPic))
+        .then((url) => {
+            setPicTeam(url);
+            // Or inserted into an <img> element
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    },[]);
 
     return (
+        // <Text style={styles.title}> {picURL} </Text>,
+        //console.log("hi"),
+        //console.log(props.team),
+        //console.log({picURL}),
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
+                navigation.navigate("Individual Team", {team: props.team, id: props.id, teamPic: props.teamPic})
             }}
-            name = {props.name}
+            team = {props.team}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            image = {props.image}
+            image = {picURL}
         >
         </ListButton>
     );
@@ -26,8 +44,11 @@ const TeamItem = (props) => {
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
+    console.log("hi")
+    console.log(item.team)
+    console.log(item.teamPic)
     return (
-        <TeamItem name={item.name} id={item.id} teamPic={item.teamPic}/>
+        <TeamItem team={item.team} id={item.id} teamPic={item.teamPic}/>
     )
 };
 

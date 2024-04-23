@@ -1,15 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-const windowWidth = Dimensions.get('window').width;
+import { View, Text, Image, StyleSheet } from "react-native";
+//const windowWidth = Dimensions.get('window').width;
 
-// isCentered isn't implemented yet :(
 const BorderBox = (props) => {
     return (
-        <View style={[styles.borderBox, {borderColor: props.borderColor}]}> 
-            <Text style={[styles.captionText, {color: props.titleColor, backgroundColor: props.backroundColor}]}>
+        <View style={[styles.borderBox, {borderColor: props.borderColor}, props.style]}> 
+            {/*if isCentered, center the text, else only apply absolute position and left: 20*/}
+            <View style={props.isCentered ? {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'} : {position: 'absolute'}}>
+              <Text style={[styles.text, {color: props.titleColor, backgroundColor: props.backgroundColor, left: props.isCentered ? 0 : 20, fontSize: props.isCentered ? 45 : 30}]}>
               {props.title}
-            </Text>
-            {props.children}
+              </Text>
+            </View>
+            <View style={props.children.type == Image ? styles.image : styles.subtext}>
+              {props.children}
+            </View>
         </View>
     );
 }
@@ -20,17 +24,24 @@ const styles = StyleSheet.create({
   borderBox: {
     borderWidth: 1.5,
     borderRadius: 35,
-    width: windowWidth - 50,
     margin: 5,
   },
-  captionText: {
-    position: 'absolute',
-    fontSize: 30,
+  text: {
+    //position: 'absolute',
+    //textAlign: 'center',
+    //fontSize: 30,
     fontFamily: "Lexend_700Bold",
     zIndex: 1,
-    position: 'absolute',
     top: -27,
-    left: 20,
     paddingHorizontal: 5,
   },
+  subtext: {
+    
+  },
+  image: {
+    width: 200,
+    //padding: 100,
+    aspectRatio: 1.5, // Maintain aspect ratio
+    resizeMode: 'contain',
+  }
 })
