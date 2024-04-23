@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS } from './theme';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../firebaseConfig';
 
-export default function ListButton({team, dir, type, onPress, image}) {
-    const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+export default function ListButton({name, dir, type, onPress, image}) {
+    //const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+
     return (
         // console.log("hi"),
-        // console.log(name),
+        console.log(name),
         // console.log(image),
+        console.log(image),
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
                 style = {dir ? styles.leftButton : styles.rightButton}
@@ -16,7 +20,7 @@ export default function ListButton({team, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={picURL ? {uri: picURL} : null}
+                            source={image ? {uri: image} : null}
                             // source={image}
                             // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
-        gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -97,7 +101,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row-reverse',
-        gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
 

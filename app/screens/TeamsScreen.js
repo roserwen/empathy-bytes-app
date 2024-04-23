@@ -31,12 +31,12 @@ const TeamItem = (props) => {
         //console.log({picURL}),
         <ListButton
             onPress={() => {
-                navigation.navigate("Individual Team", {team: props.team, id: props.id, teamPic: props.teamPic})
+                navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
             }}
-            team = {props.team}
+            name = {props.name}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            image = {picURL}
+            image = {props.picURL}
         >
         </ListButton>
     );
@@ -48,7 +48,7 @@ const renderItem = ({ item }) => {
     console.log(item.team)
     console.log(item.teamPic)
     return (
-        <TeamItem team={item.team} id={item.id} teamPic={item.teamPic}/>
+        <TeamItem name={item.team} id={item.id} teamPic={item.teamPic} picURL={item.picURL}/>
     )
 };
 

@@ -81,7 +81,9 @@ const Section = (props) => {
             borderColor={props.borderColor}
             backgroundColor={props.backgroundColor}
             isCentered={true}>
-                <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
+                <View style={styles.imageContainer}>
+                    <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
+                </View>
             </BorderBox>
         )
     } else {
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         // alignItems: "center",
         // justifyContent: "center",
-        padding: 20,
+        width: '100%',
     },
     flatList: {
         backgroundColor: COLORS.primary,
@@ -136,11 +138,15 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_700Bold"
     },
     teamImage: {
-        // width: 130,
-        // height: 80,
+        width: '90%',
+        // height: '85%',
         aspectRatio: 1.5, // Maintain aspect ratio
         resizeMode: 'contain',
-        // borderWidth: 2, // Border width
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        borderRadius: 20,
+        marginTop: 50,
+        marginBottom: 25,
         // borderColor: COLORS.secondary, // Border color
         // borderRadius: 10, // Border radius for rounded corners
     },
