@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
-        // gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row-reverse',
-        // gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
 
