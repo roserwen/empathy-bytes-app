@@ -6,8 +6,8 @@ import ListButton from '../../constants/ListButton';
 import BackArrow from '../../constants/BackArrow';
 import { COLORS } from '../../constants/theme';
 
-
 //appearance of each button + trying to push the new screen onto nav stack
+//type has yet to be implemented
 const ProjectItem = (props) => {
     const navigation = useNavigation();
 

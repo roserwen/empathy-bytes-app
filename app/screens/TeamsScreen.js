@@ -36,7 +36,7 @@ const TeamItem = (props) => {
             name = {props.name}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            image = {props.image}
+            image = {props.teamPic}
         >
         </ListButton>
     );

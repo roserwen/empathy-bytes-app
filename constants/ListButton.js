@@ -1,13 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS } from './theme';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../firebaseConfig';
 
 export default function ListButton({name, dir, type, onPress, image}) {
-    const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+    //const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+
+    [picURL, setPicTeam] = useState("");
+    
+    useEffect(() => {
+        getDownloadURL(ref(fb_storage, image))
+        .then((url) => {
+            setPicTeam(url);
+            // Or inserted into an <img> element
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    },[]);
+
     return (
         // console.log("hi"),
         // console.log(name),
         // console.log(image),
+        console.log(picURL),
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
                 style = {dir ? styles.leftButton : styles.rightButton}
@@ -16,7 +33,7 @@ export default function ListButton({name, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={image ? {uri: image} : null}
+                            source={picURL ? {uri: picURL} : null}
                             // source={image}
                             // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />
