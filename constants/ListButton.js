@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS } from './theme';
 
-export default function ListButton({team, dir, type, onPress, image}) {
+export default function ListButton({name, dir, type, onPress, image}) {
     const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
     return (
         // console.log("hi"),
@@ -16,7 +16,7 @@ export default function ListButton({team, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={picURL ? {uri: picURL} : null}
+                            source={image ? {uri: image} : null}
                             // source={image}
                             // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />
