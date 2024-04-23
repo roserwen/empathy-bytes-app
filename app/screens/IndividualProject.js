@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
 import { COLORS } from "../../constants/theme";
 import BackArrow from '../../constants/BackArrow';
 import BorderBox from '../../constants/BorderBox';
@@ -7,7 +7,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { Audio } from 'expo-av';
 import { fb_storage } from '../../firebaseConfig'; 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-
+const windowWidth = Dimensions.get('window').width;
 
 function IndividualProject({ navigation, route }) {
     const { name, description, audio} = route.params;
@@ -88,45 +88,46 @@ function IndividualProject({ navigation, route }) {
 
     return (
         <View style={styles.container}> 
-        <BackArrow navigation={navigation} page='Projects' color="#ABA174"/>
-        <TouchableOpacity onPress={() => navigation.navigate('Projects')} />
-        <ScrollView>
-            <View style={styles.titleContainer}>
-                <BorderBox title={name} 
-                            borderColor={COLORS.tertiary} 
-                            titleColor={COLORS.tertiary} 
-                            backroundColor={COLORS.primary} 
-                            isCentered={false}> 
-                            <Image 
-                                style={styles.image}
-                                source={require('../../assets/teampic.jpeg')}/>          
-                </BorderBox>
-            </View>
-
-            {audio && (
-                <View style={styles.audioContainer}>
-                    <View style={styles.audioContainerLeft}>
-                    <CustomButton isPlaying={isPlaying} onPress={togglePlayback}/>
-                        <Text>00:00
-                        </Text>
+            <BackArrow navigation={navigation} page='Projects' color="#ABA174"/>
+            <ScrollView>
+                <View style={styles.scrollContent}>
+                    <View style={styles.titleContainer}>
+                        <BorderBox title={name} 
+                                    borderColor={COLORS.tertiary} 
+                                    titleColor={COLORS.tertiary} 
+                                    backgroundColor={COLORS.primary} 
+                                    isCentered={true}> 
+                                    <Image 
+                                        style={styles.image}
+                                        source={require('../../assets/teampic.jpeg')}/>          
+                        </BorderBox>
                     </View>
-                    <Image 
-                        style={styles.voice}
-                        source={require('../../assets/voice.png')}/>     
-                </View>
-            )}
 
-            <View style={styles.titleContainer}>
-                <BorderBox title={"Description"} 
-                            borderColor={COLORS.tertiary} 
-                            titleColor={COLORS.secondary}
-                            backroundColor={COLORS.primary} 
-                            isCentered={false}>
-                            <Text style={styles.text}>
-                                {description}
-                            </Text> 
-                </BorderBox>
-            </View>
+                    {audio && (
+                        <View style={styles.audioContainer}>
+                            <View style={styles.audioContainerLeft}>
+                                <CustomButton isPlaying={isPlaying} onPress={togglePlayback}/>
+                                    <Text>00:00
+                                    </Text>
+                            </View>
+                            <Image 
+                                style={styles.voice}
+                                source={require('../../assets/voice.png')}/>     
+                        </View>
+                    )}
+
+                    <View style={styles.titleContainer}>
+                        <BorderBox title={"Description"} 
+                                    borderColor={COLORS.tertiary} 
+                                    titleColor={COLORS.tertiary}
+                                    backgroundColor={COLORS.primary} 
+                                    isCentered={false}>
+                                    <Text style={styles.text}>
+                                        {description}
+                                    </Text> 
+                        </BorderBox>
+                    </View>
+                </View>
             </ScrollView>
         </View>
     );
@@ -179,19 +180,21 @@ const styles = StyleSheet.create({
         padding: 80,
     },
     image: {
-        width: 300,
-        height: 250,
+        width: 200,
+        resizeMode: 'contain',
+        //aspectRatio: 1.5,
+        /*height: 250,
         left: 20,
-        bottom: 20,
+        bottom: 20,*/
     },
     audioContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 15,
-        marginLeft: 30,
+        //marginLeft: 30,
         alignItems: 'center',
-        width: 320,
+        width: "90%",
         height: 45,
         backgroundColor: "#FFFBE7",
         borderRadius: 200,
@@ -228,7 +231,13 @@ const styles = StyleSheet.create({
         width: 30,
         height: 27,
         marginRight: 20,
-    }
+    },
+    scrollContent: {
+        flex: 1,
+        alignItems: "center",
+        paddingBottom: 30,
+        width: windowWidth, 
+    },
 })
 
 export default IndividualProject;
