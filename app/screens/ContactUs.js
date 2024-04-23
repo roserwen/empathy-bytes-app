@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-native"
 import { COLORS } from '../../constants/theme';
-import { TextInput, TouchableHighlight } from 'react-native';
+import { TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import qs from 'qs';
 
 function ContactUs() {
+
+    const [names, setNames] = useState("")
+    const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
+
+    async function sendEmail() {
+        let url = `mailto:empathy.bytes.vip@gmail.com`;
+
+        const query = qs.stringify({
+            subject: `Empathy Bytes App message from - ${names}`,
+            body: `${message}\n\n Sender's Email: ${email}`,
+        });
+        if (query.length) {
+            url += `?${query}`;
+        }
+    
+        // check if we can use this link
+        const canOpen = await Linking.canOpenURL(url);
+    
+        if (!canOpen) {
+            throw new Error('Provided URL can not be handled');
+        }
+        return Linking.openURL(url);
+    }
+
     return (
         <View style={styles.container}> 
             <Image
@@ -17,17 +43,26 @@ function ContactUs() {
             <View style={styles.formBox}>
                 <TextInput 
                     style={styles.input}
+                    value={email}
+                    onChangeText={setEmail}
                     placeholder='Email...'
                 />
                 <TextInput 
                     style={styles.input}
+                    value={names}
+                    onChangeText={setNames}
                     placeholder='Name...'
                 />
                 <TextInput 
                     style={[styles.input, styles.messageBox]}
+                    value={message}
+                    onChangeText={setMessage}
                     placeholder='Message...'
                     multiline
                 />
+                <TouchableOpacity style={styles.submitButton} onPress={sendEmail} >
+                    <Text style={styles.submitText} >Submit</Text>
+                </TouchableOpacity>
             </View>
             <Text style={styles.mediaText}>Or find us on social media!</Text>
             <View style={styles.mediaBox}>
@@ -148,6 +183,20 @@ const styles = StyleSheet.create({
         height: 22,
         padding: 22,
     },
+    submitButton: {
+        margin: 10,
+        borderRadius: 15,
+        alignItems: 'center',
+        backgroundColor: COLORS.primary,
+        width: '85%',
+        padding: 5,
+    },
+    submitText: {
+        color: 'white',
+        fontSize: 20,
+        fontFamily: "Lexend_400Regular",
+        textAlign: "center",
+    }
 })
 
 export default ContactUs;

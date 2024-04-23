@@ -1,120 +1,144 @@
-import React , {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native"
-import { COLORS } from "../../constants/theme"
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { fb_app, fb_storage } from '../../firebaseConfig';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from "react-native";
+import { COLORS } from "../../constants/theme";
 import BackArrow from '../../constants/BackArrow';
 import BorderBox from '../../constants/BorderBox';
-import { FlatList } from 'react-native-gesture-handler';
-import { projectData } from '../../constants/projectsData';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { getDownloadURL, ref } from "firebase/storage";
+import { Audio } from 'expo-av';
+import { fb_storage } from '../../firebaseConfig'; 
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 
 function IndividualProject({ navigation, route }) {
-    const { name, description, id } = route.params;
-    // [picURL, setPicProj] = useState("");
-    
-    // useEffect(() => {
-    //     getDownloadURL(ref(fb_storage, projectPic))
-    //     .then((url) => {
-    //         setPicTeam(url);
-    //         // Or inserted into an <img> element
-    //     })
-    //     .catch((error) => {
-    //         // Handle any errors
-    //     });
-    // },[]);
+    const { name, description, audio} = route.params;
+    const [sound, setSound] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    if (id == 1) {
+    function CustomButton({ onPress, isPlaying }) {
         return (
-            <GestureHandlerRootView style={styles.container}>
-                <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
-                <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
-                        
-                </TouchableOpacity>
-                <FlatList style={styles.flatList}
-                        data={projectData[id - 1].description}
-                        renderItem={({item}) => <Section id={item.id} text = {item.text} />}
-                        keyExtractor={item => item.id}
-                        >        
-                </FlatList>
-               
-            </GestureHandlerRootView>
-        )
+            <TouchableOpacity onPress={onPress} style={styles.button}>
+                {isPlaying ? 
+                    <Image
+                    style={styles.icon}
+                    source={require('../../assets/pause.png')}
+                    /> : 
+                    <Image
+                    style={styles.icon}
+                    source={require('../../assets/play.png')}
+                />}
+            </TouchableOpacity>
+        );
     }
-    else {
+
+    async function setAudioMode() {
+        await Audio.setAudioModeAsync({
+            playsInSilentModeIOS: true,
+            allowsRecordingIOS: false,
+            staysActiveInBackground: false,
+            shouldDuckAndroid: true,
+            playThroughEarpieceAndroid: false,
+        });
+    }
+    setAudioMode();
+    
+    async function fetchAudioUrl() {
+      const audioPath = audio;
+      const storageRef = ref(fb_storage, audioPath);
+      try {
+        return await getDownloadURL(storageRef);
+      } catch (error) {
+        console.error("Error fetching audio URL:", error);
+        return null;
+      }
+    }
+
+    async function togglePlayback() {
+        if (isPlaying && sound) {
+            console.log('Stopping Sound');
+            await sound.stopAsync();
+            setIsPlaying(false);
+        } else {
+            if (!sound) {
+                console.log('Loading Sound');
+                const audioUrl = await fetchAudioUrl();
+                if (audioUrl) {
+                    const { sound: newSound } = await Audio.Sound.createAsync(
+                        { uri: audioUrl },
+                        { shouldPlay: true }
+                    );
+                    setSound(newSound);
+                    setIsPlaying(true);
+                } else {
+                    console.log('Failed to load sound');
+                }
+            } else {
+                console.log('Playing Sound');
+                await sound.playAsync();
+                setIsPlaying(true);
+            }
+        }
+    }
+
+    useEffect(() => {
+        setAudioMode();
+        return () => {
+            sound?.unloadAsync();
+        };
+    }, [sound]);
+
     return (
         <View style={styles.container}> 
-        <BackArrow navigation={navigation} page='Home' color="#ABA174"/>
-         {/* <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
-                
-            </TouchableOpacity> */}
+        <BackArrow navigation={navigation} page='Projects' color="#ABA174"/>
+        <TouchableOpacity onPress={() => navigation.navigate('Projects')} />
         <ScrollView>
             <View style={styles.titleContainer}>
-            <BorderBox title={name} 
-                        borderColor={COLORS.tertiary} 
-                        titleColor={COLORS.tertiary} 
-                        backroundColor={COLORS.primary} 
-                        isCentered={false}> 
-                        <Image 
-                            style={styles.image}
-                            source={require('../../assets/teampic.jpeg')}/>
-                        
-                        
-            </BorderBox>
+                <BorderBox title={name} 
+                            borderColor={COLORS.tertiary} 
+                            titleColor={COLORS.tertiary} 
+                            backroundColor={COLORS.primary} 
+                            isCentered={false}> 
+                            <Image 
+                                style={styles.image}
+                                source={require('../../assets/teampic.jpeg')}/>          
+                </BorderBox>
             </View>
 
-            <View style={styles.titleContainer}>
-            <BorderBox title={"Description"} 
-                        borderColor={COLORS.tertiary} 
-                        titleColor={COLORS.secondary}
-                        backroundColor={COLORS.primary} 
-                        isCentered={false}>
-                        <Text style={styles.text}>
-                            {description}
-                        </Text> 
-                    </BorderBox>
+            {audio && (
+                <View style={styles.audioContainer}>
+                    <View style={styles.audioContainerLeft}>
+                    <CustomButton isPlaying={isPlaying} onPress={togglePlayback}/>
+                        <Text>00:00
+                        </Text>
                     </View>
-            
+                    <Image 
+                        style={styles.voice}
+                        source={require('../../assets/voice.png')}/>     
+                </View>
+            )}
+
+            <View style={styles.titleContainer}>
+                <BorderBox title={"Description"} 
+                            borderColor={COLORS.tertiary} 
+                            titleColor={COLORS.secondary}
+                            backroundColor={COLORS.primary} 
+                            isCentered={false}>
+                            <Text style={styles.text}>
+                                {description}
+                            </Text> 
+                </BorderBox>
+            </View>
             </ScrollView>
         </View>
     );
-    }
-}
-
-
-const Section = (props) => {
-    console.log(props.text);
-    return (
-        <View style={styles.sectionContainer}>
-            <Text style={styles.text}>
-                {props.text}
-            </Text>
-        </View>
-    )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
+        justifyContent: "center",
         paddingTop: 50,
         backgroundColor: COLORS.primary,
-    },
-    sectionContainer: {
-        borderWidth: 2,
-        borderRadius: 15,
-        paddingHorizontal: 80,
-        paddingVertical: 15,
-        marginTop: 30,
-        borderColor: COLORS.tertiary,
-        backgroundColor: COLORS.primary,
-    },
-    flatList: {
-        backgroundColor: COLORS.primary,
-    },
-    text: {
-        color: COLORS.tertiary,
-        fontFamily: "Lexend_400Regular"
     },
     titleContainer: {
         alignItems: "center",
@@ -126,15 +150,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         padding: 20,
     },
-    // text: {
-    //     color: "#FFFFFF",
-    //     fontFamily: "Lexend_400Regular",
-    //     marginLeft: 20,
-    //     marginRight: 20,
-    //     top: 20,
-    //     justifyContent: "center",
-    //     paddingBottom: 30,
-    // },
+    text: {
+        color: "#FFFFFF",
+        fontFamily: "Lexend_400Regular",
+        marginLeft: 20,
+        marginRight: 20,
+        top: 20,
+        justifyContent: "center",
+        paddingBottom: 30,
+    },
     button: {
         width: 70,
         height: 40,
@@ -142,10 +166,10 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30,
-        // fontWeight: 'bold',
+        fontWeight: 'bold',
         color: "#FFFFFF",
         textAlign: "center",
-        fontFamily: "Lexend_700Bold",
+        fontFamily: "Lexend_400Regular",
         marginLeft: 20,
         marginRight: 20,
     },
@@ -160,13 +184,51 @@ const styles = StyleSheet.create({
         left: 20,
         bottom: 20,
     },
-    flatList: {
-        backgroundColor: COLORS.primary,
+    audioContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 15,
+        marginLeft: 30,
+        alignItems: 'center',
+        width: 320,
+        height: 45,
+        backgroundColor: "#FFFBE7",
+        borderRadius: 200,
     },
-    text: {
-        color: COLORS.tertiary,
-        fontFamily: "Lexend_400Regular"
+    audioContainerLeft: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
+    button: {
+        backgroundColor: Colors.primary, 
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        borderRadius: 20,
+        marginLeft: 10,
+        width: 40, 
+        height: 40, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        backgroundColor: "#FFFBE7",
+    },
+    buttonText: {
+        color: "#FFFFFF", 
+        fontSize: 16, 
+    },
+    audioButton: {
+        color: "#FFFBE7",
+    },
+    icon: {
+        width: 20,
+        height: 20,
+    },
+    voice: {
+        width: 30,
+        height: 27,
+        marginRight: 20,
+    }
 })
 
 export default IndividualProject;

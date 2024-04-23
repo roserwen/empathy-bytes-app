@@ -22,7 +22,7 @@ export default function ListButton({team, dir, type, onPress, image}) {
                         />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text numberOfLines={2} style={styles.text}> { team } </Text>
+                        <Text numberOfLines={4} style={styles.text}> { name } </Text>
                         {typeof type !== 'undefined' &&
                         <View style={styles.typecontainer}>
                             <Text style={styles.type}> { type } </Text>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
-        // gap: '20%',
+        gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row-reverse',
-        // gap: '20%',
+        gap: '20%',
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         color: COLORS.white,
         fontFamily: 'Lexend_700Bold',
         //fontWeight: 900,
-        fontSize: 20,
+        fontSize: 14,
         //fontWeight: "bold",
         textAlign: 'center',
     },
