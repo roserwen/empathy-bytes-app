@@ -9,30 +9,22 @@ import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
 import contact from '../../assets/Contact.png';
 import teams from '../../assets/Teams.png';
+import RightConverseModel from '../../assets/RightConverseModel';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-
-function Model(props) {
-    const { nodes, materials } = useGLTF(require('../../assets/RightConverse.glb'))
-    return (
-      <group {...props} dispose={null}>
-        <mesh geometry={nodes.baked_mesh001.geometry} material={materials['g0.002']} position={[0, 0.161, 0]} rotation={[1.632, 0.011, -0.018]} />
-      </group>
-    )
-}
 
 function HomeScreen({navigation}) {
     const [OrbitControls, events] = useControls()
     return (
 
         <View {...events} style={{flex:1}}>
-            <Canvas camera={{ fov:70, position: [0,0,5]}}>
+            <Canvas camera={{ fov:70, position: [0,0,1]}}>
                 <ambientLight />
                 <OrbitControls />
                 <directionalLight intensity={2} position={[0,0,50]} />
                 <Suspense fallback={null}>
-                    <Model />
+                    <RightConverseModel />
                 </Suspense>
             </Canvas>
         </View>
