@@ -4,6 +4,7 @@ import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
+import RightConverseModel from '../../assets/RightConverseModel';
 
 function IndividualTeam({ navigation, route }) {
     const { name, id, teamPic } = route.params;
@@ -30,7 +31,7 @@ function IndividualTeam({ navigation, route }) {
                     keyExtractor={item => item.id}
                     >
                 </FlatList>
-            </View>
+                </View>
         )
     //Section will have to be different
     //if screen is vr/ar screen
@@ -46,6 +47,11 @@ function IndividualTeam({ navigation, route }) {
                     keyExtractor={item => item.id}
                     >
                 </FlatList>
+                <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("VR Screen")}}>
+                    <Text style={styles.text2}>
+                        Go to VR Model
+                    </Text>
+                </TouchableOpacity>
             </View>
         )
     //Section will have to be different
@@ -136,9 +142,17 @@ const styles = StyleSheet.create({
         color: COLORS.tertiary,
         fontFamily: "Lexend_400Regular"
     },
+    text2: {
+        textAlign: "center",
+        color: COLORS.primary,
+        fontFamily: "Lexend_400Regular"
+    },
     button: {
-        width: 100,
+        width: "50%",
         height: 80,
+        backgroundColor: COLORS.tertiary,
+        borderRadius: 15,
+        marginBottom: 40,
     },
     titleText: {
         fontSize: 30,

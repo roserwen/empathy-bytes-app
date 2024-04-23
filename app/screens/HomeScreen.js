@@ -18,7 +18,7 @@ function HomeScreen({navigation}) {
     const [OrbitControls, events] = useControls()
     return (
 
-        <View {...events} style={{flex:1}}>
+        /*<View {...events} style={{flex:1}}>
             <Canvas camera={{ fov:70, position: [0,0,1]}}>
                 <ambientLight />
                 <OrbitControls />
@@ -27,9 +27,9 @@ function HomeScreen({navigation}) {
                     <RightConverseModel />
                 </Suspense>
             </Canvas>
-        </View>
+        </View>*/
 
-        /*<View style={styles.container}>
+        <View style={styles.container}>
             <Text style={styles.text}>
                 HOME
             </Text>
@@ -37,36 +37,7 @@ function HomeScreen({navigation}) {
             <HomescreenButton text="Projects" style={styles.button} image={projects} color={COLORS.secondary} onPress={() => navigation.navigate('Projects')}></HomescreenButton>
             <HomescreenButton text="Teams" style={styles.button} image={teams} color={COLORS.primary} onPress={() => navigation.navigate('Teams')}></HomescreenButton>
             <HomescreenButton text="Contact Us" style={styles.button} image={contact} color={COLORS.secondary} onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
-            
-            <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
-                <Image
-                    style={styles.button}
-                    source={{
-                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Teams')} >
-              <Image
-                    style={styles.button}
-                    source={{
-                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('About Us')} >
-              <Image
-                    style={styles.button}
-                    source={{
-                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('IndividualTeam')} >
-                <Image
-                    style={styles.button}
-                    source={{
-                    uri: 'https://i.stack.imgur.com/4G1qY.png'}}
-                />
-                </TouchableOpacity>
-        </View>*/
+        </View>
     );
 }
 
