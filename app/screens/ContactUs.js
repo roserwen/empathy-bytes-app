@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-native"
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
-import qs from 'qs';
+//import qs from 'qs';
 
 function ContactUs() {
 
