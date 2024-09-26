@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-native"
+import { View, Text, StyleSheet, Image, Linking } from "react-native"
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
-//import qs from 'qs';
 
 function ContactUs() {
 
@@ -11,15 +10,17 @@ function ContactUs() {
     const [message, setMessage] = useState("")
 
     async function sendEmail() {
-        let url = `mailto:empathy.bytes.vip@gmail.com`;
 
-        const query = qs.stringify({
-            subject: `Empathy Bytes App message from - ${names}`,
-            body: `${message}\n\n Sender's Email: ${email}`,
-        });
-        if (query.length) {
-            url += `?${query}`;
+        if(names.trim() === "" || email.trim() === "" || message.trim() === "") {
+            alert("Please fill out all fields!");
+            return;
         }
+
+        let url = `mailto:empathy.bytes.vip@gmail.com`;
+        const subject = `Empathy Bytes App message from - ${names}`;
+        const body = `${message}\n\n Sent from: ${email}`;
+        
+        url += `?subject=${subject}&body=${body}`;
     
         // check if we can use this link
         const canOpen = await Linking.canOpenURL(url);
@@ -114,8 +115,6 @@ const styles = StyleSheet.create({
         height: 55,
         padding: 55,
         margin: 10,
-        // borderColor: "black",
-        // borderWidth: 1,
         borderRadius: 100
     },
     text: {
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 16,
         margin: 20,
-        //fontWeight: "bold",
         fontFamily: "Lexend_700Bold"
     },
     image: {
@@ -134,7 +132,6 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30,
-        //fontWeight: 'bold',
         color: "white",
         margin: 20,
         fontFamily: "Lexend_700Bold"
@@ -149,7 +146,6 @@ const styles = StyleSheet.create({
     },
     goButtonText: {
         color: COLORS.tertiary,
-        //fontWeight: "bold",
         textAlign: "center",
         fontSize: 15,
         fontFamily: "Lexend_700Bold"
