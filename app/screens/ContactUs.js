@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, Linking } from "react-native"
+import { View, Text, StyleSheet, Image, Linking, SafeAreaView } from "react-native"
 import { COLORS } from '../../constants/theme';
 import { TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import SafeAndroidView from '../../constants/SafeAndroidView';
 
 function ContactUs() {
 
@@ -32,7 +33,7 @@ function ContactUs() {
     }
 
     return (
-        <View style={styles.container}> 
+        <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}> 
             <Image
                 style={styles.logo}
                 source={require('../../assets/empathybytes.png')}
@@ -85,7 +86,7 @@ function ContactUs() {
                         Go Back
                     </Text>
                 </TouchableOpacity> */}
-        </View>
+        </SafeAreaView>
     );
 }
 
