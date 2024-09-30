@@ -1,11 +1,39 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, Linking, ImageBackground } from "react-native"
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, Linking, SafeAreaView } from "react-native"
 import { COLORS } from '../../constants/theme';
-import { TextInput, TouchableHighlight } from 'react-native';
+import { TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import SafeAndroidView from '../../constants/SafeAndroidView';
 
 function ContactUs() {
+
+    const [names, setNames] = useState("")
+    const [email, setEmail] = useState("")
+    const [message, setMessage] = useState("")
+
+    async function sendEmail() {
+
+        if(names.trim() === "" || email.trim() === "" || message.trim() === "") {
+            alert("Please fill out all fields!");
+            return;
+        }
+
+        let url = `mailto:empathy.bytes.vip@gmail.com`;
+        const subject = `Empathy Bytes App message from - ${names}`;
+        const body = `${message}\n\n Sent from: ${email}`;
+        
+        url += `?subject=${subject}&body=${body}`;
+    
+        // check if we can use this link
+        const canOpen = await Linking.canOpenURL(url);
+    
+        if (!canOpen) {
+            throw new Error('Provided URL can not be handled');
+        }
+        return Linking.openURL(url);
+    }
+
     return (
-        <View style={styles.container}> 
+        <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}> 
             <Image
                 style={styles.logo}
                 source={require('../../assets/empathybytes.png')}
@@ -17,17 +45,26 @@ function ContactUs() {
             <View style={styles.formBox}>
                 <TextInput 
                     style={styles.input}
+                    value={email}
+                    onChangeText={setEmail}
                     placeholder='Email...'
                 />
                 <TextInput 
                     style={styles.input}
+                    value={names}
+                    onChangeText={setNames}
                     placeholder='Name...'
                 />
                 <TextInput 
                     style={[styles.input, styles.messageBox]}
+                    value={message}
+                    onChangeText={setMessage}
                     placeholder='Message...'
                     multiline
                 />
+                <TouchableOpacity style={styles.submitButton} onPress={sendEmail} >
+                    <Text style={styles.submitText} >Submit</Text>
+                </TouchableOpacity>
             </View>
             <Text style={styles.mediaText}>Or find us on social media!</Text>
             <View style={styles.mediaBox}>
@@ -49,7 +86,7 @@ function ContactUs() {
                         Go Back
                     </Text>
                 </TouchableOpacity> */}
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -79,8 +116,6 @@ const styles = StyleSheet.create({
         height: 55,
         padding: 55,
         margin: 10,
-        // borderColor: "black",
-        // borderWidth: 1,
         borderRadius: 100
     },
     text: {
@@ -88,8 +123,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 16,
         margin: 20,
-        fontWeight: "bold",
-        fontFamily: "Lexend_400Regular"
+        fontFamily: "Lexend_700Bold"
     },
     image: {
         width: 410,
@@ -99,10 +133,9 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30,
-        fontWeight: 'bold',
         color: "white",
         margin: 20,
-        fontFamily: "Lexend_400Regular"
+        fontFamily: "Lexend_700Bold"
     },
     goButton: {
         borderRadius: 40,
@@ -114,10 +147,9 @@ const styles = StyleSheet.create({
     },
     goButtonText: {
         color: COLORS.tertiary,
-        fontWeight: "bold",
         textAlign: "center",
         fontSize: 15,
-        fontFamily: "Lexend_400Regular"
+        fontFamily: "Lexend_700Bold"
     },
     formBox: {
         width: "100%",
@@ -148,6 +180,20 @@ const styles = StyleSheet.create({
         height: 22,
         padding: 22,
     },
+    submitButton: {
+        margin: 10,
+        borderRadius: 15,
+        alignItems: 'center',
+        backgroundColor: COLORS.primary,
+        width: '85%',
+        padding: 5,
+    },
+    submitText: {
+        color: 'white',
+        fontSize: 20,
+        fontFamily: "Lexend_400Regular",
+        textAlign: "center",
+    }
 })
 
 export default ContactUs;

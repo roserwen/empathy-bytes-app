@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native";
 import { COLORS } from './theme';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { fb_app, fb_storage } from '../firebaseConfig';
 
 export default function ListButton({name, dir, type, onPress, image}) {
-    const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+    //const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
+
     return (
+        // console.log("hi"),
+        console.log(name),
+        // console.log(image),
+        console.log(image),
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
                 style = {dir ? styles.leftButton : styles.rightButton}
@@ -13,11 +20,13 @@ export default function ListButton({name, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
+                            source={image ? {uri: image} : null}
+                            // source={image}
+                            // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text numberOfLines={2} style={styles.text}> { name } </Text>
+                        <Text numberOfLines={4} style={styles.text}> { name } </Text>
                         {typeof type !== 'undefined' &&
                         <View style={styles.typecontainer}>
                             <Text style={styles.type}> { type } </Text>
@@ -78,7 +87,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row',
-        gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -92,7 +101,7 @@ const styles = StyleSheet.create({
 
         display: 'flex',
         flexDirection: 'row-reverse',
-        gap: '20%',
+        gap: 10,
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -108,10 +117,10 @@ const styles = StyleSheet.create({
     },
     text: {
         color: COLORS.white,
-        fontFamily: 'Lexend_400Regular',
-        fontWeight: 900,
-        fontSize: 20,
-        fontWeight: "bold",
+        fontFamily: 'Lexend_700Bold',
+        //fontWeight: 900,
+        fontSize: 14,
+        //fontWeight: "bold",
         textAlign: 'center',
     },
     typecontainer: {
