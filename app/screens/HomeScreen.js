@@ -1,15 +1,13 @@
-import {React, Suspense} from 'react';
+import {React,} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions } from "react-native"
 import { COLORS } from '../../constants/theme';
-import {Canvas, UseFrame} from '@react-three/fiber';
-import {useGLTF} from '@react-three/drei';
 import useControls from "r3f-native-orbitcontrols";
 import HomescreenButton from '../../constants/HomescreenButton';
 import people from '../../assets/GrpPeople.png';
 import projects from '../../assets/empathybytes.png';
 import contact from '../../assets/Contact.png';
 import teams from '../../assets/Teams.png';
-import RightConverseModel from '../../assets/RightConverseModel';
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -37,12 +35,6 @@ function HomeScreen({navigation}) {
             <HomescreenButton text="Projects" style={styles.button} image={projects} color={COLORS.secondary} onPress={() => navigation.navigate('Projects')}></HomescreenButton>
             <HomescreenButton text="Teams" style={styles.button} image={teams} color={COLORS.primary} onPress={() => navigation.navigate('Teams')}></HomescreenButton>
             <HomescreenButton text="Contact Us" style={styles.button} image={contact} color={COLORS.secondary} onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
-            <View style={styles.list}>
-                <HomescreenButton text="About Us" style={styles.button} image={people} color="#193054" onPress={() => navigation.navigate('About Us')}></HomescreenButton>
-                <HomescreenButton text="Projects" style={styles.button} image={projects} color="#B3A369" onPress={() => navigation.navigate('Projects')}></HomescreenButton>
-                <HomescreenButton text="Teams" style={styles.button} image={teams} color="#193054" onPress={() => navigation.navigate('Teams')}></HomescreenButton>
-                <HomescreenButton text="Contact Us" style={styles.button} image={contact} color="#B3A369" onPress={() => navigation.navigate('Contact Us')}></HomescreenButton>
-            </View>
             {/*
             <TouchableOpacity onPress={() => navigation.navigate('Projects')} >
                 <Image
@@ -75,8 +67,6 @@ function HomeScreen({navigation}) {
         </View>
     );
 }
-
-useGLTF.preload(require('../../assets/RightConverse.glb'));
 
 const styles = StyleSheet.create({
     container: {
