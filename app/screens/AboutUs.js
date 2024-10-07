@@ -6,6 +6,33 @@ const windowWidth = Dimensions.get('window').width;
 const imageHeight = 200;
 const backHome = "<< back to home";
 
+const devs = [
+    {
+        name: 'name',
+        role: 'role',
+        img: 'img'
+    },
+    {
+        name: 'name',
+        role: 'role',
+        img: 'img'
+    },
+    {
+        name: 'name',
+        role: 'role',
+        img: 'img'
+    },
+    {
+        name: 'name',
+        role: 'role',
+        img: 'img'
+    },
+    {
+        name: 'name',
+        role: 'role',
+        img: 'img'
+    },
+]
 function AboutUs({navigation}) {
     return (
         <View style={styles.container}> 
@@ -42,65 +69,19 @@ function AboutUs({navigation}) {
                             isCentered={false}
                             style={styles.borderBox}>
                             <View style={[styles.outlineBubble, styles.developerBubble]}>
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
-                                {/* */}
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
-                                {/* */}
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
-                                {/* */}
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
-                                {/* */}
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
-                                {/* */}
-                                <View style={styles.headshotContainer}>
-                                    <View style={styles.CircleShapeView}></View>
-                                    <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Name
-                                    </Text>
-                                    <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
-                                        Role
-                                    </Text>
-                                </View>
+                                {devs.map((dev,i) => {
+                                        return (
+                                            <View key={i} style={styles.headshotContainer}>
+                                                <View style={styles.CircleShapeView}></View>
+                                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                                    {dev.name}
+                                                </Text>
+                                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                                    {dev.role}
+                                                </Text>
+                                            </View>
+                                        )
+                                    })}
                             </View>
                         </BorderBox>
                     </View>
