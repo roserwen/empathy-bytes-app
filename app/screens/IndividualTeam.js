@@ -8,26 +8,13 @@ import { fb_app, fb_storage } from '../../firebaseConfig';
 
 function IndividualTeam({ navigation, route }) {
     const { team, id, teamPic } = route.params;
-    [picURL, setPicTeam] = useState("");
-    
-    useEffect(() => {
-        getDownloadURL(ref(fb_storage, teamPic))
-        .then((url) => {
-            setPicTeam(url);
-            // Or inserted into an <img> element
-        })
-        .catch((error) => {
-            // Handle any errors
-        });
-    },[]);
-
     //if screen is app or web team page: render FlatList of description section, tech stack section, and dev section
     if (id == 1 || id === 2) {
         return (
             <View style={styles.container}>
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} teamPic={teamPic} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
                     ItemSeparatorComponent={
                         <View style={styles.separator}/>
@@ -44,7 +31,7 @@ function IndividualTeam({ navigation, route }) {
             <View style={styles.container}>
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} teamPic={teamPic} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
                     ItemSeparatorComponent={
                         <View style={styles.separator}/>
@@ -60,7 +47,7 @@ function IndividualTeam({ navigation, route }) {
             <View style={styles.container}>
                 <FlatList style={styles.flatList}
                     data={teamData[id - 1].description}
-                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} teamPic={teamPic} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
                     keyExtractor={item => item.id}
                     ItemSeparatorComponent={
                         <View style={styles.separator}/>
@@ -82,7 +69,7 @@ const Section = (props) => {
             backgroundColor={props.backgroundColor}
             isCentered={true}>
                 <View style={styles.imageContainer}>
-                    <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
+                    <Image style={styles.teamImage} source={props.teamPic ? props.teamPic : null} />
                 </View>
             </BorderBox>
         )
@@ -116,6 +103,7 @@ const styles = StyleSheet.create({
         // alignItems: "center",
         // justifyContent: "center",
         width: '100%',
+        height: '70',
     },
     flatList: {
         backgroundColor: COLORS.primary,
@@ -138,8 +126,8 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_700Bold"
     },
     teamImage: {
-        width: '90%',
-        // height: '85%',
+        width: '100%',
+        height: 200,
         aspectRatio: 1.5, // Maintain aspect ratio
         resizeMode: 'contain',
         marginLeft: 'auto',

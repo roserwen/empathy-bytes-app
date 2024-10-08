@@ -2,8 +2,7 @@ export const teamData = [
     {
         id: 1,
         team: "App Team",
-        teamPic: "gs://empathy-bytes-app.appspot.com/team_photo/AppTeamPic.jpeg",
-        picURL: 'https://firebasestorage.googleapis.com/v0/b/empathy-bytes-app.appspot.com/o/team_photo%2FAppTeamPic.jpeg?alt=media&token=25ebc980-0d86-4dae-a8d1-1b725d4b6b71',
+        teamPic: require('../assets/teams/appTeam.jpeg'),
         description: [
             {
                 id: 0,
@@ -28,8 +27,7 @@ export const teamData = [
     {
         id: 2,
         team: "Web Team",
-        teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/webTeam.jpg',
-        picURL: 'https://firebasestorage.googleapis.com/v0/b/empathy-bytes-app.appspot.com/o/team_photo%2FwebTeam.jpg?alt=media&token=813b7963-4375-4304-9627-464fbdd07094',
+        teamPic: require('../assets/teams/webTeam.jpeg'),
         description: [
             {
                 id: 0,
@@ -54,9 +52,7 @@ export const teamData = [
     {
         id: 3,
         team: "VR/AR Team",
-        teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/Emerging/Jack_0.jpg',
-        picURL: 'https://firebasestorage.googleapis.com/v0/b/empathy-bytes-app.appspot.com/o/team_photo%2FEmerging%2FJack_0.jpg?alt=media&token=477d334d-6b95-42a7-b786-c0670a268f8c',
-        //will include 3d artifacts here
+        teamPic: require('../assets/teams/vrTeam.jpeg'),
         description: [
             {
                 id: 0,
@@ -82,8 +78,8 @@ export const teamData = [
         id: 4,
         team: "Media Team",
         //will have different description
-        teamPic: 'gs://empathy-bytes-app.appspot.com/team_photo/Media Team.jpg', 
-        picURL: 'https://firebasestorage.googleapis.com/v0/b/empathy-bytes-app.appspot.com/o/team_photo%2FMedia%20Team.jpg?alt=media&token=bbab5453-6641-4b25-9653-b9c4119c0445',        description: [
+        teamPic: require('../assets/teams/mediaTeam.jpeg'),
+        description: [
             {
                 id: 0,
                 name: "Media Team",

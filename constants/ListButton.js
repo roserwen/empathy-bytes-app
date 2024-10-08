@@ -5,13 +5,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../firebaseConfig';
 
 export default function ListButton({name, dir, type, onPress, image}) {
-    //const imgsrc = (image == '' || typeof image == 'undefined') ? '../assets/teampic.jpeg' : image;
-
     return (
-        // console.log("hi"),
-        console.log(name),
-        // console.log(image),
-        console.log(image),
         <View style = {dir ? styles.left : styles.right}> 
             <TouchableOpacity 
                 style = {dir ? styles.leftButton : styles.rightButton}
@@ -20,9 +14,7 @@ export default function ListButton({name, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={image ? {uri: image} : null}
-                            // source={image}
-                            // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
+                            source={image ? image : null}
                         />
                     </View>
                     <View style={styles.textcontainer}>
