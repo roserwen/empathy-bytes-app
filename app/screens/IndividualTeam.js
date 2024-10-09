@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
+import { View, SafeAreaView, Text, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native"
 import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
 import BorderBox from '../../constants/BorderBox';
@@ -22,27 +22,27 @@ function IndividualTeam({ navigation, route }) {
     },[]);
 
     return (
-        <View style={styles.container}>
-            <FlatList style={styles.flatList}
-                data={teamData[id - 1].description}
-                renderItem={({item}) => (
-                    <Section 
-                        id={item.id} 
-                        text={item.text} 
-                        title={item.name}
-                        tag={item.tag}
-                        devs={item.devs}
-                        titleColor={COLORS.tertiary} 
-                        borderColor={COLORS.tertiary} 
-                        backgroundColor={COLORS.primary}/>
-                )}
-                keyExtractor={item => item.id}
-                ItemSeparatorComponent={
-                    <View style={styles.separator}/>
-                }
-                >
-            </FlatList>
-        </View>
+    <SafeAreaView style={styles.container}>
+        <FlatList style={styles.flatList}
+            data={teamData[id - 1].description}
+            renderItem={({item}) => (
+                <Section 
+                    id={item.id} 
+                    text={item.text} 
+                    title={item.name}
+                    tag={item.tag}
+                    devs={item.devs}
+                    titleColor={COLORS.tertiary} 
+                    borderColor={COLORS.tertiary} 
+                    backgroundColor={COLORS.primary}/>
+            )}
+            keyExtractor={item => item.id}
+            ItemSeparatorComponent={
+                <View style={styles.separator}/>
+            }
+            >
+        </FlatList>
+    </SafeAreaView>
 )}
 
 //TODO styling + changing it depending on the screen
@@ -83,24 +83,26 @@ const Section = (props) => {
                     backgroundColor={props.backgroundColor}
                     isCentered={false}>
                     <FlatList
+                        style={[styles.devContainer]}
                         data={props.devs}
                         renderItem={({item}) => (
                             <View key={item.name} style={styles.headshotContainer}>
                                 <Image
                                     style={styles.developerImage}
-                                    // source={dev.img}
+                                    source={item.img}
                                 />
-                                <View style={styles.CircleShapeView}></View>
-                                <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                <Text style={{fontSize: 15, color: COLORS.secondary, fontFamily: "Lexend_400Regular"}}>
                                     {item.name}
                                 </Text>
-                                <Text style={{fontSize: 12, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
+                                <Text style={{fontSize: 12, color: COLORS.secondary, fontFamily: "Lexend_400Regular"}}>
                                     {item.role}
                                 </Text>
-
-                            <Text key={item.name}>{item.name}</Text>
                             </View>
-                    )}/>
+                        )}
+                        keyExtractor={item => item.id}
+                        ItemSeparatorComponent={
+                            <View style={styles.separator}/>
+                    }/>
                 </BorderBox>
             )
         // TO DO: add cases for other box types, e.g. VR models or video embeds
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
     flatList: {
         backgroundColor: COLORS.primary,
         paddingTop: 40,
-        width: "90%"
+        width: "90%",
     },
     text: {
         color: COLORS.tertiary,
@@ -156,12 +158,28 @@ const styles = StyleSheet.create({
         // borderColor: COLORS.secondary, // Border color
         // borderRadius: 10, // Border radius for rounded corners
     },
-    CircleShapeView: {
-        //To make Circle Shape
+    devContainer: {
+        width: '100%',
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        columnGap: 40,
+        rowGap: 5,
+        justifyContent: "center",
+        paddingTop: 30,
+        paddingBottom: 10,
+    },
+    headshotContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    developerImage: {
+        borderRadius: '100%',
         width: 100,
         height: 100,
-        borderRadius: 100 / 2,
-        backgroundColor: COLORS.primary,
+        borderWidth: 3,
+        borderColor: COLORS.secondary,
     },
 })
 

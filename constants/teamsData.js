@@ -37,6 +37,16 @@ export const teamData = [
                         role: 'Developer',
                         img: require('../assets/teampic.jpeg'),
                     },
+                    {
+                        name: 'name3',
+                        role: 'Developer',
+                        img: require('../assets/teampic.jpeg'),
+                    },
+                    {
+                        name: 'name4',
+                        role: 'Developer',
+                        img: require('../assets/teampic.jpeg'),
+                    },
                 ]
             }],
     },
