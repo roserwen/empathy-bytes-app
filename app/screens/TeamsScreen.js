@@ -44,9 +44,6 @@ const TeamItem = (props) => {
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
-    console.log("hi")
-    console.log(item.team)
-    console.log(item.teamPic)
     return (
         <TeamItem name={item.team} id={item.id} teamPic={item.teamPic} picURL={item.picURL}/>
     )

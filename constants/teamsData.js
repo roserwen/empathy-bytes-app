@@ -23,7 +23,24 @@ export const teamData = [
                 id: 3,
                 name: "Developers",
                 text: "these are the developers"
-            }]
+            }],
+        devs: [
+            {
+                name: 'name1',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name2',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name3',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+        ]
     },
     {
         id: 2,
@@ -49,7 +66,24 @@ export const teamData = [
                 id: 3,
                 name: "Developers",
                 text: "these are the developers"
-            }]
+            }],
+        devs: [
+            {
+                name: 'name1',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name2',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name3',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+        ]
     },
     {
         id: 3,
@@ -76,7 +110,24 @@ export const teamData = [
                 id: 3,
                 name: "Developers",
                 text: "these are the developers"
-            }]
+            }],
+        devs: [
+            {
+                name: 'name1',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name2',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name3',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+        ]
     },
     {
         id: 4,
@@ -102,6 +153,23 @@ export const teamData = [
                 id: 3,
                 name: "Developers",
                 text: "these are the developers"
-            }]
+            }],
+        devs: [
+            {
+                name: 'name1',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name2',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+            {
+                name: 'name3',
+                role: 'Developer',
+                img: require('../assets/teampic.jpeg'),
+            },
+        ]
     }
 ]

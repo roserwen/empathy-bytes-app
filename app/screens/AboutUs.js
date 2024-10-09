@@ -10,27 +10,27 @@ const devs = [
     {
         name: 'name',
         role: 'role',
-        img: 'img'
+        img: '../../assets/teampic.jpeg'
     },
     {
         name: 'name',
         role: 'role',
-        img: 'img'
+        img: '../../assets/favicon.png'
     },
     {
         name: 'name',
         role: 'role',
-        img: 'img'
+        img: '../../assets/teampic.jpeg'
     },
     {
         name: 'name',
         role: 'role',
-        img: 'img'
+        img: '../../assets/teampic.jpeg'
     },
     {
         name: 'name',
         role: 'role',
-        img: 'img'
+        img: '../../assets/teampic.jpeg'
     },
 ]
 function AboutUs({navigation}) {
@@ -62,7 +62,7 @@ function AboutUs({navigation}) {
                             </Text> 
                         </BorderBox>
                         {/* The developer bubble encapsulates the developers. Each headshot container view is a different person */}
-                        <BorderBox title={"Developers"} 
+                        <BorderBox title={"Staff"} 
                             borderColor={COLORS.secondary} 
                             titleColor={COLORS.secondary} 
                             backgroundColor={COLORS.tertiary} 
@@ -72,7 +72,11 @@ function AboutUs({navigation}) {
                                 {devs.map((dev,i) => {
                                         return (
                                             <View key={i} style={styles.headshotContainer}>
-                                                <View style={styles.CircleShapeView}></View>
+                                                <Image
+                                                    style={styles.developerImage}
+                                                    source={dev.img}
+                                                />
+                                                {/* <View style={styles.CircleShapeView}></View> */}
                                                 <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
                                                     {dev.name}
                                                 </Text>
@@ -129,6 +133,13 @@ const styles = StyleSheet.create({
         //height: 500,
         padding: 30,
     },
+    developerImage: {
+        borderRadius: '100%',
+        width: 100,
+        height: 100,
+        borderWidth: 3,
+        borderColor: COLORS.secondary,
+    },
     titleText: {
         fontSize: 50,
         fontFamily: "Lexend_700Bold",
@@ -173,14 +184,6 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
     },
-    /*colorGold: {
-        color: "#B3A369",
-        borderColor: "#B3A369",
-    },
-    colorBlue: {
-        color: "#193054",
-        borderColor: "#193054",
-    },*/
     boxGap: {
         gap: 20,
         alignItems: 'center',
