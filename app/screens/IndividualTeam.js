@@ -51,7 +51,7 @@ function IndividualTeam({ navigation, route }) {
                         <View style={styles.separator}/>
                     }>
                 </FlatList>
-                <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("VR Screen")}}>
+                <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("VR Models")}}>
                     <Text style={styles.text2}>
                         Go to VR Model
                     </Text>
@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.tertiary,
         borderRadius: 15,
         marginBottom: 40,
+        justifyContent: "center",
     },
     titleText: {
         fontSize: 30,

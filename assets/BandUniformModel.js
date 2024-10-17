@@ -6,7 +6,7 @@ export default function BandUniformModel(props) {
   const { nodes, materials } = useGLTF(require(model))
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 1.5, -1]} rotation={[Math.PI / 2, 0, -0.70]}>
+      <group position={[0, 0, 0]} rotation={[Math.PI / 2, 0, -0.70]}>
         <mesh geometry={nodes.mesh_lowpoly_1.geometry} material={materials.material0000} />
         <mesh geometry={nodes.mesh_lowpoly_2.geometry} material={materials.material0001} />
         <mesh geometry={nodes.mesh_lowpoly_3.geometry} material={materials.material0002} />

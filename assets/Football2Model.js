@@ -6,7 +6,7 @@ export default function Football2Model(props) {
   const { nodes, materials } = useGLTF(require(model))
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.baked_mesh002.geometry} material={materials['g0.001']} position={[0, 0, 1]} rotation={[1.607, 0, -0.362]} />
+      <mesh geometry={nodes.baked_mesh002.geometry} material={materials['g0.001']} position={[0, 1, 0]} rotation={[1.607, 0, -0.362]} />
     </group>
   )
 }
