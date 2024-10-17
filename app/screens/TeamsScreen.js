@@ -12,24 +12,8 @@ import SafeAndroidView from '../../constants/SafeAndroidView';
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
-    [picURL, setPicTeam] = useState("");
-    
-    useEffect(() => {
-        getDownloadURL(ref(fb_storage, props.teamPic))
-        .then((url) => {
-            setPicTeam(url);
-            // Or inserted into an <img> element
-        })
-        .catch((error) => {
-            // Handle any errors
-        });
-    },[]);
 
     return (
-        // <Text style={styles.title}> {picURL} </Text>,
-        //console.log("hi"),
-        //console.log(props.team),
-        //console.log({picURL}),
         <ListButton
             onPress={() => {
                 navigation.navigate("Individual Team", {name: props.name, id: props.id, teamPic: props.teamPic})
@@ -37,7 +21,7 @@ const TeamItem = (props) => {
             name = {props.name}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            image = {props.picURL}
+            image = {props.teamPic}
         >
         </ListButton>
     );
@@ -45,11 +29,8 @@ const TeamItem = (props) => {
 
 //render the button idrk actually
 const renderItem = ({ item }) => {
-    console.log("hi")
-    console.log(item.team)
-    console.log(item.teamPic)
     return (
-        <TeamItem name={item.team} id={item.id} teamPic={item.teamPic} picURL={item.picURL}/>
+        <TeamItem name={item.team} id={item.id} teamPic={item.teamPic}/>
     )
 };
 
