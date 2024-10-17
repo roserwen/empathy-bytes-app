@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: COLORS.tertiary
+        backgroundColor: COLORS.tertiary,
+        
     },
     textBox: {
         margin: 15,
@@ -125,12 +126,12 @@ const styles = StyleSheet.create({
         margin: 20,
         fontFamily: "Lexend_700Bold"
     },
-    image: {
-        width: 410,
-        height: 200,
-        marginBottom: 10,
-        borderRadius: 50,
-    },
+    // image: {
+    //     width: 410,
+    //     height: 200,
+    //     marginBottom: 10,
+    //     borderRadius: 50,
+    // },
     titleText: {
         fontSize: 30,
         color: "white",

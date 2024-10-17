@@ -2,7 +2,7 @@ export const teamData = [
     {
         id: 1,
         team: "App Team",
-        teamPic: require('../assets/teams/appTeam.jpeg'),
+        teamPic: require('../assets/teams/appTeam.jpg'),
         description: [
             {
                 id: 0,

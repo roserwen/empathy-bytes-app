@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flexWrap: "wrap",
         flexBasis: '50%',
-        backgroundColor: COLORS.tertiary
+        backgroundColor: COLORS.tertiary,
+        padding: 10,
     },
     text: {
         color: COLORS.secondary,
