@@ -26,27 +26,52 @@ export const teamData = [
                 id: 3,
                 tag: 'devs',
                 name: "Developers",
-                devs: [
+                developers: [
                     {
-                        name: 'name1',
-                        role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        name: "Genesis Fu",
+                        role: "Team Lead",
+                        image: require('../assets/teams/app_team_dev/genesis.jpg')
                     },
                     {
-                        name: 'name2',
-                        role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        name: "Felicia Jamba",
+                        role: "Team Lead",
+                        image: require('../assets/teams/app_team_dev/felicia.jpg')
                     },
                     {
-                        name: 'name3',
-                        role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        name: "Via Hu",
+                        role: "Frontend Developer",
+                        image: require('../assets/teams/app_team_dev/temp.png')
                     },
                     {
-                        name: 'name4',
-                        role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        name: "Julian Lautzenheiser",
+                        role: "Frontend Developer",
+                        image: require('../assets/teams/app_team_dev/julian.jpg')
                     },
+                    {
+                        name: "Richard Nguyen",
+                        role: "Frontend Developer",
+                        image: require('../assets/teams/app_team_dev/richard.jpg')
+                    },
+                    {
+                        name: "Rose Wen",
+                        role: "Frontend Developer",
+                        image: require('../assets/teams/app_team_dev/temp.png')
+                    },
+                    {
+                        name: "Steven Li",
+                        role: "Backend Developer",
+                        image: require('../assets/teams/app_team_dev/steven.jpg')
+                    },
+                    {
+                        name: "Aaron Liu",
+                        role: "Backend Developer",
+                        image: require('../assets/teams/app_team_dev/temp.png')
+                    },
+                    {
+                        name: "Eileen Yang",
+                        role: "Backend Developer",
+                        image: require('../assets/teams/app_team_dev/eileen.jpg')
+                    }
                 ]
             }],
     },

@@ -31,7 +31,7 @@ function IndividualTeam({ navigation, route }) {
                     text={item.text} 
                     title={item.name}
                     tag={item.tag}
-                    devs={item.devs}
+                    devs={item.developers}
                     titleColor={COLORS.tertiary} 
                     borderColor={COLORS.tertiary} 
                     backgroundColor={COLORS.primary}/>
