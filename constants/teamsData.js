@@ -26,7 +26,7 @@ export const teamData = [
                 id: 3,
                 tag: 'devs',
                 name: "Developers",
-                developers: [
+                devs: [
                     {
                         name: "Genesis Fu",
                         role: "Team Lead",
@@ -106,17 +106,17 @@ export const teamData = [
                     {
                         name: 'name1',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name2',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name3',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                 ]
             }],
@@ -153,17 +153,17 @@ export const teamData = [
                     {
                         name: 'name1',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name2',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name3',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                 ]
             }],
@@ -199,17 +199,17 @@ export const teamData = [
                     {
                         name: 'name1',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name2',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                     {
                         name: 'name3',
                         role: 'Developer',
-                        img: require('../assets/teampic.jpeg'),
+                        image: require('../assets/teampic.jpeg'),
                     },
                 ]
             }],

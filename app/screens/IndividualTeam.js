@@ -31,7 +31,7 @@ function IndividualTeam({ navigation, route }) {
                     text={item.text} 
                     title={item.name}
                     tag={item.tag}
-                    devs={item.developers}
+                    devs={item.devs}
                     titleColor={COLORS.tertiary} 
                     borderColor={COLORS.tertiary} 
                     backgroundColor={COLORS.primary}/>
@@ -81,7 +81,7 @@ const Section = (props) => {
                     titleColor={props.titleColor}
                     borderColor={props.borderColor}
                     backgroundColor={props.backgroundColor}
-                    isCentered={false}>
+                    isCentered={true}>
                     <FlatList
                         style={[styles.devContainer]}
                         data={props.devs}
@@ -89,7 +89,7 @@ const Section = (props) => {
                             <View key={item.name} style={styles.headshotContainer}>
                                 <Image
                                     style={styles.developerImage}
-                                    source={item.img}
+                                    source={item.image}
                                 />
                                 <Text style={{fontSize: 15, color: COLORS.secondary, fontFamily: "Lexend_400Regular"}}>
                                     {item.name}
