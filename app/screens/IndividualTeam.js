@@ -32,6 +32,7 @@ function IndividualTeam({ navigation, route }) {
                     title={item.name}
                     tag={item.tag}
                     devs={item.devs}
+                    techStackImages={item.techStackImages}
                     titleColor={COLORS.tertiary} 
                     borderColor={COLORS.tertiary} 
                     backgroundColor={COLORS.primary}/>
@@ -103,6 +104,26 @@ const Section = (props) => {
                         ItemSeparatorComponent={
                             <View style={styles.separator}/>
                     }/>
+                </BorderBox>
+            )
+        // Tech stack box
+        case ('tech-stack'):
+            return (
+                <BorderBox 
+                    title={props.title}
+                    titleColor={props.titleColor}
+                    borderColor={props.borderColor}
+                    backgroundColor={props.backgroundColor}
+                    isCentered={false}
+                >
+                    <Text style={styles.text}>
+                        {props.text}
+                    </Text>
+                    <View style={styles.techStackContainer}>
+                        {props.techStackImages.map((image, index) => (
+                            <Image key={index} source={image} style={styles.techStackImage} />
+                        ))}
+                    </View>
                 </BorderBox>
             )
         // TO DO: add cases for other box types, e.g. VR models or video embeds
@@ -180,6 +201,19 @@ const styles = StyleSheet.create({
         height: 100,
         borderWidth: 3,
         borderColor: COLORS.secondary,
+    },
+    techStackContainer: {
+        flexDirection: 'row', // Arrange images in a row
+        flexWrap: 'wrap',     // Allow wrapping to next line
+        justifyContent: 'center', // Center the images horizontally
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    techStackImage: {
+        width: '40%', // Set width to 45% to allow two images per row
+        height: 100,  // Adjust height as needed
+        margin: 5,    // Add some margin around each image for spacing
+        resizeMode: 'contain', // Maintain aspect ratio
     },
 })
 

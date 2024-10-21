@@ -18,9 +18,15 @@ export const teamData = [
             },
             {
                 id: 2,
-                tag: 'text',
+                tag: 'tech-stack',
                 name: "Tech Stack",
-                text: "React Native, Expo, JavaScript, Google Firestore"
+                text: "React Native, Expo, JavaScript, Google Firestore",
+                techStackImages: [
+                    require('../assets/teams/app_team_tech_stack/react.png'),
+                    require('../assets/teams/app_team_tech_stack/expo.png'),
+                    require('../assets/teams/app_team_tech_stack/javascript.png'),
+                    require('../assets/teams/app_team_tech_stack/firestore.png')
+                ]
             },
             {
                 id: 3,
