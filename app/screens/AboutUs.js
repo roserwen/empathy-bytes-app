@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
 import BorderBox from '../../constants/BorderBox';
 const windowWidth = Dimensions.get('window').width;
@@ -10,27 +11,27 @@ const devs = [
     {
         name: 'name',
         role: 'role',
-        img: '../../assets/teampic.jpeg'
+        img: require('../../assets/teams/app_team_dev/temp.png'),
     },
     {
         name: 'name',
         role: 'role',
-        img: '../../assets/favicon.png'
+        img: require('../../assets/teams/app_team_dev/temp.png'),
     },
     {
         name: 'name',
         role: 'role',
-        img: '../../assets/teampic.jpeg'
+        img: require('../../assets/teams/app_team_dev/temp.png'),
     },
     {
         name: 'name',
         role: 'role',
-        img: '../../assets/teampic.jpeg'
+        img: require('../../assets/teams/app_team_dev/temp.png'),
     },
     {
         name: 'name',
         role: 'role',
-        img: '../../assets/teampic.jpeg'
+        img: require('../../assets/teams/app_team_dev/temp.png'),
     },
 ]
 function AboutUs({navigation}) {
@@ -41,15 +42,16 @@ function AboutUs({navigation}) {
                     source={require('../../assets/teampic.jpeg')}
             />
             <ScrollView>
-                <View style={styles.scrollContent}> 
-                    <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Home')}>
-                        <Text style={styles.backText}>
-                            {backHome}
-                        </Text>
+            <View style={styles.scrollContent}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                        <View style={styles.backButton}>
+                            <Ionicons name="arrow-back-sharp" size={20} color={COLORS.secondary}/>
+                            <Text style={{fontSize: 14, color: COLORS.secondary}}>Back to home</Text>
+                        </View>
                     </TouchableOpacity>
-                    <Text style={styles.titleText}>
-                                    Our Team
-                            </Text>
+                        <Text style={styles.titleText}>
+                        Our Team
+                    </Text>
                     <View style={styles.boxGap}>
                         <BorderBox title={"What we do"} 
                             borderColor={COLORS.primary} 
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
     scrollContent: {
         flex: 1,
         alignItems: "center",
+        paddingTop: 15,
         paddingBottom: 30,
         width: windowWidth, 
         backgroundColor: "#FFFBE7", 
@@ -190,7 +193,12 @@ const styles = StyleSheet.create({
     },
     backButton: {
         position: "absolute",
-        left: 0,
+        left: -170,
+        MarginTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 7,
+        color: COLORS.secondary,
     }
 })
 
