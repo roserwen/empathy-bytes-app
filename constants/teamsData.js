@@ -285,6 +285,10 @@ export const teamData = [
                         image: require('../assets/teams/vr_ar_team_dev/temp.png')
                     },
                 ]
+            },
+            {
+                id: 4,
+                tag: 'vr-models',
             }],
     },
     {
