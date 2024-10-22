@@ -102,7 +102,12 @@ export const teamData = [
                 id: 2,
                 tag: 'text',
                 name: "Tech Stack",
-                text: "GatsbyJS, Decoupled Drupal, Three.js"
+                text: "GatsbyJS, Decoupled Drupal, Three.js",
+                techStackImages: [
+                    require('../assets/teams/web_team_tech_stack/gatsby.png'),
+                    require('../assets/teams/web_team_tech_stack/drupal.png'),
+                    require('../assets/teams/web_team_tech_stack/threejs.png')
+                ]
             },
             {
                 id: 3,
@@ -112,47 +117,47 @@ export const teamData = [
                     {
                         name: 'Josh Samuel',
                         role: 'Team Lead',
-                        image: require('../assets/teams/media_team_dev/temp.png'),
+                        image: require('../assets/teams/media_team_dev/josh.jpeg'),
                     },
                     {
                         name: 'Amara Williams',
                         role: 'Team Lead',
-                        image: require('../assets/teams/media_team_dev/amara.JPG'),
+                        image: require('../assets/teams/media_team_dev/amara.jpeg'),
                     },
                     {
                         name: 'Jason Wu',
                         role: 'Team Lead',
-                        image: require('../assets/teams/media_team_dev/jason.JPG'),
+                        image: require('../assets/teams/media_team_dev/jason.jpeg'),
                     },
                     {
                         name: 'Iliyah Dean',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/iliyah.JPG'),
+                        image: require('../assets/teams/media_team_dev/iliyah.jpeg'),
                     },
                     {
                         name: 'Diana Perales',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/diana.JPG'),
+                        image: require('../assets/teams/media_team_dev/diana.jpeg'),
                     },
                     {
                         name: 'Husna Hussain',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/husna.JPG'),
+                        image: require('../assets/teams/media_team_dev/husna.jpeg'),
                     },
                     {
                         name: 'Tiffany Lee',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tiffany.JPG'),
+                        image: require('../assets/teams/media_team_dev/tiffany.jpeg'),
                     },
                     {
                         name: 'Isiah Nogal',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/isiah.JPG'),
+                        image: require('../assets/teams/media_team_dev/isiah.jpeg'),
                     },
                     {
                         name: 'Tanvi Singhal',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tanvi.JPG'),
+                        image: require('../assets/teams/media_team_dev/tanvi.jpeg'),
                     },
                     {
                         name: 'Mackenzie Thies',
@@ -162,12 +167,12 @@ export const teamData = [
                     {
                         name: 'Tyler Wallace',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tyler.JPG'),
+                        image: require('../assets/teams/media_team_dev/tyler.jpeg'),
                     },
                     {
                         name: 'Xavier Genio',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/xavier.JPG'),
+                        image: require('../assets/teams/media_team_dev/xavier.jpeg'),
                     },
                 ]
             }],
@@ -194,7 +199,11 @@ export const teamData = [
                 id: 2,
                 tag: 'text',
                 name: "Tech Stack",
-                text: "Unity, Blender "
+                text: "Unity, Blender ",
+                techStackImages: [
+                    require('../assets/teams/vr_ar_team_tech_stack/unity.png'),
+                    require('../assets/teams/vr_ar_team_tech_stack/blender.png')
+                ]
             },
             {
                 id: 3,
@@ -204,7 +213,7 @@ export const teamData = [
                     {
                         name: 'Jack English',
                         role: 'Team Lead',
-                        image: require('../assets/teams/vr_ar_team_dev/jack.jpg')
+                        image: require('../assets/teams/vr_ar_team_dev/jack.jpeg')
                     },
                     {
                         name: 'Eric Guenoun',
@@ -214,7 +223,7 @@ export const teamData = [
                     {
                         name: 'Hebe Huang',
                         role: 'Developer',
-                        image: require('../assets/teams/vr_ar_team_dev/hebe.JPG')
+                        image: require('../assets/teams/vr_ar_team_dev/hebe.jpeg')
                     },
                     {
                         name: 'Febin Joseph',
@@ -224,12 +233,12 @@ export const teamData = [
                     {
                         name: 'Aya Kakizaki',
                         role: 'Developer',
-                        image: require('../assets/teams/vr_ar_team_dev/aya.JPG')
+                        image: require('../assets/teams/vr_ar_team_dev/aya.jpeg')
                     },
                     {
                         name: 'Shrenik Koppaka',
                         role: 'Developer',
-                        image: require('../assets/teams/vr_ar_team_dev/shrenik.JPG')
+                        image: require('../assets/teams/vr_ar_team_dev/shrenik.jpeg')
                     },
                     {
                         name: 'Denzel Marizcal',
@@ -239,7 +248,7 @@ export const teamData = [
                     {
                         name: 'Timothy Nguyen',
                         role: 'Developer',
-                        image: require('../assets/teams/vr_ar_team_dev/timothy.JPG')
+                        image: require('../assets/teams/vr_ar_team_dev/timothy.jpeg')
                     },
                     {
                         name: 'Srikrishna Tadimeti',
@@ -270,7 +279,10 @@ export const teamData = [
                 id: 2,
                 tag: 'text',
                 name: "Tech Stack",
-                text: "this is the tech stack"
+                text: "this is the tech stack",
+                techStackImages: [
+                    require('../assets/teams/media_team_tech_stack/camera.png')
+                ]
             },
             {
                 id: 3,
@@ -280,37 +292,37 @@ export const teamData = [
                     {
                         name: 'Sydney Oden',
                         role: 'Team Lead',
-                        image: require('../assets/teams/media_team_dev/sydney.JPG'),
+                        image: require('../assets/teams/media_team_dev/sydney.jpeg'),
                     },
                     {
                         name: 'Iliyah Dean',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/iliyah.JPG'),
+                        image: require('../assets/teams/media_team_dev/iliyah.jpeg'),
                     },
                     {
                         name: 'Diana Perales',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/diana.JPG'),
+                        image: require('../assets/teams/media_team_dev/diana.jpeg'),
                     },
                     {
                         name: 'Husna Hussain',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/husna.JPG'),
+                        image: require('../assets/teams/media_team_dev/husna.jpeg'),
                     },
                     {
                         name: 'Tiffany Lee',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tiffany.JPG'),
+                        image: require('../assets/teams/media_team_dev/tiffany.jpeg'),
                     },
                     {
                         name: 'Isiah Nogal',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/isiah.JPG'),
+                        image: require('../assets/teams/media_team_dev/isiah.jpeg'),
                     },
                     {
                         name: 'Tanvi Singhal',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tanvi.JPG'),
+                        image: require('../assets/teams/media_team_dev/tanvi.jpeg'),
                     },
                     {
                         name: 'Mackenzie Thies',
@@ -320,12 +332,12 @@ export const teamData = [
                     {
                         name: 'Tyler Wallace',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/tyler.JPG'),
+                        image: require('../assets/teams/media_team_dev/tyler.jpeg'),
                     },
                     {
                         name: 'Xavier Genio',
                         role: 'Developer',
-                        image: require('../assets/teams/media_team_dev/xavier.JPG'),
+                        image: require('../assets/teams/media_team_dev/xavier.jpeg'),
                     },
                 ]
             }],

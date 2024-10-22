@@ -9,49 +9,14 @@ const backHome = "<< back to home";
 
 const devs = [
     {
-        name: "Genesis Fu",
-        role: "Team Lead",
-        image: require('../../assets/teams/app_team_dev/genesis.jpg')
+        name: "Alison Valk",
+        role: "Teacher",
+        image: require('../../assets/alison.jpg')
     },
     {
-        name: "Felicia Jamba",
-        role: "Team Lead",
-        image: require('../../assets/teams/app_team_dev/felicia.jpg')
-    },
-    {
-        name: "Via Hu",
-        role: "Frontend Developer",
-        image: require('../../assets/teams/app_team_dev/via.jpg')
-    },
-    {
-        name: "Julian Lautzenheiser",
-        role: "Frontend Developer",
-        image: require('../../assets/teams/app_team_dev/julian.jpg')
-    },
-    {
-        name: "Richard Nguyen",
-        role: "Frontend Developer",
-        image: require('../../assets/teams/app_team_dev/richard.jpg')
-    },
-    {
-        name: "Rose Wen",
-        role: "Frontend Developer",
-        image: require('../../assets/teams/app_team_dev/rose.jpg')
-    },
-    {
-        name: "Steven Li",
-        role: "Backend Developer",
-        image: require('../../assets/teams/app_team_dev/steven.jpg')
-    },
-    {
-        name: "Aaron Liu",
-        role: "Backend Developer",
-        image: require('../../assets/teams/app_team_dev/aaron.jpg')
-    },
-    {
-        name: "Eileen Yang",
-        role: "Backend Developer",
-        image: require('../../assets/teams/app_team_dev/eileen.jpg')
+        name: "Huopu Zhang",
+        role: "Head TA",
+        image: require('../../assets/teams/app_team_dev/temp.png')
     },
 ]
 function AboutUs({navigation}) {
@@ -96,7 +61,7 @@ function AboutUs({navigation}) {
                                             <View key={i} style={styles.headshotContainer}>
                                                 <Image
                                                     style={styles.developerImage}
-                                                    source={dev.img}
+                                                    source={dev.image}
                                                 />
                                                 {/* <View style={styles.CircleShapeView}></View> */}
                                                 <Text style={{fontSize: 15, color: COLORS.primary, fontFamily: "Lexend_400Regular"}}>
