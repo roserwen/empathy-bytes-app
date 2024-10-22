@@ -8,18 +8,18 @@ import { fb_app, fb_storage } from '../../firebaseConfig';
 
 function IndividualTeam({ navigation, route }) {
     const { team, id, teamPic } = route.params;
-    [picURL, setPicTeam] = useState("");
+    // [picURL, setPicTeam] = useState("");
     
-    useEffect(() => {
-        getDownloadURL(ref(fb_storage, teamPic))
-        .then((url) => {
-            setPicTeam(url);
-            // Or inserted into an <img> element
-        })
-        .catch((error) => {
-            // Handle any errors
-        });
-    },[]);
+    // useEffect(() => {
+    //     getDownloadURL(ref(fb_storage, teamPic))
+    //     .then((url) => {
+    //         setPicTeam(url);
+    //         // Or inserted into an <img> element
+    //     })
+    //     .catch((error) => {
+    //         // Handle any errors
+    //     });
+    // },[]);
 
     return (
     <SafeAreaView style={styles.container}>
@@ -32,6 +32,7 @@ function IndividualTeam({ navigation, route }) {
                     title={item.name}
                     tag={item.tag}
                     devs={item.devs}
+                    teamPic={item.teamPic}
                     techStackImages={item.techStackImages}
                     titleColor={COLORS.tertiary} 
                     borderColor={COLORS.tertiary} 
@@ -58,7 +59,7 @@ const Section = (props) => {
                     backgroundColor={props.backgroundColor}
                     isCentered={true}>
                         <View style={styles.imageContainer}>
-                            <Image style={styles.teamImage} source={picURL ? {uri: picURL} : null} />
+                            <Image style={styles.teamImage} source={props.teamPic ? props.teamPic : null} />
                         </View>
                     </BorderBox>
             )
@@ -167,8 +168,8 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_700Bold"
     },
     teamImage: {
-        width: '90%',
-        // height: '85%',
+        width: '100%',
+        height: 200,
         aspectRatio: 1.5, // Maintain aspect ratio
         resizeMode: 'contain',
         marginLeft: 'auto',

@@ -20,7 +20,7 @@ export default function ListButton({name, dir, type, onPress, image}) {
                     <View style={styles.imageContainer}>
                         <Image
                             style={styles.image}
-                            source={image ? {uri: image} : null}
+                            source={image ? image : null}
                             // source={image}
                             // source={require('../assets/teampic.jpeg')} //unable to use imgsrc variable here, dunno why D:
                         />

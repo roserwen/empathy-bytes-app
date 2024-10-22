@@ -11,18 +11,18 @@ import { fb_app, fb_storage } from '../../firebaseConfig';
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
-    [picURL, setPicTeam] = useState("");
+    // [picURL, setPicTeam] = useState("");
     
-    useEffect(() => {
-        getDownloadURL(ref(fb_storage, props.teamPic))
-        .then((url) => {
-            setPicTeam(url);
-            // Or inserted into an <img> element
-        })
-        .catch((error) => {
-            // Handle any errors
-        });
-    },[]);
+    // useEffect(() => {
+    //     getDownloadURL(ref(fb_storage, props.teamPic))
+    //     .then((url) => {
+    //         setPicTeam(url);
+    //         // Or inserted into an <img> element
+    //     })
+    //     .catch((error) => {
+    //         // Handle any errors
+    //     });
+    // },[]);
 
     return (
         // <Text style={styles.title}> {picURL} </Text>,
@@ -36,7 +36,7 @@ const TeamItem = (props) => {
             name = {props.name}
             type = {props.type}
             dir = {props.id % 2 == 1 ? true : false}
-            image = {props.picURL}
+            image = {props.teamPic}
         >
         </ListButton>
     );
@@ -45,7 +45,7 @@ const TeamItem = (props) => {
 //render the button idrk actually
 const renderItem = ({ item }) => {
     return (
-        <TeamItem name={item.team} id={item.id} teamPic={item.teamPic} picURL={item.picURL}/>
+        <TeamItem name={item.team} id={item.id} teamPic={item.teamPic}/>
     )
 };
 
