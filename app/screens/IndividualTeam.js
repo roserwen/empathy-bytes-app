@@ -80,7 +80,8 @@ const Section = (props) => {
         // Developers box
         case ('devs'):
             return (
-                <BorderBox title={props.title}
+                <View style={styles.dev}>
+                    <BorderBox title={props.title}
                     titleColor={props.titleColor}
                     borderColor={props.borderColor}
                     backgroundColor={props.backgroundColor}
@@ -106,7 +107,8 @@ const Section = (props) => {
                         ItemSeparatorComponent={
                             <View style={styles.separator}/>
                     }/>
-                </BorderBox>
+                    </BorderBox>
+                </View>
             )
         // Tech stack box
         case ('tech-stack'):
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        //paddingTop: 50,
+        //paddingBottom: 50,
         backgroundColor: COLORS.primary,
     },
     separator: {
@@ -152,12 +154,14 @@ const styles = StyleSheet.create({
     flatList: {
         backgroundColor: COLORS.primary,
         paddingTop: 40,
+        paddingBottom: 40,
         width: "90%",
     },
     text: {
         color: COLORS.tertiary,
         fontFamily: "Lexend_400Regular",
-        margin: 20
+        margin: 20,
+        fontSize: 17,
     },
     text2: {
         textAlign: "center",
@@ -227,6 +231,9 @@ const styles = StyleSheet.create({
         margin: 5,    // Add some margin around each image for spacing
         resizeMode: 'contain', // Maintain aspect ratio
     },
+    dev: {
+        paddingBottom: 80,
+    }
 })
 
 export default IndividualTeam;

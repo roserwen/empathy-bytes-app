@@ -109,7 +109,7 @@ export const teamData = [
             },
             {
                 id: 2,
-                tag: 'text',
+                tag: 'tech-stack',
                 name: "Tech Stack",
                 text: "GatsbyJS, Drupal, Three.js",
                 techStackImages: [
@@ -217,7 +217,7 @@ export const teamData = [
             },
             {
                 id: 2,
-                tag: 'text',
+                tag: 'tech-stack',
                 name: "Tech Stack",
                 text: "Unity, Blender",
                 techStackImages: [
@@ -307,7 +307,7 @@ export const teamData = [
             },
             {
                 id: 2,
-                tag: 'text',
+                tag: 'tech-stack',
                 name: "Tech Stack",
                 text: "this is the tech stack",
                 techStackImages: [
