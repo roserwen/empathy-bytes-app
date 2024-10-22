@@ -12,6 +12,18 @@ import SafeAndroidView from '../../constants/SafeAndroidView';
 //appearance of each button + trying to push the new screen onto nav stack
 const TeamItem = (props) => {
     const navigation = useNavigation();
+    // [picURL, setPicTeam] = useState("");
+    
+    // useEffect(() => {
+    //     getDownloadURL(ref(fb_storage, props.teamPic))
+    //     .then((url) => {
+    //         setPicTeam(url);
+    //         // Or inserted into an <img> element
+    //     })
+    //     .catch((error) => {
+    //         // Handle any errors
+    //     });
+    // },[]);
 
     return (
         <ListButton
