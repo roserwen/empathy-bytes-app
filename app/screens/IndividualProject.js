@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Dimensions, SafeAreaView } from "react-native";
 import { COLORS } from "../../constants/theme";
 import BackArrow from '../../constants/BackArrow';
 import BorderBox from '../../constants/BorderBox';
@@ -7,10 +7,11 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { Audio } from 'expo-av';
 import { fb_storage } from '../../firebaseConfig'; 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import SafeAndroidView from '../../constants/SafeAndroidView';
 const windowWidth = Dimensions.get('window').width;
 
 function IndividualProject({ navigation, route }) {
-    const { name, description, audio} = route.params;
+    const { name, description, image, audio} = route.params;
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -87,7 +88,7 @@ function IndividualProject({ navigation, route }) {
     }, [sound]);
 
     return (
-        <View style={styles.container}> 
+        <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}> 
             <BackArrow navigation={navigation} page='Projects' color="#ABA174"/>
             <ScrollView>
                 <View style={styles.scrollContent}>
@@ -97,9 +98,12 @@ function IndividualProject({ navigation, route }) {
                                     titleColor={COLORS.tertiary} 
                                     backgroundColor={COLORS.primary} 
                                     isCentered={true}> 
+                                     <View style={styles.imageContainer}>
                                     <Image 
-                                        style={styles.image}
-                                        source={require('../../assets/teampic.jpeg')}/>          
+                                       style={[styles.image, {marginTop: 75}]}
+                                        source = {image}
+                                       /> 
+                                        </View>        
                         </BorderBox>
                     </View>
 
@@ -129,7 +133,7 @@ function IndividualProject({ navigation, route }) {
                     </View>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -138,7 +142,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 50,
+        //paddingTop: 50,
         backgroundColor: COLORS.primary,
     },
     titleContainer: {
@@ -158,7 +162,8 @@ const styles = StyleSheet.create({
         marginRight: 20,
         top: 20,
         justifyContent: "center",
-        paddingBottom: 30,
+        paddingBottom: 40,
+        fontSize: 17
     },
     button: {
         width: 70,
@@ -180,13 +185,12 @@ const styles = StyleSheet.create({
         padding: 80,
     },
     image: {
-        width: 200,
-        resizeMode: 'contain',
-        //aspectRatio: 1.5,
-        /*height: 250,
+        width: 300,
+        height: 200,
         left: 20,
-        bottom: 20,*/
-    },
+        bottom: 20,
+        borderRadius: 20,
+      },
     audioContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -237,6 +241,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingBottom: 30,
         width: windowWidth, 
+    },
+    imageContainer: {
+        // alignItems: "center",
+        // justifyContent: "center",
+        flexDirection: 'column',
+        width: '100%',
     },
 })
 

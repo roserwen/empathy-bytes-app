@@ -1,26 +1,26 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Animated } from "react-native"
 import { COLORS } from '../../constants/theme';
 import FadeInView from '../../constants/FadeInView';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
 
-function WelcomeScreen({navigation}) {
+function WelcomeScreen({ navigation }) {
     //fetch from database
-    [logo, setLogo] = useState("");
-    useEffect(() => {
-        getDownloadURL(ref(fb_storage, 'eb-logo.png'))
-        .then((url) => {
-            setLogo(url);
-            // Or inserted into an <img> element
-        })
-        .catch((error) => {
-            // Handle any errors
-        });
-    },[]);
+    // [logo, setLogo] = useState("");
+    // useEffect(() => {
+    //     getDownloadURL(ref(fb_storage, 'eb-logo.png'))
+    //     .then((url) => {
+    //         setLogo(url);
+    //         // Or inserted into an <img> element
+    //     })
+    //     .catch((error) => {
+    //         // Handle any errors
+    //     });
+    // },[]);
 
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>
             <FadeInView>
                 <Text style={styles.title}>
                     Empathy Bytes
@@ -28,8 +28,10 @@ function WelcomeScreen({navigation}) {
             </FadeInView>
             <FadeInView delay={250} >
                 <View style={styles.imageContainer}>
-                    {/*adding image from storage*/}
-                    {logo.length == 0 ? <></> : <Image style={styles.logo} source={{uri: `${logo}` }}/>}
+                    <Image
+                        style={styles.logo}
+                        source={require('../../assets/empathybytes.png')}
+                    />
                 </View>
             </FadeInView>
             <FadeInView delay={500}>
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
         //textShadowOffset: {width: -1, height: 10},
         //textShadowRadius: 10,
     },
-    
+
 })
 
 export default WelcomeScreen;

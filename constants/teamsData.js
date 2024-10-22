@@ -292,7 +292,7 @@ export const teamData = [
         team: "Media Team",
         //will have different description
         teamPic: require('../assets/teams/mediaTeam.jpeg'),
-        description:[ 
+        description: [
             {
                 id: 0,
                 tag: 'title',

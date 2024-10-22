@@ -5,6 +5,7 @@ import { teamData } from '../../constants/teamsData';
 import BorderBox from '../../constants/BorderBox';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
+import SafeAndroidView from '../../constants/SafeAndroidView';
 
 function IndividualTeam({ navigation, route }) {
     const { team, id, teamPic } = route.params;
@@ -128,6 +129,89 @@ const Section = (props) => {
                 </BorderBox>
             )
         // TO DO: add cases for other box types, e.g. VR models or video embeds
+=======
+    //if screen is app or web team page: render FlatList of description section, tech stack section, and dev section
+    if (id == 1 || id === 2) {
+        return (
+            <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} teamPic={teamPic} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    keyExtractor={item => item.id}
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }
+                    >
+                </FlatList>
+            </SafeAreaView>
+        )
+    //Section will have to be different
+    //if screen is vr/ar screen
+    //TODO add way to integrate the 3d objects
+    } else if (id == 3) {
+        return (
+            <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} teamPic={teamPic} title={item.name} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    keyExtractor={item => item.id}
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }>
+                </FlatList>
+                <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("VR Models")}}>
+                    <Text style={styles.text2}>
+                        Go to VR Model
+                    </Text>
+                </TouchableOpacity>
+            </SafeAreaView>
+        )
+    //Section will have to be different
+    //if screen is media screen
+    //TODO add way to embed youtube video
+    } else if (id == 4) {
+        return (
+            <SafeAreaView style={[styles.container, SafeAndroidView.AndroidSafeArea]}>
+                <FlatList style={styles.flatList}
+                    data={teamData[id - 1].description}
+                    renderItem={({item}) => <Section id={item.id} text={item.text} title={item.name} teamPic={teamPic} titleColor={COLORS.tertiary} borderColor={COLORS.tertiary} backgroundColor={COLORS.primary}/>}
+                    keyExtractor={item => item.id}
+                    ItemSeparatorComponent={
+                        <View style={styles.separator}/>
+                    }
+                    >
+                </FlatList>
+            </SafeAreaView>
+        )
+    }
+}
+
+//TODO styling + changing it depending on the screen
+const Section = (props) => {
+    if (props.id == 0) {
+        return (
+            <BorderBox title={props.title}
+            titleColor={props.titleColor}
+            borderColor={props.borderColor}
+            backgroundColor={props.backgroundColor}
+            isCentered={true}>
+                <View style={styles.imageContainer}>
+                    <Image style={styles.teamImage} source={props.teamPic ? props.teamPic : null} />
+                </View>
+            </BorderBox>
+        )
+    } else {
+        return (
+            <BorderBox title={props.title}
+            titleColor={props.titleColor}
+            borderColor={props.borderColor}
+            backgroundColor={props.backgroundColor}
+            isCentered={false}>
+                <Text style={styles.text}>
+                    {props.text}
+                </Text>
+            </BorderBox>
+        )
     }
 }
 
@@ -136,7 +220,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 50,
+        //paddingTop: 50,
         backgroundColor: COLORS.primary,
     },
     separator: {
@@ -146,6 +230,7 @@ const styles = StyleSheet.create({
         // alignItems: "center",
         // justifyContent: "center",
         width: '100%',
+        height: '70',
     },
     flatList: {
         backgroundColor: COLORS.primary,
@@ -157,9 +242,18 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_400Regular",
         margin: 20
     },
+    text2: {
+        textAlign: "center",
+        color: COLORS.primary,
+        fontFamily: "Lexend_400Regular"
+    },
     button: {
-        width: 100,
+        width: "50%",
         height: 80,
+        backgroundColor: COLORS.tertiary,
+        borderRadius: 15,
+        marginBottom: 40,
+        justifyContent: "center",
     },
     titleText: {
         fontSize: 30,
