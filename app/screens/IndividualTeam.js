@@ -3,6 +3,7 @@ import { View, SafeAreaView, Text, StyleSheet, TouchableOpacity, Image, FlatList
 import { COLORS } from "../../constants/theme"
 import { teamData } from '../../constants/teamsData';
 import BorderBox from '../../constants/BorderBox';
+import { useNavigation } from '@react-navigation/native';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { fb_app, fb_storage } from '../../firebaseConfig';
 import SafeAndroidView from '../../constants/SafeAndroidView';
@@ -50,6 +51,7 @@ function IndividualTeam({ navigation, route }) {
 
 //TODO styling + changing it depending on the screen
 const Section = (props) => {
+    const navigation = useNavigation();
     switch (props.tag) {
         // Title box
         case ('title'):
@@ -129,6 +131,16 @@ const Section = (props) => {
                         ))}
                     </View>
                 </BorderBox>
+            )
+        default:
+            return (
+                <View style={styles.container}>
+                    <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("VR Models")}}>
+                        <Text style={styles.text2}>
+                            Go to VR Models
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             )
         }
         // TO DO: add cases for other box types, e.g. VR models or video embeds
@@ -232,7 +244,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain', // Maintain aspect ratio
     },
     dev: {
-        paddingBottom: 80,
+        paddingBottom: 35,
     }
 })
 
