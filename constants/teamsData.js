@@ -46,7 +46,7 @@ export const teamData = [
                     {
                         name: "Via Hu",
                         role: "Frontend Developer",
-                        image: require('../assets/teams/app_team_dev/temp.png')
+                        image: require('../assets/teams/app_team_dev/via.jpg')
                     },
                     {
                         name: "Julian Lautzenheiser",
@@ -61,7 +61,7 @@ export const teamData = [
                     {
                         name: "Rose Wen",
                         role: "Frontend Developer",
-                        image: require('../assets/teams/app_team_dev/temp.png')
+                        image: require('../assets/teams/app_team_dev/rose.jpg')
                     },
                     {
                         name: "Steven Li",
@@ -71,7 +71,7 @@ export const teamData = [
                     {
                         name: "Aaron Liu",
                         role: "Backend Developer",
-                        image: require('../assets/teams/app_team_dev/temp.png')
+                        image: require('../assets/teams/app_team_dev/aaron.jpg')
                     },
                     {
                         name: "Eileen Yang",
@@ -157,19 +157,9 @@ export const teamData = [
                 name: "Developers",
                 devs: [
                     {
-                        name: 'name1',
-                        role: 'Developer',
-                        image: require('../assets/teampic.jpeg'),
-                    },
-                    {
-                        name: 'name2',
-                        role: 'Developer',
-                        image: require('../assets/teampic.jpeg'),
-                    },
-                    {
-                        name: 'name3',
-                        role: 'Developer',
-                        image: require('../assets/teampic.jpeg'),
+                        name: 'Jack English',
+                        role: 'Team Lead',
+                        image: require('../assets/teams/vr_ar_team_dev/jack.jpg')
                     },
                 ]
             }],

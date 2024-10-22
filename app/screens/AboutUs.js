@@ -9,29 +9,49 @@ const backHome = "<< back to home";
 
 const devs = [
     {
-        name: 'name',
-        role: 'role',
-        img: require('../../assets/teams/app_team_dev/temp.png'),
+        name: "Genesis Fu",
+        role: "Team Lead",
+        image: require('../../assets/teams/app_team_dev/genesis.jpg')
     },
     {
-        name: 'name',
-        role: 'role',
-        img: require('../../assets/teams/app_team_dev/temp.png'),
+        name: "Felicia Jamba",
+        role: "Team Lead",
+        image: require('../../assets/teams/app_team_dev/felicia.jpg')
     },
     {
-        name: 'name',
-        role: 'role',
-        img: require('../../assets/teams/app_team_dev/temp.png'),
+        name: "Via Hu",
+        role: "Frontend Developer",
+        image: require('../../assets/teams/app_team_dev/via.jpg')
     },
     {
-        name: 'name',
-        role: 'role',
-        img: require('../../assets/teams/app_team_dev/temp.png'),
+        name: "Julian Lautzenheiser",
+        role: "Frontend Developer",
+        image: require('../../assets/teams/app_team_dev/julian.jpg')
     },
     {
-        name: 'name',
-        role: 'role',
-        img: require('../../assets/teams/app_team_dev/temp.png'),
+        name: "Richard Nguyen",
+        role: "Frontend Developer",
+        image: require('../../assets/teams/app_team_dev/richard.jpg')
+    },
+    {
+        name: "Rose Wen",
+        role: "Frontend Developer",
+        image: require('../../assets/teams/app_team_dev/rose.jpg')
+    },
+    {
+        name: "Steven Li",
+        role: "Backend Developer",
+        image: require('../../assets/teams/app_team_dev/steven.jpg')
+    },
+    {
+        name: "Aaron Liu",
+        role: "Backend Developer",
+        image: require('../../assets/teams/app_team_dev/aaron.jpg')
+    },
+    {
+        name: "Eileen Yang",
+        role: "Backend Developer",
+        image: require('../../assets/teams/app_team_dev/eileen.jpg')
     },
 ]
 function AboutUs({navigation}) {
