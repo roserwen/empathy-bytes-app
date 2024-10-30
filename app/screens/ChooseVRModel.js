@@ -16,7 +16,7 @@ function Model({navigation}) {
                 renderItem={({item}) => 
                     <ListButton
                         onPress={() => { navigation.navigate("VR Screen", {id: item.id})}}
-                        name = {item.modelName}
+                        //name = {item.modelName}
                         dir = {item.id % 2 == 1 ? true : false}
                         image = {item.picURL}>
                     </ListButton>
