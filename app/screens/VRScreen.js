@@ -31,7 +31,7 @@ export default function VRScreen({navigation, route}) {
                         <LeftConverseModel />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Buzz's Converse"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -53,7 +53,7 @@ export default function VRScreen({navigation, route}) {
                         <Ashtray />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Ashtray"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -75,7 +75,7 @@ export default function VRScreen({navigation, route}) {
                         <Football2Model />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Football"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -97,7 +97,7 @@ export default function VRScreen({navigation, route}) {
                         <BandUniformModel />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Old Band Uniform"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -119,7 +119,7 @@ export default function VRScreen({navigation, route}) {
                         <Bookend />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Bookend"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -141,7 +141,7 @@ export default function VRScreen({navigation, route}) {
                         <BuzzPlaque />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Buzz's Plaque"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -163,7 +163,7 @@ export default function VRScreen({navigation, route}) {
                         <Modelairplane />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Model airplane"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
@@ -185,7 +185,7 @@ export default function VRScreen({navigation, route}) {
                         <Ratcap />
                     </Suspense>
                 </Canvas>
-                <BorderBox title={"Description"} 
+                <BorderBox title={"Old Ratcap"} 
                     borderColor={COLORS.primary} 
                     titleColor={COLORS.primary}
                     backgroundColor={'#FFFFFF'} 
