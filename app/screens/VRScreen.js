@@ -204,7 +204,8 @@ export default function VRScreen({navigation, route}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFFFFF"        
+        backgroundColor: "#FFFFFF",
+        paddingBottom: 15,    
     },
     text: {
         color: COLORS.primary,
